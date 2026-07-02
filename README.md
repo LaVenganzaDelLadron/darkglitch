@@ -112,7 +112,7 @@ Replace `<client_id>` with the target peer identifier returned by the online lis
 [+] Online peers:
   - bob (4a7d1ed4-7f75-4d1d-9e4a-93f454e8fa3e)
   - alice (f47ac10b-58cc-4372-a567-0e02b2c3d479)
-[*] Your own client ID is included in the peer list.
+[*] Your own client ID is not included in the peer list.
 ```
 
 ### Send command mode
