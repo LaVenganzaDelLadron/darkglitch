@@ -9,17 +9,31 @@ from signaling.signal import SignalClient
 
 async def listen_mode():
     print("[+] listen mode")
+    retry_delay = 5
 
-    signal = SignalClient(ROOM, client_id, HOST, username=username)
-    await signal.connect()
-    signal.add_handler(DebugHandler())
+    while True:
+        signal = SignalClient(ROOM, client_id, HOST, username=username)
 
-    print(f"[+] Listening as {username} ({client_id})")
+        try:
+            await signal.connect()
+            signal.add_handler(DebugHandler())
 
-    try:
-        while True:
-            await asyncio.sleep(1)
-    except asyncio.CancelledError:
-        pass
-    finally:
-        await signal.close()
+            print(f"[+] Listening as {username} ({client_id})")
+
+            while signal.websocket is not None and not getattr(signal.websocket, "closed", False):
+                await asyncio.sleep(1)
+
+        except asyncio.CancelledError:
+            raise
+
+        except Exception as exc:
+            print(f"[!] Connection failed: {exc}")
+
+        finally:
+            try:
+                await signal.close()
+            except Exception:
+                pass
+
+        print(f"[+] Disconnected. Reconnecting in {retry_delay} seconds...")
+        await asyncio.sleep(retry_delay)
