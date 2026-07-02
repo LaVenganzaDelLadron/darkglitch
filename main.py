@@ -19,7 +19,7 @@ username = getpass.getuser()
 
 
 async def listen_mode():
-    print("[+]listen mode")
+    print("[+] listen mode")
 
     signal = SignalClient(ROOM, username, HOST)
 
@@ -31,8 +31,26 @@ async def listen_mode():
         await asyncio.sleep(1)
 
 
-def online_list_mode():
-    print("online list mode")
+async def online_list_mode():
+    print("[+] Online list mode")
+    signal = SignalClient(ROOM, username, HOST)
+
+    await signal.connect()
+
+    async def handler(message):
+        if message.get("type") == "online_list":
+            print("\n[+] Online Users")
+            for user in message.get("clients", []):
+                print(f"  - {user}")
+
+    signal.add_handler(handler)
+
+    await signal.send({
+        "type": "get_online"
+    })
+
+    await asyncio.sleep(2)
+    await signal.close()
 
 def connect_mode(target, command):
     print("connect mode")
@@ -60,7 +78,7 @@ def main():
             if len(sys.argv) != 2:
                 h.help()
                 return
-            online_list_mode()
+            asyncio.run(online_list_mode())
 
         elif sys.argv[1] == "-c":
             if len(sys.argv) != 4:
