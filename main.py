@@ -3,7 +3,7 @@ import sys
 
 
 def version():
-    return "1.0.0"
+    return "darkglitch v1.0.0"
 
 def help():
     print("""
@@ -48,19 +48,23 @@ def main():
         help()
         return
 
-    if sys.argv[1] == "-l":
-        if len(sys.argv) != 3:
+    if sys.argv[1] in ("-h", "--help"):
+        help()
+
+    elif sys.argv[1] in ("-v", "--version"):
+        print(version())
+
+    elif sys.argv[1] == "-l":
+        if len(sys.argv) != 2:
             help()
             return
-
-        asyncio.run(listen_mode())
+        listen_mode()
 
     elif sys.argv[1] == "-ol":
-        if len(sys.argv) != 3:
+        if len(sys.argv) != 2:
             help()
             return
-
-        asyncio.run(online_list_mode())
+        online_list_mode()
 
     elif sys.argv[1] == "-c":
         if len(sys.argv) != 4:
@@ -69,9 +73,8 @@ def main():
 
         target = sys.argv[2]
         command = sys.argv[3]
+        connect_mode(target, command)
 
-        asyncio.run(connect_mode(target, command))
-        
     else:
         help()
 
