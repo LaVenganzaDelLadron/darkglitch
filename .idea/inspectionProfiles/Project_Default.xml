@@ -1,0 +1,23 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="fastapi" />
+          <option value="uvicorn" />
+          <option value="sqlalchemy" />
+          <option value="pydantic" />
+          <option value="PyJWT" />
+          <option value="python-dotenv" />
+          <option value="pytest" />
+          <option value="anthropic" />
+          <option value="openai" />
+          <option value="ollama" />
+          <option value="aiortc" />
+          <option value="websockets" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
