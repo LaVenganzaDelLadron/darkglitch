@@ -1,4 +1,4 @@
-# signaling/receive_signal.py
+# signaling/signal.py
 import asyncio
 import inspect
 import json
