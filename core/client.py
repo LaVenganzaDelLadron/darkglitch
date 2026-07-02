@@ -1,3 +1,4 @@
-import getpass
+# core/client.py
+import uuid
 
-username = getpass.getuser()
+client_id = str(uuid.uuid4())

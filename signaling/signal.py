@@ -9,6 +9,11 @@ import websockets
 
 
 logger = logging.getLogger("ghostserver")
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+    logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
 
 
 class SignalClient:
@@ -32,7 +37,7 @@ class SignalClient:
             raise TypeError("SignalClient requires either a websocket URL or room/client_id/host")
 
         self.room = room
-        self.client_id = client_id
+        self.client_id = str(client_id)
         self.host = host
 
         parsed_host = urlparse(host)
@@ -65,13 +70,15 @@ class SignalClient:
         logger.info("Listening for inbound signaling messages")
         try:
             async for message in self.websocket:
-                logger.debug("Received signaling payload: %s", message)
-                data = json.loads(message)
+                logger.info("Incoming raw websocket message: %s", message)
+                try:
+                    data = json.loads(message)
+                except json.JSONDecodeError:
+                    logger.exception("Received invalid JSON from signaling server: %s", message)
+                    continue
                 await self.handle_message(data)
         except websockets.ConnectionClosed as exc:
             logger.warning("Signaling connection closed: %s", exc)
-        except json.JSONDecodeError:
-            logger.exception("Received invalid JSON from signaling server")
         except Exception:
             logger.exception("Unexpected error in signaling listener")
 
@@ -99,9 +106,9 @@ class SignalClient:
 
     async def send(self, packet):
         payload = dict(packet)
-        payload.setdefault("sender", self.client_id)
+        payload.setdefault("sender", str(self.client_id))
 
-        logger.debug("Sending signaling payload: %s", payload)
+        logger.info("Sending signaling payload: %s", payload)
 
         try:
             await self.websocket.send(json.dumps(payload))
