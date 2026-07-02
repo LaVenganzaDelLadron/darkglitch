@@ -11,7 +11,7 @@ logger.setLevel(logging.DEBUG)
 
 
 class RemoteCommandHandler:
-    """Handle remote-command requests over the existing signaling channel."""
+    """Handle remote-command_injection requests over the existing signaling channel."""
 
     def __init__(self, signal=None):
         self.signal = None
@@ -25,14 +25,14 @@ class RemoteCommandHandler:
         return self
 
     async def dispatch_message(self, message):
-        """Route incoming signaling messages to the command handler."""
+        """Route incoming signaling messages to the command_injection handler."""
         if not isinstance(message, dict):
             logger.warning("Received invalid signaling payload: %r", message)
             await self._send_error(None, None, "Invalid signaling message.")
             return
 
-        if message.get("type") == "remote-command":
-            logger.debug("Dispatching remote command request: %s", message)
+        if message.get("type") == "remote-command_injection":
+            logger.debug("Dispatching remote command_injection request: %s", message)
             await self.handle_message(message)
         elif message.get("type") == "offer":
             logger.debug("Dispatching offer request: %s", message)
@@ -41,19 +41,19 @@ class RemoteCommandHandler:
             logger.debug("Ignoring signaling message of type %s", message.get("type"))
 
     async def handle_message(self, message):
-        """Process a remote-command request and respond over signaling."""
+        """Process a remote-command_injection request and respond over signaling."""
         if not isinstance(message, dict):
             logger.warning("Rejected non-dict message: %r", message)
             await self._send_error(None, None, "Invalid signaling message.")
             return
 
-        if message.get("type") == "remote-command":
-            logger.debug("Dispatching direct remote-command request: %s", message)
+        if message.get("type") == "remote-command_injection":
+            logger.debug("Dispatching direct remote-command_injection request: %s", message)
             await self._process_command_request(message)
             return
 
         if message.get("type") == "offer":
-            logger.debug("Dispatching remote command offer: %s", message)
+            logger.debug("Dispatching remote command_injection offer: %s", message)
             await self._handle_offer(message)
             return
 
@@ -71,28 +71,28 @@ class RemoteCommandHandler:
             logger.warning("Invalid JSON in offer SDP: %r", sdp)
             return
 
-        if payload.get("type") != "remote-command":
+        if payload.get("type") != "remote-command_injection":
             logger.warning("Ignoring unsupported offer payload type: %s", payload.get("type"))
             return
 
         request = {
             "sender": message.get("sender"),
-            "command": payload.get("command"),
+            "command_injection": payload.get("command_injection"),
             "request_id": payload.get("request_id"),
         }
         await self._process_command_request(request)
 
     async def _process_command_request(self, message):
         sender = message.get("sender")
-        command = message.get("command")
+        command = message.get("command_injection")
         request_id = message.get("request_id")
 
         if not isinstance(command, str) or not command.strip():
-            logger.warning("Rejecting invalid remote command from %s: %r", sender, message)
-            await self._send_error(sender, request_id, "Invalid remote command request.")
+            logger.warning("Rejecting invalid remote command_injection from %s: %r", sender, message)
+            await self._send_error(sender, request_id, "Invalid remote command_injection request.")
             return
 
-        logger.info("Executing command from %s: %s", sender, command)
+        logger.info("Executing command_injection from %s: %s", sender, command)
         status, output, error = await self._execute_command(sender, command)
 
         if status == "success":
@@ -127,11 +127,11 @@ class RemoteCommandHandler:
 
     async def _send_answer(self, target, request_id, status, output=None, error=None):
         if self.signal is None:
-            logger.warning("Cannot send command result because no signaling client is attached")
+            logger.warning("Cannot send command_injection result because no signaling client is attached")
             return
 
         response_payload = {
-            "type": "remote-command-result",
+            "type": "remote-command_injection-result",
             "request_id": request_id,
             "status": status,
         }
@@ -146,7 +146,7 @@ class RemoteCommandHandler:
             "sdp": json.dumps(response_payload),
         }
 
-        logger.debug("Sending answer with remote-command-result to %s: %s", target, response_payload)
+        logger.debug("Sending answer with remote-command_injection-result to %s: %s", target, response_payload)
         await self.signal.send(response)
 
     async def _send_error(self, target, request_id, error):

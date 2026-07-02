@@ -1,59 +1,12 @@
-# main.py
 import asyncio
-import uuid
-import getpass
-
 import sys
+
 import helper as h
 import version as v
 
-from signaling.signal import SignalClient
-
-
-
-HOST = "https://malware-signal.vercel.app/"
-ROOM = "D4RKGLI7CH"
-
-# user_id = uuid.uuid4()
-username = getpass.getuser()
-
-
-async def listen_mode():
-    print("[+] listen mode")
-
-    signal = SignalClient(ROOM, username, HOST)
-
-    await signal.connect()
-
-    print(f"[+] Listening as {username}")
-
-    while True:
-        await asyncio.sleep(1)
-
-
-async def online_list_mode():
-    print("[+] Online list mode")
-    signal = SignalClient(ROOM, username, HOST)
-
-    await signal.connect()
-
-    async def handler(message):
-        if message.get("type") == "online_list":
-            print("\n[+] Online Users")
-            for user in message.get("clients", []):
-                print(f"  - {user}")
-
-    signal.add_handler(handler)
-
-    await signal.send({
-        "type": "get_online"
-    })
-
-    await asyncio.sleep(2)
-    await signal.close()
-
-def connect_mode(target, command):
-    print("connect mode")
+from command.listen import listen_mode
+from command.online import online_list_mode
+from command.connect import connect_mode
 
 
 def main():
@@ -69,46 +22,23 @@ def main():
             print(v.version())
 
         elif sys.argv[1] == "-l":
-            if len(sys.argv) != 2:
-                h.help()
-                return
             asyncio.run(listen_mode())
 
         elif sys.argv[1] == "-ol":
-            if len(sys.argv) != 2:
-                h.help()
-                return
             asyncio.run(online_list_mode())
 
         elif sys.argv[1] == "-c":
-            if len(sys.argv) != 4:
-                h.help()
-                return
-
             target = sys.argv[2]
             command = sys.argv[3]
+
             connect_mode(target, command)
 
         else:
             h.help()
+
     except KeyboardInterrupt:
         print("[+] Connection Closed")
 
+
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

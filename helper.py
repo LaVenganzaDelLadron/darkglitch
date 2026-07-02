@@ -7,7 +7,7 @@ def help():
 
     Attacker:
         python main.py -ol
-        python main.py -c <client_id> <command>
+        python main.py -c <client_id> <command_injection>
 
     Options:
         -h, --help            Show help message
@@ -22,5 +22,5 @@ def help():
 
     Arguments:
         <client_id>           Target client ID
-        <command>             Command to execute
+        <command_injection>             Command to execute
     """)
