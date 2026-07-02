@@ -1,37 +1,7 @@
 import asyncio
 import sys
-
-
-def version():
-    return "darkglitch v1.0.0"
-
-def help():
-    print("""
-    Usage:
-    
-    Victim:
-        python main.py -l
-    
-    Attacker:
-        python main.py -ol
-        python main.py -c <client_id> <command>
-    
-    Options:
-        -h, --help            Show help message
-        -v, --version         Show version information
-    
-    Victim Options:
-        -l, --listen          Start the client and wait for connections
-    
-    Attacker Options:
-        -ol, --online-list    List online clients
-        -c, --connect         Connect to a client
-    
-    Arguments:
-        <client_id>           Target client ID
-        <command>             Command to execute
-    """)
-
+import helper as h
+import version as v
 
 def listen_mode():
     print("listen mode")
@@ -45,30 +15,30 @@ def connect_mode(target, command):
 
 def main():
     if len(sys.argv) < 2:
-        help()
+        h.help()
         return
 
     if sys.argv[1] in ("-h", "--help"):
-        help()
+        h.help()
 
     elif sys.argv[1] in ("-v", "--version"):
-        print(version())
+        print(v.version())
 
     elif sys.argv[1] == "-l":
         if len(sys.argv) != 2:
-            help()
+            h.help()
             return
         listen_mode()
 
     elif sys.argv[1] == "-ol":
         if len(sys.argv) != 2:
-            help()
+            h.help()
             return
         online_list_mode()
 
     elif sys.argv[1] == "-c":
         if len(sys.argv) != 4:
-            help()
+            h.help()
             return
 
         target = sys.argv[2]
@@ -76,7 +46,7 @@ def main():
         connect_mode(target, command)
 
     else:
-        help()
+        h.help()
 
 if __name__ == "__main__":
     main()
