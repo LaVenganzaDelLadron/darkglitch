@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/command_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/command_sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/signal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/signal_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/webcam/media.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/signal_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webcam/media_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webcam/media_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="14" />
+    <option name="cachedIndexableFilesCount" value="11" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,21 +26,80 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "LaVenganzaDelLadron"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LaVenganzaDelLadron&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LaVenganzaDelLadron/darkglitch.git",
-    "accountId": "865aa70e-6cd0-406a-bb0a-ab54717e1b3b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LaVenganzaDelLadron/darkglitch.git&quot;,
+    &quot;accountId&quot;: &quot;865aa70e-6cd0-406a-bb0a-ab54717e1b3b&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.7431170051033827E-86" />
+      <entry key="MS500" value="7.720561138907752E-18" />
+      <entry key="S2" value="5.271233039098571E-5" />
+      <entry key="S5" value="0.019444172030633013" />
+      <entry key="S10" value="0.14148742345882007" />
+      <entry key="S30" value="0.9522354743118152" />
+      <entry key="S60" value="2.881885158790429" />
+      <entry key="M2" value="7.9091117545335665" />
+      <entry key="M5" value="25.023506143033874" />
+      <entry key="M10" value="45.12042609476599" />
+      <entry key="M15" value="56.672749843080275" />
+      <entry key="M30" value="72.3787570786554" />
+      <entry key="H1" value="82.31189726837162" />
+      <entry key="H2" value="87.91630416377643" />
+      <entry key="H4" value="90.89548922655054" />
+      <entry key="D1" value="93.47363389477182" />
+      <entry key="W1" value="93.92458245201018" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.000000000010725" />
+      <entry key="S30" value="1.000357257615742" />
+      <entry key="S60" value="1.0304967925334831" />
+      <entry key="M2" value="1.296723576784851" />
+      <entry key="M5" value="2.2453605450974345" />
+      <entry key="M10" value="3.1350356482058985" />
+      <entry key="M15" value="3.598666386072119" />
+      <entry key="M30" value="4.2009533820594775" />
+      <entry key="H1" value="4.571246091275901" />
+      <entry key="H2" value="4.7776252924022575" />
+      <entry key="H4" value="4.8867188366397425" />
+      <entry key="D1" value="4.980820579022373" />
+      <entry key="W1" value="4.997252642026718" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.712532596333528E-5" />
+      <entry key="MS500" value="0.12208856612027842" />
+      <entry key="S2" value="0.5911524922988899" />
+      <entry key="S5" value="0.8280770830803061" />
+      <entry key="S10" value="1.0352871760102276" />
+      <entry key="S30" value="1.9009170794667631" />
+      <entry key="S60" value="3.8648870105613153" />
+      <entry key="M2" value="9.153759177730352" />
+      <entry key="M5" value="27.220383988910992" />
+      <entry key="M10" value="48.21987656810554" />
+      <entry key="M15" value="60.24400353427524" />
+      <entry key="M30" value="76.56371055691406" />
+      <entry key="H1" value="86.87446299604736" />
+      <entry key="H2" value="92.68940325399583" />
+      <entry key="H4" value="95.77989627984509" />
+      <entry key="D1" value="98.45406222082761" />
+      <entry key="W1" value="98.92177888495308" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1,
@@ -95,21 +149,11 @@
       <updated>1783012421156</updated>
       <workItem from="1783012422192" duration="832000" />
       <workItem from="1783016987414" duration="57000" />
+      <workItem from="1783017415570" duration="1233000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
