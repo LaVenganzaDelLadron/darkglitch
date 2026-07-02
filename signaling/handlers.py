@@ -11,23 +11,38 @@ class OnlineHandler:
         if message.get("type") != "peer-list":
             return
 
-        peers = message.get("data", {}).get("peers", [])
-        if not isinstance(peers, list):
+        peers_data = message.get("data", {}).get("peers", [])
+        if not isinstance(peers_data, list):
             print("[!] Invalid peer list format received from server.")
             return
+
+        peers = []
+        for peer in peers_data:
+            if isinstance(peer, str):
+                peers.append({"id": peer, "username": None})
+            elif isinstance(peer, dict):
+                peers.append({
+                    "id": peer.get("id"),
+                    "username": peer.get("username"),
+                })
+            else:
+                continue
 
         if not peers:
             print("[+] No peers are currently online.")
         else:
             print("\n[+] Online peers:")
             for peer in peers:
-                print(f"  - {peer}")
+                peer_id = peer.get("id") or "unknown"
+                peer_name = peer.get("username") or "unknown"
+                print(f"  - {peer_name} ({peer_id})")
 
-        if self.client_id in peers:
+        peer_ids = {peer.get("id") for peer in peers if peer.get("id")}
+        if self.client_id in peer_ids:
             print("[*] Your own client ID is included in the peer list.")
         else:
             print("[*] Your own client ID is not included in the peer list.")
-            if peers:
+            if peer_ids:
                 print("    The signaling server appears to exclude the requesting client from the peer list.")
 
 

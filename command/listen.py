@@ -1,7 +1,7 @@
 # command/listen.py
 import asyncio
 
-from core.client import client_id
+from core.client import client_id, username
 from core.config import ROOM, HOST
 from signaling.handlers import DebugHandler
 from signaling.signal import SignalClient
@@ -10,11 +10,11 @@ from signaling.signal import SignalClient
 async def listen_mode():
     print("[+] listen mode")
 
-    signal = SignalClient(ROOM, client_id, HOST)
+    signal = SignalClient(ROOM, client_id, HOST, username=username)
     await signal.connect()
     signal.add_handler(DebugHandler())
 
-    print(f"[+] Listening as {client_id}")
+    print(f"[+] Listening as {username} ({client_id})")
 
     try:
         while True:

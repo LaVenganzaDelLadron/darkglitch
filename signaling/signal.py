@@ -1,5 +1,6 @@
 # signaling/signal.py
 import asyncio
+import getpass
 import inspect
 import json
 import logging
@@ -19,7 +20,7 @@ logger.setLevel(logging.DEBUG)
 class SignalClient:
     """Manage the WebSocket-based signaling channel and dispatch incoming messages."""
 
-    def __init__(self, room, client_id=None, host=None):
+    def __init__(self, room, client_id=None, host=None, username=None):
         if client_id is None and host is None and isinstance(room, str):
             parsed = urlparse(room)
             if parsed.scheme in {"ws", "wss"}:
@@ -31,6 +32,7 @@ class SignalClient:
                     self.url = room
                     self.websocket = None
                     self._handlers = []
+                    self.username = username or getpass.getuser()
                     return
 
         if client_id is None or host is None:
@@ -38,6 +40,7 @@ class SignalClient:
 
         self.room = room
         self.client_id = str(client_id)
+        self.username = username or getpass.getuser()
         self.host = host
 
         parsed_host = urlparse(host)
@@ -58,6 +61,7 @@ class SignalClient:
             logger.exception("Unable to connect to signaling server")
             raise
 
+        await self._send_registration()
         logger.info("Connected to signaling server at %s", self.url)
         asyncio.create_task(self.listen())
         return self.websocket
@@ -115,6 +119,19 @@ class SignalClient:
         except Exception:
             logger.exception("Failed to send signaling payload")
             raise
+
+    async def _send_registration(self):
+        if self.websocket is None:
+            return
+
+        registration = {
+            "type": "register",
+            "client_id": str(self.client_id),
+            "username": self.username,
+        }
+
+        logger.info("Sending registration payload: %s", registration)
+        await self.send(registration)
 
     async def close(self):
         if self.websocket:
