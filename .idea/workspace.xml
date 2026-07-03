@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/darkglitch-1.0.0-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/darkglitch-1.0.0.tar.gz" beforeDir="false" />
-    </list>
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="25" />
+    <option name="cachedIndexableFilesCount" value="42" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -158,6 +153,7 @@
       <workItem from="1783037660447" duration="5422000" />
       <workItem from="1783076906886" duration="9542000" />
       <workItem from="1783092571175" duration="2773000" />
+      <workItem from="1783097619979" duration="431000" />
     </task>
     <servers />
   </component>

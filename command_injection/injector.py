@@ -68,12 +68,7 @@ class RemoteCommandHandler:
             ),
         }
 
-        logger.info(
-            "Sending command request_id=%s target=%s command=%r",
-            request_id,
-            target,
-            command,
-        )
+        # logger.info("Sending command request_id=%s target=%s command=%r", request_id, target, command,)
 
         future = None
 
@@ -175,11 +170,7 @@ class RemoteCommandHandler:
             )
             return
 
-        logger.info(
-            "Executing command from %s: %s",
-            sender,
-            command,
-        )
+        # logger.info("Executing command from %s: %s", sender, command,)
 
         status, output, error = await self._execute_command(command)
 
