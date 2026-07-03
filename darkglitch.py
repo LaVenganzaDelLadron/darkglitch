@@ -5,7 +5,7 @@ import sys
 import helper as h
 import version as v
 
-from command.listen import listen_mode
+from command.listen_bash import listen_mode
 from command.listen_stream import listen_stream_mode
 from command.online import online_list_mode
 from command.bash_connect import bash_mode

@@ -1,12 +1,11 @@
 Metadata-Version: 2.4
 Name: darkglitch
-Version: 1.0.0
+Version: 1.0.2
 Summary: Remote command delivery and media streaming tool over WebRTC signaling
 Author: DarkGlitch
 License-Expression: MIT
-Project-URL: Homepage, https://github.com/yourname/darkglitch
-Project-URL: Repository, https://github.com/yourname/darkglitch
-Project-URL: Issues, https://github.com/yourname/darkglitch/issues
+Project-URL: Homepage, https://github.com/LaVenganzaDelLadron/
+Project-URL: Repository, https://github.com/LaVenganzaDelLadron/darkglitch.git
 Keywords: webrtc,remote-control,signaling,media
 Classifier: Development Status :: 4 - Beta
 Classifier: Environment :: Console

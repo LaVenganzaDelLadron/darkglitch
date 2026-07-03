@@ -1,4 +1,4 @@
-# command/listen.py
+# command/listen_bash.py
 
 import asyncio
 

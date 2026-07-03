@@ -78,7 +78,7 @@ class SignalClient:
         logger.info("Listening for inbound signaling messages")
         try:
             async for message in self.websocket:
-                logger.info("Incoming raw websocket message: %s", message)
+                # logger.info("Incoming raw websocket message: %s", message)
                 try:
                     data = json.loads(message)
                 except json.JSONDecodeError:
