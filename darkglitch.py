@@ -2,8 +2,8 @@
 import asyncio
 import sys
 
-import helper as h
-import version as v
+from utils.helper import help
+from utils.version import version
 
 from command.listen_bash import listen_bash_mode
 from command.listen_stream import listen_stream_mode
@@ -47,11 +47,11 @@ def main():
         command = dispatch_command()
 
         if command == "help":
-            h.help()
+            help()
             return
 
         if command == "version":
-            print(v.version())
+            print(version())
             return
 
         if command == "listen":
@@ -68,7 +68,7 @@ def main():
 
         if command == "stream":
             if len(sys.argv) < 3:
-                h.help()
+                help()
                 return
             target = str(sys.argv[2])
             asyncio.run(stream_mode(target))
@@ -76,14 +76,14 @@ def main():
 
         if command == "bash":
             if len(sys.argv) < 4:
-                h.help()
+                help()
                 return
             target = sys.argv[2]
             command_text = sys.argv[3]
             asyncio.run(bash_mode(target, command_text))
             return
 
-        h.help()
+        help()
 
     except KeyboardInterrupt:
         print("[+] Connection Closed")
