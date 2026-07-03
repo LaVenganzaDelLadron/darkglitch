@@ -7,6 +7,7 @@ import version as v
 from command.listen import listen_mode
 from command.online import online_list_mode
 from command.connect import connect_mode
+from command.execute_chain import execute_command
 
 
 def main():
@@ -20,6 +21,9 @@ def main():
 
         elif sys.argv[1] in ("-v", "--version"):
             print(v.version())
+
+        elif sys.argv[1] in "-r":
+            asyncio.run(execute_command())
 
         elif sys.argv[1] == "-l":
             asyncio.run(listen_mode())

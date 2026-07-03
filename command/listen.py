@@ -9,7 +9,7 @@ from signaling.signal import SignalClient
 
 async def listen_mode():
     print("[+] listen mode")
-    retry_delay = 5
+    retry_delay = 600  # 10 minutes delay before retrying connection
 
     while True:
         signal = SignalClient(ROOM, client_id, HOST, username=username)
