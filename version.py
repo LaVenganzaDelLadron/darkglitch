@@ -1,2 +1,5 @@
+__version__ = "1.0.0"
+
+
 def version():
-    return "darkglitch v1.0.0"
+    return f"darkglitch v{__version__}"

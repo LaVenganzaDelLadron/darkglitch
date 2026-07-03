@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "darkglitch"
+dynamic = ["version"]
+description = "Remote command delivery and media streaming tool over WebRTC signaling"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "DarkGlitch" }]
+keywords = ["webrtc", "remote-control", "signaling", "media"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Networking",
+]
+dependencies = [
+    "aiortc>=1.4.0",
+    "opencv-python>=4.13.0",
+    "Pillow>=10.0.0",
+    "websockets>=12.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourname/darkglitch"
+Repository = "https://github.com/yourname/darkglitch"
+Issues = "https://github.com/yourname/darkglitch/issues"
+
+[project.scripts]
+darkglitch = "darkglitch:main"
+
+[tool.setuptools]
+py-modules = ["darkglitch", "helper", "version"]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["command*", "command_injection*", "core*", "media*", "signaling*"]
+exclude = ["tests*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "version.__version__" }
