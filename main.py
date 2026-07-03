@@ -29,10 +29,16 @@ def main():
             asyncio.run(online_list_mode())
 
         elif sys.argv[1] == "-s":
+            if len(sys.argv) < 3:
+                h.help()
+                return
             target = str(sys.argv[2])
-            stream(target)
+            asyncio.run(stream(target))
 
         elif sys.argv[1] == "-c":
+            if len(sys.argv) < 4:
+                h.help()
+                return
             target = sys.argv[2]
             command = sys.argv[3]
 

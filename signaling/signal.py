@@ -91,10 +91,7 @@ class SignalClient:
             logger.exception("Unexpected error in signaling listener")
 
     def add_message_handler(self, handler):
-        if handler is None or handler in self.message_handlers:
-            return
-
-        self.message_handlers.append(handler)
+        return self.add_handler(handler)
 
     def add_handler(self, handler):
         """Register a handler that will receive inbound signaling messages."""

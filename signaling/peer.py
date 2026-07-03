@@ -1,4 +1,6 @@
 # signaling/peer.py
+import asyncio
+
 from aiortc import (
     RTCPeerConnection,
     RTCIceCandidate,
@@ -80,9 +82,11 @@ class Peer:
         print("Received remote track:", track.kind)
 
         if self.on_track is not None:
-            await self.on_track(track)
+            print("[+] Scheduling on_track handler")
+            asyncio.create_task(self.on_track(track))
             return
 
+        print("[!] No on_track handler registered")
         from aiortc.contrib.media import MediaBlackhole
 
         blackhole = MediaBlackhole()

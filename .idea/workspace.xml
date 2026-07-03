@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/command/stream_connect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/receiver_media.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash_connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listen.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/listen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/stream_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/stream_connect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/media.py" beforeDir="false" afterPath="$PROJECT_DIR$/media/local_media.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/peer.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/peer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/signal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +157,7 @@
       <workItem from="1783017415570" duration="9180000" />
       <workItem from="1783032289585" duration="3734000" />
       <workItem from="1783037660447" duration="5422000" />
-      <workItem from="1783076906886" duration="1378000" />
+      <workItem from="1783076906886" duration="3217000" />
     </task>
     <servers />
   </component>
