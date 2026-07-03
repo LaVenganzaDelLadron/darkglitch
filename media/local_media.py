@@ -1,5 +1,5 @@
 """
-# media/media.py
+# media/local_media.py
 Handles local camera and microphone access.
 
 Equivalent to:

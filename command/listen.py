@@ -7,7 +7,7 @@ from core.config import ROOM, HOST
 
 from signaling.signal import SignalClient
 from signaling.peer import Peer
-from media.media import LocalMedia
+from media.local_media import LocalMedia
 
 
 async def listen_mode():

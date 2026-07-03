@@ -8,6 +8,7 @@ def help():
 
     Attacker:
         python main.py -ol
+        python main.py -s <client_id>
         python main.py -c <client_id> <command_injection>
 
     Options:

@@ -7,8 +7,8 @@ import version as v
 
 from command.listen import listen_mode
 from command.online import online_list_mode
-from command.connect import connect_mode
-
+from command.bash_connect import connect_mode
+from command.stream_connect import stream
 
 def main():
     try:
@@ -27,6 +27,10 @@ def main():
 
         elif sys.argv[1] == "-ol":
             asyncio.run(online_list_mode())
+
+        elif sys.argv[1] == "-s":
+            target = str(sys.argv[2])
+            stream(target)
 
         elif sys.argv[1] == "-c":
             target = sys.argv[2]
