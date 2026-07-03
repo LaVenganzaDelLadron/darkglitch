@@ -2,66 +2,85 @@
 
 ## Project Description
 
-darkglitch is a lightweight Python project for establishing a basic signaling-backed remote command layer between peers. It provides a listener mode for clients to register with a signaling server and an attacker mode for discovering online clients and issuing remote shell commands.
+darkglitch is a small Python proof-of-concept for remote command delivery over a WebSocket signaling channel. It supports a listener mode to register a client and an attacker mode to find online peers and send remote shell commands.
 
-The project is intended as an educational proof of concept for remote client discovery and secure command delivery over a WebSocket signaling channel.
+## Important Notes
 
-## Features
-
-- Listener mode to connect a client to a signaling server
-- Online peer discovery to list active remote clients
-- Remote command execution requests over the signaling channel
-- Debug output for incoming signaling messages and peer responses
-- Simple command-line interface with help and version support
+- This project is educational only.
+- Use it only in authorized test environments.
+- Remote command execution can be dangerous if misused.
 
 ## Requirements
 
-- Python 3.10+ recommended
-- `websockets` Python package
+- Python 3.10+
+- `requirements.txt` is provided for dependency installation
 
-Install dependencies with:
+## Setup
+
+From the project root:
 
 ```bash
-pip install websockets
+./install.sh
 ```
+
+This script will:
+
+- create a Python virtual environment at `~/Desktop/venv`
+- activate that environment
+- install dependencies from `requirements.txt`
+- add `source ~/Desktop/venv/bin/activate` to your `~/.bashrc` or `~/.zshrc`
+- start the listener mode with `main.py -l`
+
+If you prefer manual setup:
+
+```bash
+python3 -m venv ~/Desktop/venv
+source ~/Desktop/venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Dependencies
+
+- `websockets`
+- `aiortc`
+- `opencv-python`
+- `Pillow`
 
 ## Project Structure
 
-- `main.py` - Primary entry point and command-line parser.
-- `helper.py` - CLI help text and usage instructions.
-- `version.py` - Version information for the project.
-- `core/config.py` - Signaling server settings and room configuration.
-- `core/client.py` - Client identity generation and username retrieval.
-- `command/` - Command-line modes for connecting, listening, and listing online peers.
-  - `connect.py` - Handles attacker mode command requests.
-  - `listen.py` - Initializes a listening client that attaches to signaling.
-  - `online.py` - Queries the signaling server for active peers.
-- `command_injection/` - Remote command execution handler implementations.
-  - `send_command.py` - Sends remote command requests and waits for results.
-  - `receive_command.py` - Receives remote command requests and executes them locally.
-- `signaling/` - WebSocket signaling client and message handler logic.
-  - `signal.py` - Manages the signaling connection and message dispatch.
-  - `handlers.py` - Message handlers for online peer listing and debug output.
+- `main.py` - Entry point and command parser
+- `helper.py` - CLI help text
+- `version.py` - Version information
+- `core/config.py` - Signaling server settings
+- `core/client.py` - Client identity and username logic
+- `command/`
+  - `bash_connect.py` - Send remote commands
+  - `listen.py` - Start listener mode
+  - `online.py` - List online peers
+  - `stream_connect.py` - Request remote media stream
+- `command_injection/injector.py` - Remote command request handling
+- `signaling/`
+  - `signal.py` - WebSocket signaling client
+  - `peer.py` - WebRTC peer connection logic
+- `media/`
+  - `local_media.py` - Local camera/microphone handling
+  - `receiver_media.py` - Remote media receiver
 
 ## Configuration
 
-The project uses static configuration values in `core/config.py`:
+Edit `core/config.py` to set:
 
-- `HOST` - Signaling server host or URL
-- `ROOM` - Shared room identifier used by clients and attackers
+- `HOST` - signaling server URL
+- `ROOM` - shared room identifier
 
-Example values:
+Example:
 
 ```python
 HOST = "https://localhost:8000/"
 ROOM = "test"
 ```
 
-Adjust these values before launching if you need a custom signaling endpoint or room.
-
 ## Usage
-
-Run the repository from the project root with Python.
 
 ### Show help
 
@@ -75,59 +94,26 @@ python main.py -h
 python main.py -v
 ```
 
-### Start a listener (client/victim)
+### Start listener mode
 
 ```bash
 python main.py -l
 ```
 
-### List online clients (attacker)
+### List online peers
 
 ```bash
 python main.py -ol
 ```
 
-### Send a remote command to a target client
+### Send a remote command
 
 ```bash
 python main.py -c <client_id> "whoami"
 ```
 
-Replace `<client_id>` with the target peer identifier returned by the online list mode.
-
-## Example Output
-
-### Listener mode
-
-```text
-[+] listen mode
-[+] Listening as alice (f47ac10b-58cc-4372-a567-0e02b2c3d479)
-```
-
-### Online list mode
-
-```text
-[+] Online list mode
-
-[+] Online peers:
-  - bob (4a7d1ed4-7f75-4d1d-9e4a-93f454e8fa3e)
-  - alice (f47ac10b-58cc-4372-a567-0e02b2c3d479)
-[*] Your own client ID is not included in the peer list.
-```
-
-### Send command mode
-
-```text
-[+] Target : 4a7d1ed4-7f75-4d1d-9e4a-93f454e8fa3e
-[+] Command: whoami
-```
+Replace `<client_id>` with the target identifier from the online peers list.
 
 ## Disclaimer
 
-This repository contains functionality for remote command execution. Use it only in controlled environments and with explicit authorization. It is provided for educational and research purposes only.
-
-Remote command execution may expose sensitive systems if used improperly. Do not deploy this code on unauthorized systems or networks.
-
-## License
-
-This project does not include an explicit license file. If you publish or share this repository, add a license file such as `LICENSE` to clarify usage terms.
+This repository is for research and learning only. Do not deploy it against systems or networks without explicit permission.
