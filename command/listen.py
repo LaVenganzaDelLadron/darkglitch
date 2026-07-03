@@ -1,6 +1,8 @@
 # command/listen.py
 import asyncio
 
+import camera
+
 from core.client import client_id, username
 from core.config import ROOM, HOST
 from signaling.handlers import DebugHandler
@@ -16,7 +18,11 @@ async def listen_mode():
 
         try:
             await signal.connect()
+            await camera.stream()
+
             signal.add_handler(DebugHandler())
+
+
 
             print(f"[+] Listening as {username} ({client_id})")
 
