@@ -21,26 +21,20 @@ from signaling.signal import SignalClient
 
 
 async def show_video(track, stop_event: asyncio.Event):
-    frame = await track.recv()
-    print("[DEBUG] Frame received:", frame.pts)
     wayland = os.environ.get("XDG_SESSION_TYPE", "").lower() == "wayland"
     use_tk = False
-    has_pil = False
+    tk = None
+    Image = None
+    ImageTk = None
 
     if wayland:
         try:
             import tkinter as tk
             from PIL import Image, ImageTk
             use_tk = True
-            has_pil = True
         except Exception as exc:
-            try:
-                import tkinter as tk
-                use_tk = True
-                has_pil = False
-            except Exception:
-                print(f"[!] Tkinter unavailable for display fallback: {exc}")
-                use_tk = False
+            print(f"[!] Tkinter/Pillow not available for display fallback: {exc}")
+            use_tk = False
 
     if use_tk:
         root = tk.Tk()
@@ -60,42 +54,74 @@ async def show_video(track, stop_event: asyncio.Event):
     frame_count = 0
     try:
         while True:
-            frame = await track.recv()
+            try:
+                frame = await track.recv()
+            except Exception as exc:
+                print(f"[!] Failed to receive video frame: {exc}")
+                import traceback
+                print(traceback.format_exc())
+                await asyncio.sleep(0.1)
+                continue
+
             frame_count += 1
-            image = frame.to_ndarray(format="bgr24")
+            print(
+                f"[DEBUG] frame #{frame_count} type={type(frame).__name__} "
+                f"pts={getattr(frame, 'pts', None)} dts={getattr(frame, 'dts', None)}"
+            )
+
+            try:
+                image = frame.to_ndarray(format="bgr24")
+                print(f"[DEBUG] ndarray shape={image.shape} dtype={image.dtype}")
+            except Exception as exc:
+                print(f"[!] Failed to convert VideoFrame to ndarray: {exc}")
+                import traceback
+                print(traceback.format_exc())
+                continue
 
             if use_tk:
-                image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-                if has_pil:
-                    img = Image.fromarray(image)
+                try:
+                    rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+                    img = Image.fromarray(rgb)
                     photo = ImageTk.PhotoImage(image=img)
-                else:
-                    import base64
-                    h, w = image.shape[:2]
-                    data = b"P6\n%d %d\n255\n" % (w, h) + image.tobytes()
-                    photo = tk.PhotoImage(data=base64.b64encode(data).decode("ascii"), format="PPM")
+                    print(
+                        f"[DEBUG] PIL image type={type(img).__name__} "
+                        f"PhotoImage type={type(photo).__name__}"
+                    )
 
-                label.configure(image=photo)
-                label.image = photo
-                root.update_idletasks()
-                root.update()
-                if frame_count == 1:
-                    print("[+] First Tkinter frame shown")
+                    label.configure(image=photo)
+                    label.image = photo
+                    root.update_idletasks()
+                    root.update()
+                    if frame_count == 1:
+                        print("[+] First Tkinter frame shown")
+                except Exception as exc:
+                    print(f"[!] Tkinter display error on frame #{frame_count}: {exc}")
+                    import traceback
+                    print(traceback.format_exc())
+                    continue
             else:
-                cv2.imshow(window_name, image)
-                if frame_count == 1:
-                    visible = cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE)
-                    print(f"[+] First OpenCV frame shown, window visible={visible}")
-                key = cv2.waitKey(1)
-                if key == 27:
-                    stop_event.set()
-                    break
+                try:
+                    cv2.imshow(window_name, image)
+                    if frame_count == 1:
+                        visible = cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE)
+                        print(f"[+] First OpenCV frame shown, window visible={visible}")
+                    key = cv2.waitKey(1)
+                    if key == 27:
+                        stop_event.set()
+                        break
+                except Exception as exc:
+                    print(f"[!] OpenCV display error on frame #{frame_count}: {exc}")
+                    import traceback
+                    print(traceback.format_exc())
+                    continue
 
             if stop_event.is_set():
                 break
 
     except Exception as exc:
-        print(f"[!] Video display error: {exc}")
+        print(f"[!] Video display loop fatal error: {exc}")
+        import traceback
+        print(traceback.format_exc())
     finally:
         if use_tk:
             try:
