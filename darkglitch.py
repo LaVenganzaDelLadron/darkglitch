@@ -1,6 +1,8 @@
 # darkglitch.py
 import asyncio
+import random
 import sys
+from utils.colors import COLORS
 
 from command.upload_file import upload_file
 from command.upload_file import upload_file, download_file
@@ -51,6 +53,8 @@ def dispatch_command(argv=None):
 
 
 def main():
+    color = COLORS[1]
+    print(color, end="")  # Set random color
     try:
         command = dispatch_command()
 
