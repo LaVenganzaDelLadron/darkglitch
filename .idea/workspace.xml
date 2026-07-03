@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/darkglitch-1.0.7-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/darkglitch-1.0.7.tar.gz" beforeDir="false" />
-    </list>
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="44" />
+    <option name="cachedIndexableFilesCount" value="47" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,61 +41,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="8.71205066820055E-209" />
-      <entry key="MS500" value="2.799066963290712E-42" />
-      <entry key="S2" value="1.5031454125341764E-10" />
-      <entry key="S5" value="6.865311748816671E-4" />
-      <entry key="S10" value="0.12821176823926142" />
-      <entry key="S30" value="4.374442323125395" />
-      <entry key="S60" value="10.649949413483533" />
-      <entry key="M2" value="16.71367046894734" />
-      <entry key="M5" value="22.45298692413594" />
-      <entry key="M10" value="28.620305395888646" />
-      <entry key="M15" value="39.021622630612995" />
-      <entry key="M30" value="81.78217025296793" />
-      <entry key="H1" value="162.520929736898" />
-      <entry key="H2" value="291.6948064635688" />
-      <entry key="H4" value="456.9899095277387" />
-      <entry key="D1" value="760.2319452598753" />
-      <entry key="W1" value="842.1246888421409" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000000000417" />
-      <entry key="S5" value="1.0000064676995455" />
-      <entry key="S10" value="1.0035692368638671" />
-      <entry key="S30" value="1.2421761271338487" />
-      <entry key="S60" value="1.6958040786528057" />
-      <entry key="M2" value="2.179605361209612" />
-      <entry key="M5" value="2.6409057963636613" />
-      <entry key="M10" value="3.2890376614933023" />
-      <entry key="M15" value="4.461971089157366" />
-      <entry key="M30" value="9.330010533859012" />
-      <entry key="H1" value="18.934509778904037" />
-      <entry key="H2" value="33.56349795232677" />
-      <entry key="H4" value="50.449552588728615" />
-      <entry key="D1" value="78.50809970964242" />
-      <entry key="W1" value="85.70521256180963" />
+      <entry key="S2" value="1.0000000006368308" />
+      <entry key="S5" value="1.0008573612589922" />
+      <entry key="S10" value="1.0976005741937602" />
+      <entry key="S30" value="4.128929260104092" />
+      <entry key="S60" value="10.720263935716929" />
+      <entry key="M2" value="19.546033845662627" />
+      <entry key="M5" value="29.478876242909145" />
+      <entry key="M10" value="37.55205822930069" />
+      <entry key="M15" value="48.40052403204734" />
+      <entry key="M30" value="91.31180249875321" />
+      <entry key="H1" value="172.19180239282701" />
+      <entry key="H2" value="301.65493644840654" />
+      <entry key="H4" value="467.4097890734499" />
+      <entry key="D1" value="771.7972255886534" />
+      <entry key="W1" value="854.0559725070503" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="2.2481777667738024E-212" />
+      <entry key="MS500" value="4.68129629237658E-43" />
+      <entry key="S2" value="2.6157216827008693E-11" />
+      <entry key="S5" value="5.848431692132602E-5" />
+      <entry key="S10" value="0.00767477490078716" />
+      <entry key="S30" value="0.24473116671163606" />
+      <entry key="S60" value="0.7527118037804368" />
+      <entry key="M2" value="1.4521263061928285" />
+      <entry key="M5" value="2.2449337029056284" />
+      <entry key="M10" value="3.032453510403284" />
+      <entry key="M15" value="4.226786276926058" />
+      <entry key="M30" value="9.080795646283475" />
+      <entry key="H1" value="18.67991732439542" />
+      <entry key="H2" value="33.33708775930055" />
+      <entry key="H4" value="50.279105200918735" />
+      <entry key="D1" value="78.4638298186929" />
+      <entry key="W1" value="85.69830685458919" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="9.470868067140911E-7" />
-      <entry key="MS500" value="0.062413416631314306" />
-      <entry key="S2" value="0.49982674337983674" />
-      <entry key="S5" value="0.7584443507382983" />
-      <entry key="S10" value="1.0017983260073982" />
-      <entry key="S30" value="5.5606040982110345" />
-      <entry key="S60" value="12.307199203735717" />
-      <entry key="M2" value="18.868400031319407" />
-      <entry key="M5" value="25.08168150763999" />
-      <entry key="M10" value="31.90076277574435" />
-      <entry key="M15" value="43.47462016980965" />
-      <entry key="M30" value="91.10072091593382" />
-      <entry key="H1" value="181.44201421955322" />
-      <entry key="H2" value="325.24450103057626" />
-      <entry key="H4" value="507.42785397616956" />
-      <entry key="D1" value="838.7366780453615" />
-      <entry key="W1" value="927.8293656240057" />
+      <entry key="MS100" value="0.1150234563281094" />
+      <entry key="MS500" value="0.6488693834695917" />
+      <entry key="S2" value="0.8975100512792704" />
+      <entry key="S5" value="0.9585549744095487" />
+      <entry key="S10" value="1.0820388091881703" />
+      <entry key="S30" value="4.349175829910936" />
+      <entry key="S60" value="11.445464444525742" />
+      <entry key="M2" value="20.974776592294536" />
+      <entry key="M5" value="31.71018036236637" />
+      <entry key="M10" value="40.574874188125065" />
+      <entry key="M15" value="52.61763479370378" />
+      <entry key="M30" value="100.38084466274147" />
+      <entry key="H1" value="190.8581719578047" />
+      <entry key="H2" value="334.97816165905266" />
+      <entry key="H4" value="517.6772490165138" />
+      <entry key="D1" value="850.2576776314518" />
+      <entry key="W1" value="939.7537418027163" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -167,11 +161,16 @@
       <workItem from="1783092571175" duration="2773000" />
       <workItem from="1783097619979" duration="3950000" />
       <workItem from="1783104100384" duration="2753000" />
+      <workItem from="1783108627798" duration="842000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="The listener no longer exits just because the signaling connection drops or the process remains idle." />
+    <option name="LAST_COMMIT_MESSAGE" value="The listener no longer exits just because the signaling connection drops or the process remains idle." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />

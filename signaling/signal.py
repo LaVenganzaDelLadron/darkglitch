@@ -87,6 +87,8 @@ class SignalClient:
                 await self.handle_message(data)
         except websockets.ConnectionClosed as exc:
             logger.warning("Signaling connection closed: %s", exc)
+            await self.connect()  # Attempt to reconnect
+            logger.info("Connected to signaling server...")
         except Exception:
             logger.exception("Unexpected error in signaling listener")
 
