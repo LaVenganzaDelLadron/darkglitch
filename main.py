@@ -7,8 +7,8 @@ import version as v
 
 from command.listen import listen_mode
 from command.online import online_list_mode
-from command.bash_connect import connect_mode
-from command.stream_connect import stream
+from command.bash_connect import bash_mode
+from command.stream_connect import stream_mode
 
 def main():
     try:
@@ -33,7 +33,7 @@ def main():
                 h.help()
                 return
             target = str(sys.argv[2])
-            asyncio.run(stream(target))
+            asyncio.run(stream_mode(target))
 
         elif sys.argv[1] == "-c":
             if len(sys.argv) < 4:
@@ -42,7 +42,7 @@ def main():
             target = sys.argv[2]
             command = sys.argv[3]
 
-            connect_mode(target, command)
+            asyncio.run(bash_mode(target, command))
 
         else:
             h.help()
