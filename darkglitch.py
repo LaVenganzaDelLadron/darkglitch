@@ -5,7 +5,7 @@ import sys
 import helper as h
 import version as v
 
-from command.listen_bash import listen_mode
+from command.listen_bash import listen_bash_mode
 from command.listen_stream import listen_stream_mode
 from command.online import online_list_mode
 from command.bash_connect import bash_mode
@@ -27,7 +27,7 @@ def dispatch_command(argv=None):
     if args[0] == "-l" and len(args) >= 2 and args[1] == "-s":
         return "listen_stream"
 
-    if args[0] == "-l":
+    if args[0] == "-l" and len(args) >= 2 and args[1] == "-c":
         return "listen"
 
     if args[0] == "-ol":
@@ -55,7 +55,7 @@ def main():
             return
 
         if command == "listen":
-            asyncio.run(listen_mode())
+            asyncio.run(listen_bash_mode())
             return
 
         if command == "listen_stream":

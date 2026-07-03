@@ -12,7 +12,7 @@ from media.local_media import LocalMedia
 from command_injection.injector import RemoteCommandHandler as ReceiverHandler
 
 
-async def listen_mode():
+async def listen_bash_mode():
     print("[+] Listen mode")
 
     retry_delay = 10
