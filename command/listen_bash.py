@@ -19,14 +19,12 @@ async def listen_bash_mode():
 
     while True:
         signal = None
-        media = None
-        peer = None
 
         try:
             # ----------------------------------
             # Signaling
             # ----------------------------------
-            signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username,)
+            signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username)
 
             await signal.connect()
 
@@ -43,10 +41,14 @@ async def listen_bash_mode():
             print("[+] Waiting for incoming offers...")
 
             # ----------------------------------
-            # Keep process alive
+            # Keep process alive until the user presses Ctrl+C
             # ----------------------------------
             while True:
                 await asyncio.sleep(1)
+
+        except KeyboardInterrupt:
+            print("[+] Stopping listener...")
+            break
 
         except asyncio.CancelledError:
             raise
@@ -54,30 +56,17 @@ async def listen_bash_mode():
         except Exception as exc:
             print(f"[!] Error: {exc}")
 
+            print(
+                f"[+] Reconnecting in "
+                f"{retry_delay} seconds..."
+            )
+            await asyncio.sleep(retry_delay)
+
         finally:
             print("[+] Cleaning up...")
-
-            try:
-                if peer is not None:
-                    await peer.close()
-            except Exception:
-                pass
-
-            try:
-                if media:
-                    await media.stop()
-            except Exception:
-                pass
 
             try:
                 if signal:
                     await signal.close()
             except Exception:
                 pass
-
-        print(
-            f"[+] Reconnecting in "
-            f"{retry_delay} seconds..."
-        )
-
-        await asyncio.sleep(retry_delay)

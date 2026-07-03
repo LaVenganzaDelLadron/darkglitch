@@ -24,7 +24,7 @@ async def listen_stream_mode():
             # ----------------------------------
             # Signaling
             # ----------------------------------
-            signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username,)
+            signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username)
 
             await signal.connect()
 
@@ -53,16 +53,26 @@ async def listen_stream_mode():
             print("[+] Waiting for incoming offers...")
 
             # ----------------------------------
-            # Keep process alive
+            # Keep process alive until the user presses Ctrl+C
             # ----------------------------------
             while True:
                 await asyncio.sleep(1)
+
+        except KeyboardInterrupt:
+            print("[+] Stopping listener...")
+            break
 
         except asyncio.CancelledError:
             raise
 
         except Exception as exc:
             print(f"[!] Error: {exc}")
+
+            print(
+                f"[+] Reconnecting in "
+                f"{retry_delay} seconds..."
+            )
+            await asyncio.sleep(retry_delay)
 
         finally:
             print("[+] Cleaning up...")
@@ -84,10 +94,3 @@ async def listen_stream_mode():
                     await signal.close()
             except Exception:
                 pass
-
-        print(
-            f"[+] Reconnecting in "
-            f"{retry_delay} seconds..."
-        )
-
-        await asyncio.sleep(retry_delay)
