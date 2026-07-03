@@ -3,13 +3,13 @@ def help():
     Usage:
 
     Victim:
-        python main.py -l
-        python main.py -r
+        python darkglitch.py -l
+        python darkglitch.py -r
 
     Attacker:
-        python main.py -ol
-        python main.py -s <client_id>
-        python main.py -c <client_id> <command_injection>
+        python darkglitch.py -ol
+        python darkglitch.py -s <client_id>
+        python darkglitch.py -c <client_id> <command_injection>
 
     Options:
         -h, --help            Show help message

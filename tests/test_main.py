@@ -1,6 +1,6 @@
 import unittest
 
-import main
+import darkglitch
 
 
 class MainDispatchTests(unittest.TestCase):

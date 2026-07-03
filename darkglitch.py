@@ -1,4 +1,4 @@
-# main.py
+# darkglitch.py
 import asyncio
 import sys
 

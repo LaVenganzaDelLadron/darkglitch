@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Run main.py -l from the repository directory.
+# Run darkglitch.py -l from the repository directory.
 cd "$(dirname "$0")"
 
 # Use python3 if available, otherwise python.

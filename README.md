@@ -85,31 +85,31 @@ ROOM = "test"
 ### Show help
 
 ```bash
-python main.py -h
+python darkglitch.py -h
 ```
 
 ### Show version
 
 ```bash
-python main.py -v
+python darkglitch.py -v
 ```
 
 ### Start listener mode
 
 ```bash
-python main.py -l
+python darkglitch.py -l
 ```
 
 ### List online peers
 
 ```bash
-python main.py -ol
+python darkglitch.py -ol
 ```
 
 ### Send a remote command
 
 ```bash
-python main.py -c <client_id> "whoami"
+python darkglitch.py -c <client_id> "whoami"
 ```
 
 Replace `<client_id>` with the target identifier from the online peers list.
