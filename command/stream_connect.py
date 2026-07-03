@@ -36,22 +36,24 @@ async def show_video(track, stop_event: asyncio.Event):
             print(f"[!] Tkinter/Pillow not available for display fallback: {exc}")
             use_tk = False
 
+    window_name = "GhostServer - Remote Camera"
+
     if use_tk:
         root = tk.Tk()
-        root.title("GhostServer - Remote Camera")
+        root.title(window_name)
         label = tk.Label(root)
         label.pack()
         root.update()
         print("[+] Tkinter display initialized")
     else:
         cv2.startWindowThread()
-        window_name = "GhostServer - Remote Camera"
         cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
         cv2.resizeWindow(window_name, 640, 480)
         cv2.moveWindow(window_name, 100, 100)
         print("[+] OpenCV display initialized")
 
     frame_count = 0
+    first_frame_logged = False
     try:
         while True:
             try:
@@ -64,14 +66,16 @@ async def show_video(track, stop_event: asyncio.Event):
                 continue
 
             frame_count += 1
-            print(
-                f"[DEBUG] frame #{frame_count} type={type(frame).__name__} "
-                f"pts={getattr(frame, 'pts', None)} dts={getattr(frame, 'dts', None)}"
-            )
+            if not first_frame_logged:
+                print(
+                    f"[DEBUG] frame #{frame_count} type={type(frame).__name__} "
+                    f"pts={getattr(frame, 'pts', None)} dts={getattr(frame, 'dts', None)}"
+                )
 
             try:
                 image = frame.to_ndarray(format="bgr24")
-                print(f"[DEBUG] ndarray shape={image.shape} dtype={image.dtype}")
+                if not first_frame_logged:
+                    print(f"[DEBUG] ndarray shape={image.shape} dtype={image.dtype}")
             except Exception as exc:
                 print(f"[!] Failed to convert VideoFrame to ndarray: {exc}")
                 import traceback
@@ -83,10 +87,11 @@ async def show_video(track, stop_event: asyncio.Event):
                     rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                     img = Image.fromarray(rgb)
                     photo = ImageTk.PhotoImage(image=img)
-                    print(
-                        f"[DEBUG] PIL image type={type(img).__name__} "
-                        f"PhotoImage type={type(photo).__name__}"
-                    )
+                    if not first_frame_logged:
+                        print(
+                            f"[DEBUG] PIL image type={type(img).__name__} "
+                            f"PhotoImage type={type(photo).__name__}"
+                        )
 
                     label.configure(image=photo)
                     label.image = photo
@@ -114,6 +119,9 @@ async def show_video(track, stop_event: asyncio.Event):
                     import traceback
                     print(traceback.format_exc())
                     continue
+
+            if not first_frame_logged:
+                first_frame_logged = True
 
             if stop_event.is_set():
                 break
