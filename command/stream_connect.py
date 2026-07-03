@@ -165,6 +165,7 @@ async def stream(target):
         await peer.create_offer(target)
     except Exception as exc:
         print(f"[!] Failed to create offer: {exc}")
+        await peer.close()
         await signal.close()
         return
 
@@ -174,5 +175,6 @@ async def stream(target):
         print("Shutdown requested")
         raise
     finally:
-        print("Closing signaling connection")
+        print("Closing peer and signaling connection")
+        await peer.close()
         await signal.close()

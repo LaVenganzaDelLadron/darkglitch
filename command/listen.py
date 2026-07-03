@@ -18,6 +18,7 @@ async def listen_mode():
     while True:
         signal = None
         media = None
+        peer = None
 
         try:
             # ----------------------------------
@@ -65,6 +66,12 @@ async def listen_mode():
 
         finally:
             print("[+] Cleaning up...")
+
+            try:
+                if peer is not None:
+                    await peer.close()
+            except Exception:
+                pass
 
             try:
                 if media:

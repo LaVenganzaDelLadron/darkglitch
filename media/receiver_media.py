@@ -1,7 +1,7 @@
 # media/receiver_media.py
 import asyncio
 import cv2
-from aiortc import RTCPeerConnection, RTCSessionDescription, RTCIceCandidate
+from aiortc import RTCPeerConnection, RTCConfiguration, RTCIceCandidate, RTCIceServer, RTCSessionDescription
 from aiortc.contrib.media import MediaRecorder, MediaRelay
 from signaling.signal import SignalClient
 
@@ -10,7 +10,9 @@ class Receiver:
     # Initialize the peer connection, recorder, and related state for media handling.
     def __init__(self, signal: SignalClient, record_file: str = "received.mp4"):
         self.signal = signal
-        self.pc = RTCPeerConnection()
+        self.pc = RTCPeerConnection(configuration=RTCConfiguration(
+            iceServers=[RTCIceServer(urls=["stun:stun.l.google.com:19302"])]
+        ))
         self.remote_target = None
         self.recorder = MediaRecorder(record_file)
         self.remote_candidates = []

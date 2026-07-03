@@ -3,7 +3,9 @@ import asyncio
 
 from aiortc import (
     RTCPeerConnection,
+    RTCConfiguration,
     RTCIceCandidate,
+    RTCIceServer,
     RTCSessionDescription
 )
 
@@ -12,43 +14,84 @@ class Peer:
 
     def __init__(self, signal):
         self.signal = signal
-        self.pc = RTCPeerConnection()
+        self.pc = None
         self.peers = []
         self.remote_target = None
         self.on_track = None
         self.recorders = []
+        self.media = None
+        self.remote_candidates = []
 
+        self._create_pc()
         signal.add_message_handler(self.handle_message)
 
-        @self.pc.on("iceconnectionstatechange")
+    def _create_pc(self):
+        self.pc = RTCPeerConnection(configuration=RTCConfiguration(
+            iceServers=[RTCIceServer(urls=["stun:stun.l.google.com:19302"])]
+        ))
+        self.remote_candidates = []
+        pc = self.pc
+
+        @pc.on("iceconnectionstatechange")
         async def on_ice():
-            print("[SENDER] ICE:", self.pc.iceConnectionState)
+            print("[SENDER] ICE:", pc.iceConnectionState)
 
-        @self.pc.on("connectionstatechange")
+        @pc.on("connectionstatechange")
         async def on_conn():
-            print("[WEBRTC] Connection:", self.pc.connectionState)
+            print("[WEBRTC] Connection:", pc.connectionState)
 
-        @self.pc.on("icecandidate")
+        @pc.on("icecandidate")
         async def on_icecandidate(candidate):
             await self._on_icecandidate(candidate)
 
-        @self.pc.on("track")
+        @pc.on("track")
         async def on_track(track):
             print("[DEBUG] Track received:", track.kind)
             await self._on_track(track)
 
-    def add_media(self, media):
+        if self.media is not None:
+            self._add_media_tracks()
 
-        if media.video is not None:
-            self.pc.addTrack(media.video)
-        if media.audio is not None:
-            self.pc.addTrack(media.audio)
+    async def _reset_pc(self):
+        if self.pc is not None:
+            try:
+                await self.pc.close()
+            except Exception:
+                pass
+        self._create_pc()
+
+    def _ensure_open_pc(self):
+        if self.pc is None or self.pc.signalingState == "closed" or self.pc.connectionState == "closed":
+            print("[PEER] Recreating RTCPeerConnection for new session")
+            self._create_pc()
+
+    async def close(self):
+        if self.pc is not None:
+            try:
+                await self.pc.close()
+            except Exception:
+                pass
+            self.pc = None
+
+    def _add_media_tracks(self):
+        if self.media is None:
+            return
+        if self.media.video is not None:
+            self.pc.addTrack(self.media.video)
+        if self.media.audio is not None:
+            self.pc.addTrack(self.media.audio)
+
+    def add_media(self, media):
+        self.media = media
+        self._ensure_open_pc()
+        self._add_media_tracks()
 
     async def create_offer(self, target=None):
         if target is None:
             raise TypeError("Peer.create_offer requires a target peer id")
 
         self.remote_target = target
+        self._ensure_open_pc()
 
         offer = await self.pc.createOffer()
 
@@ -100,6 +143,17 @@ class Peer:
 
         if message_type == "offer":
             self.remote_target = message.get("sender")
+
+            if self.pc is not None and (
+                self.pc.remoteDescription is not None or
+                self.pc.localDescription is not None or
+                self.pc.connectionState not in ("new", "closed")
+            ):
+                print("[PEER] Resetting RTCPeerConnection before processing new offer")
+                await self._reset_pc()
+            else:
+                self._ensure_open_pc()
+
             desc = RTCSessionDescription(
                 sdp=message["data"]["sdp"],
                 type=message["data"]["type"],
@@ -119,6 +173,10 @@ class Peer:
                 },
             })
 
+            while self.remote_candidates:
+                candidate = self.remote_candidates.pop(0)
+                await self.pc.addIceCandidate(candidate)
+
         elif message_type == "ice-candidate":
 
             candidate_data = message["data"]["candidate"]
@@ -127,6 +185,12 @@ class Peer:
                 sdpMid=candidate_data.get("sdpMid"),
                 sdpMLineIndex=candidate_data.get("sdpMLineIndex")
             )
+            if self.pc is None or self.pc.signalingState == "closed":
+                print("[PEER] Dropping ICE candidate because RTCPeerConnection is closed")
+                return
+            if self.pc.remoteDescription is None:
+                self.remote_candidates.append(candidate)
+                return
             await self.pc.addIceCandidate(candidate)
 
         elif message_type == "peer-list":
