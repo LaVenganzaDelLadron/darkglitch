@@ -1,5 +1,3 @@
-# command/listen.py
-
 import asyncio
 
 from core.client import client_id, username
@@ -12,7 +10,7 @@ from media.local_media import LocalMedia
 from command_injection.injector import RemoteCommandHandler as ReceiverHandler
 
 
-async def listen_mode():
+async def listen_stream_mode():
     print("[+] Listen mode")
 
     retry_delay = 10
@@ -31,9 +29,21 @@ async def listen_mode():
             await signal.connect()
 
             # ----------------------------------
-            # Command Injection
+            # Camera / Microphone
             # ----------------------------------
-            ReceiverHandler(signal)
+            media = LocalMedia()
+            await media.start()
+
+            print("[+] Video Track:", media.get_video_track())
+            print("[+] Audio Track:", media.get_audio_track())
+
+            # ----------------------------------
+            # WebRTC Peer
+            # ----------------------------------
+            peer = Peer(signal)
+
+            # Send local camera/mic when a call is established
+            peer.add_media(media)
 
             print(
                 f"[+] Listening as {username} "

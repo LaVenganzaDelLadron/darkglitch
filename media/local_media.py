@@ -37,8 +37,12 @@ class LocalMedia:
         self.audio = self.player.audio
 
     async def stop(self):
-        if self.player:
-            await self.player.stop()
+        if self.player is None:
+            return
+
+        stop = getattr(self.player, "stop", None)
+        if callable(stop):
+            await stop()
 
     def get_audio_track(self):
         return self.audio
