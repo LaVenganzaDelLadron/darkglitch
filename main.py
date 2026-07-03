@@ -1,3 +1,4 @@
+# main.py
 import asyncio
 import sys
 

@@ -32,6 +32,8 @@ class SignalClient:
                     self.url = room
                     self.websocket = None
                     self._handlers = []
+                    self.message_handlers = []
+                    self.message_handler = None
                     self.username = username or getpass.getuser()
                     return
 
@@ -52,6 +54,8 @@ class SignalClient:
             self.url = f"ws://{host}/ws/{room}/{client_id}"
         self.websocket = None
         self._handlers = []
+        self.message_handlers = []
+        self.message_handler = None
 
     async def connect(self):
         logger.info("Connecting to signaling server: %s", self.url)
@@ -85,6 +89,12 @@ class SignalClient:
             logger.warning("Signaling connection closed: %s", exc)
         except Exception:
             logger.exception("Unexpected error in signaling listener")
+
+    def add_message_handler(self, handler):
+        if handler is None or handler in self.message_handlers:
+            return
+
+        self.message_handlers.append(handler)
 
     def add_handler(self, handler):
         """Register a handler that will receive inbound signaling messages."""
