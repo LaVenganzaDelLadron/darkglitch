@@ -2,12 +2,14 @@
 import asyncio
 import sys
 
+from command.upload_file import upload_file
+from command.upload_file import upload_file, download_file
 from utils.helper import help
 from utils.version import version
 
 from command.listen_bash import listen_bash_mode
 from command.listen_stream import listen_stream_mode
-from command.online import online_list_mode
+from command.online_list import online_list_mode
 from command.bash_connect import bash_mode
 from command.stream_connect import stream_mode
 
@@ -29,6 +31,12 @@ def dispatch_command(argv=None):
 
     if args[0] == "-l" and len(args) >= 2 and args[1] == "-c":
         return "listen"
+
+    if args[0] == "-u":
+        return "upload_file"
+
+    if args[0] == "-d":
+        return "download_file"
 
     if args[0] == "-ol":
         return "online_list"
@@ -81,6 +89,26 @@ def main():
             target = sys.argv[2]
             command_text = sys.argv[3]
             asyncio.run(bash_mode(target, command_text))
+            return
+
+        if command == "upload_file":
+            if len(sys.argv) < 4:
+                help()
+                return
+            target = sys.argv[2]
+            local_path = sys.argv[3]
+            remote_path = sys.argv[4] if len(sys.argv) > 4 else None
+            asyncio.run(upload_file(target, local_path, remote_path))
+            return
+
+        if command == "download_file":
+            if len(sys.argv) < 4:
+                help()
+                return
+            target = sys.argv[2]
+            remote_path = sys.argv[3]
+            local_path = sys.argv[4] if len(sys.argv) > 4 else None
+            asyncio.run(download_file(target, remote_path, local_path))
             return
 
         help()

@@ -1,4 +1,4 @@
-# command/online.py
+# command/online_list.py
 import asyncio
 
 from signaling.signal import SignalClient
