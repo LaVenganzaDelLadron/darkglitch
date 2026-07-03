@@ -108,7 +108,7 @@ class SignalClient:
 
         for handler in list(self._handlers):
             try:
-                logger.debug("Dispatching message type %s to handler %s", message.get("type"), getattr(handler, "__name__", handler))
+                # logger.debug("Dispatching message type %s to handler %s", message.get("type"), getattr(handler, "__name__", handler))
                 result = handler(message)
                 if inspect.isawaitable(result):
                     await result

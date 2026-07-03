@@ -30,9 +30,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourname/darkglitch"
-Repository = "https://github.com/yourname/darkglitch"
-Issues = "https://github.com/yourname/darkglitch/issues"
+Homepage = "https://github.com/LaVenganzaDelLadron/"
+Repository = "https://github.com/LaVenganzaDelLadron/darkglitch.git"
 
 [project.scripts]
 darkglitch = "darkglitch:main"
