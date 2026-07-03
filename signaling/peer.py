@@ -26,7 +26,7 @@ class Peer:
 
         @self.pc.on("connectionstatechange")
         async def on_conn():
-            print("[SENDER] Connection:", self.pc.connectionState)
+            print("[WEBRTC] Connection:", self.pc.connectionState)
 
         @self.pc.on("icecandidate")
         async def on_icecandidate(candidate):
@@ -34,6 +34,7 @@ class Peer:
 
         @self.pc.on("track")
         async def on_track(track):
+            print("[DEBUG] Track received:", track.kind)
             await self._on_track(track)
 
     def add_media(self, media):

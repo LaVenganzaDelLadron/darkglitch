@@ -21,6 +21,8 @@ from signaling.signal import SignalClient
 
 
 async def show_video(track, stop_event: asyncio.Event):
+    frame = await track.recv()
+    print("[DEBUG] Frame received:", frame.pts)
     wayland = os.environ.get("XDG_SESSION_TYPE", "").lower() == "wayland"
     use_tk = False
     has_pil = False
