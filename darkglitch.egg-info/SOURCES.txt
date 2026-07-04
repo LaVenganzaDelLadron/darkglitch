@@ -4,12 +4,11 @@ darkglitch.py
 pyproject.toml
 command/__init__.py
 command/bash_connect.py
-command/download_file.py
 command/listen_bash.py
 command/listen_stream.py
 command/online_list.py
 command/stream_connect.py
-command/upload_file.py
+command/transfer_file.py
 command_injection/__init__.py
 command_injection/injector.py
 core/__init__.py

@@ -4,8 +4,7 @@ import random
 import sys
 from utils.colors import COLORS
 
-from command.upload_file import upload_file
-from command.upload_file import upload_file, download_file
+from command.transfer_file import upload_file, download_file
 from utils.helper import help
 from utils.version import version
 
@@ -33,6 +32,9 @@ def dispatch_command(argv=None):
 
     if args[0] == "-l" and len(args) >= 2 and args[1] == "-c":
         return "listen"
+
+    if args[0] == "-ai":
+        return "generate_command"
 
     if args[0] == "-u":
         return "upload_file"
@@ -94,6 +96,16 @@ def main():
             command_text = sys.argv[3]
             asyncio.run(bash_mode(target, command_text))
             return
+
+        if command == "generate_command":
+            if len(sys.argv) < 4:
+                help()
+                return
+            target = sys.argv[2]
+            command_text = sys.argv[3]
+            print("Hello ", target, "+", command_text)
+            return
+
 
         if command == "upload_file":
             if len(sys.argv) < 4:

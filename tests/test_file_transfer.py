@@ -3,7 +3,7 @@ import os
 import tempfile
 from pathlib import Path
 
-from command.upload_file import build_transfer_payload
+from command.transfer_file import build_transfer_payload
 
 
 def test_build_transfer_payload_for_file():

@@ -29,7 +29,7 @@ source .venv/bin/activate
 install the package:
 
 ```bash
-pip install darkglitch .
+pip install darkglitch
 ```
 
 ## Configuration
