@@ -58,15 +58,15 @@ class SignalClient:
         self.message_handler = None
 
     async def connect(self):
-        # logger.info("Connecting to signaling server: %s", self.url)
+        # logger.info("Connecting to signaling bash: %s", self.url)
         try:
             self.websocket = await websockets.connect(self.url)
         except Exception:
-            logger.exception("Unable to connect to signaling server")
+            logger.exception("Unable to connect to signaling bash")
             raise
 
         await self._send_registration()
-        # logger.info("Connected to signaling server at %s", self.url)
+        # logger.info("Connected to signaling bash at %s", self.url)
         asyncio.create_task(self.listen())
         return self.websocket
 
@@ -82,13 +82,13 @@ class SignalClient:
                 try:
                     data = json.loads(message)
                 except json.JSONDecodeError:
-                    logger.exception("Received invalid JSON from signaling server: %s", message)
+                    logger.exception("Received invalid JSON from signaling bash: %s", message)
                     continue
                 await self.handle_message(data)
         except websockets.ConnectionClosed as exc:
             logger.warning("Signaling connection closed: %s", exc)
             await self.connect()  # Attempt to reconnect
-            logger.info("Connected to signaling server...")
+            logger.info("Connected to signaling bash...")
         except Exception:
             logger.exception("Unexpected error in signaling listener")
 

@@ -121,7 +121,7 @@ class Receiver:
                 await self.pc.addIceCandidate(candidate)
 
         elif message_type == "peer-list":
-            # Print the list of currently available peers from the signaling server.
+            # Print the list of currently available peers from the signaling bash.
             peers = message["data"].get("peers", [])
             print("Peer list:", peers)
 

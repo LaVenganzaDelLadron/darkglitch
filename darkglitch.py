@@ -1,18 +1,17 @@
 # darkglitch.py
 import asyncio
-import random
 import sys
 from utils.colors import COLORS
 
-from command.transfer_file import upload_file, download_file
+from command.transfer.transfer_file import upload_file, download_file
 from utils.helper import help
 from utils.version import version
 
-from command.listen_bash import listen_bash_mode
-from command.listen_stream import listen_stream_mode
-from command.online_list import online_list_mode
-from command.bash_connect import bash_mode
-from command.stream_connect import stream_mode
+from command.listener.listen_bash import listen_bash_mode
+from command.listener.listen_stream import listen_stream_mode
+from command.list.online_list import online_list_mode
+from command.bash.bash_connect import bash_mode
+from command.bash.stream_connect import stream_mode
 
 
 def dispatch_command(argv=None):

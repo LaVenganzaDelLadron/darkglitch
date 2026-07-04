@@ -13,7 +13,7 @@ class OnlineHandler:
 
         peers_data = message.get("data", {}).get("peers", [])
         if not isinstance(peers_data, list):
-            print("[!] Invalid peer list format received from server.")
+            print("[!] Invalid peer list format received from bash.")
             return
 
         peers = []
@@ -39,11 +39,11 @@ class OnlineHandler:
 
         peer_ids = {peer.get("id") for peer in peers if peer.get("id")}
         if self.client_id in peer_ids:
-            print("[*] Your own client ID is included in the peer list.")
+            print("[*] Your own listener ID is included in the peer list.")
         else:
-            print("[*] Your own client ID is not included in the peer list.")
+            print("[*] Your own listener ID is not included in the peer list.")
             if peer_ids:
-                print("    The signaling server appears to exclude the requesting client from the peer list.")
+                print("    The signaling bash appears to exclude the requesting listener from the peer list.")
 
 
 class DebugHandler:
