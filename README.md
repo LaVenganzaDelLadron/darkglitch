@@ -26,10 +26,26 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-install the package:
+Install the package:
 
 ```bash
 pip install darkglitch
+```
+
+### Windows note
+
+If PowerShell says `darkglitch` is not recognized after installation, that usually means the Python Scripts directory is not on `PATH`. The most reliable workaround is to run the package as a module:
+
+```powershell
+py -m pip install --user darkglitch
+py -m darkglitch -h
+```
+
+If you want the plain `darkglitch` command to work in a new terminal, add the Python Scripts folder to `PATH` and reopen the shell. For example:
+
+```powershell
+$Scripts = py -c "import sysconfig; print(sysconfig.get_path('scripts'))"
+[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $Scripts, 'User')
 ```
 
 ## Configuration
