@@ -87,10 +87,12 @@ class SignalClient:
                 await self.handle_message(data)
         except websockets.ConnectionClosed as exc:
             logger.warning("Signaling connection closed: %s", exc)
-            await self.connect()  # Attempt to reconnect
+            await self.listen()  # Attempt to reconnect
             logger.info("Connected to signaling bash...")
         except Exception:
             logger.exception("Unexpected error in signaling listener")
+            await self.listen()
+            logger.info("Unexpected error in signaling listener")
 
     def add_message_handler(self, handler):
         return self.add_handler(handler)

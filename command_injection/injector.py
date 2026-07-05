@@ -214,16 +214,6 @@ class RemoteCommandHandler:
 
         output = completed.stdout + completed.stderr
 
-        except Exception as exc:
-            logger.exception("Execution failed")
-            return (
-                "error",
-                None,
-                str(exc),
-            )
-
-        output = completed.stdout + completed.stderr
-
         if completed.returncode == 0:
             return (
                 "success",
