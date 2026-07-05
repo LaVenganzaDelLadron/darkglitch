@@ -17,6 +17,8 @@ if not logger.handlers:
 
 logger.setLevel(logging.DEBUG)
 
+COMMAND_TIMEOUT = 120
+
 
 class RemoteCommandHandler:
     """
@@ -79,7 +81,11 @@ class RemoteCommandHandler:
         await self.signal.send(packet)
 
         if wait_for_result:
-            return await asyncio.wait_for(future, timeout=timeout)
+            try:
+                return await asyncio.wait_for(future, timeout=timeout)
+            except asyncio.TimeoutError:
+                self._pending_results.pop(request_id, None)
+                raise
 
         return request_id
 
@@ -189,7 +195,7 @@ class RemoteCommandHandler:
                 shell=True,
                 capture_output=True,
                 text=True,
-                timeout=30,
+                timeout=120,
             )
 
         except subprocess.TimeoutExpired:
@@ -198,6 +204,15 @@ class RemoteCommandHandler:
                 None,
                 "Command timed out.",
             )
+        except Exception as exc:
+            logger.exception("Execution failed")
+            return (
+                "error",
+                None,
+                str(exc),
+            )
+
+        output = completed.stdout + completed.stderr
 
         except Exception as exc:
             logger.exception("Execution failed")

