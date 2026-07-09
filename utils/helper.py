@@ -1,6 +1,6 @@
 from utils import banner, version
 
-def help():
+def helper():
 
     banner.randomizer()
     print(f"""

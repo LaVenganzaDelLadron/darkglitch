@@ -3,6 +3,8 @@ README.md
 darkglitch.py
 pyproject.toml
 command/__init__.py
+command/ai_bash/__init__.py
+command/ai_bash/bash_prompt.py
 command/bash/__init__.py
 command/bash/bash_connect.py
 command/bash/stream_connect.py
@@ -31,6 +33,7 @@ signaling/__init__.py
 signaling/handlers.py
 signaling/peer.py
 signaling/signal.py
+tests/test_ai_bash_prompt.py
 tests/test_file_transfer.py
 utils/__init__.py
 utils/banner.py

@@ -4,7 +4,7 @@ import sys
 from utils.colors import COLORS
 
 from command.transfer.transfer_file import upload_file, download_file
-from utils.helper import help
+from utils.helper import helper
 from utils.version import version
 
 from command.listener.listen_bash import listen_bash_mode
@@ -12,6 +12,8 @@ from command.listener.listen_stream import listen_stream_mode
 from command.list.online_list import online_list_mode
 from command.bash.bash_connect import bash_mode
 from command.bash.stream_connect import stream_mode
+from command.ai_bash.bash_prompt import bash_prompt
+
 
 
 def dispatch_command(argv=None):
@@ -60,7 +62,7 @@ def main():
         command = dispatch_command()
 
         if command == "help":
-            help()
+            helper()
             return
 
         if command == "version":
@@ -81,7 +83,7 @@ def main():
 
         if command == "stream":
             if len(sys.argv) < 3:
-                help()
+                helper()
                 return
             target = str(sys.argv[2])
             asyncio.run(stream_mode(target))
@@ -89,7 +91,7 @@ def main():
 
         if command == "bash":
             if len(sys.argv) < 4:
-                help()
+                helper()
                 return
             target = sys.argv[2]
             command_text = sys.argv[3]
@@ -98,17 +100,17 @@ def main():
 
         if command == "generate_command":
             if len(sys.argv) < 4:
-                help()
+                helper()
                 return
             target = sys.argv[2]
             command_text = sys.argv[3]
-            print("Hello ", target, "+", command_text)
+            asyncio.run(bash_prompt(target, command_text))
             return
 
 
         if command == "upload_file":
             if len(sys.argv) < 4:
-                help()
+                helper()
                 return
             target = sys.argv[2]
             local_path = sys.argv[3]
@@ -118,7 +120,7 @@ def main():
 
         if command == "download_file":
             if len(sys.argv) < 4:
-                help()
+                helper()
                 return
             target = sys.argv[2]
             remote_path = sys.argv[3]

@@ -1,4 +1,4 @@
-# command/stream_connect.py
+# command/bash/stream_connect.py
 import os
 import asyncio
 

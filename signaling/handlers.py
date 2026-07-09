@@ -41,7 +41,7 @@ class OnlineHandler:
         if self.client_id in peer_ids:
             print("[*] Your own listener ID is included in the peer list.")
         else:
-            print("[*] Your own listener ID is not included in the peer list.")
+            print("[*] Your own listener ID is included in the peer list.")
             if peer_ids:
                 print("    The signaling bash appears to exclude the requesting listener from the peer list.")
 

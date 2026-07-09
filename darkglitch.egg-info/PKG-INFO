@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: darkglitch
-Version: 1.1.5
+Version: 1.1.7
 Summary: Remote command delivery and media streaming tool over WebRTC signaling
 Author: DarkGlitch
 License-Expression: MIT
@@ -23,61 +23,47 @@ Requires-Dist: aiortc>=1.4.0
 Requires-Dist: opencv-python>=4.13.0
 Requires-Dist: Pillow>=10.0.0
 Requires-Dist: websockets>=12.0.0
+Requires-Dist: ollama>=0.2.0
 Dynamic: license-file
 
 # darkglitch
 
-darkglitch is a small Python proof-of-concept for remote command delivery over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
+darkglitch is a lightweight Python proof-of-concept for remote command execution, file transfer, and media streaming over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
 
-## What it does
-
-This tool can:
+## What it supports
 
 - start a listener that registers a client and waits for commands
-- discover online peers on the same signaling room
+- list online peers in the same signaling room
 - run shell commands remotely
 - upload and download files
-- request a media stream from a connected client
+- stream media from a connected client
+- generate a shell command from a natural-language prompt using an AI provider
 
 ## Requirements
 
 - Python 3.10+
 - dependencies from requirements.txt
+- an Ollama instance if you want to use the AI prompt mode
 
 ## Installation
 
-From the project root, create and activate a virtual environment, then install the dependencies:
+From the project root:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -e .
 ```
 
-Install the package:
+If you want the AI prompt mode, install the Ollama client package as well:
 
 ```bash
-pip install darkglitch
-```
-
-### Windows note
-
-If PowerShell says `darkglitch` is not recognized after installation, that usually means the Python Scripts directory is not on `PATH`. The most reliable workaround is to run the package as a module:
-
-```powershell
-py -m pip install --user darkglitch
-py -m darkglitch -h
-```
-
-If you want the plain `darkglitch` command to work in a new terminal, add the Python Scripts folder to `PATH` and reopen the shell. For example:
-
-```powershell
-$Scripts = py -c "import sysconfig; print(sysconfig.get_path('scripts'))"
-[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $Scripts, 'User')
+pip install ollama
 ```
 
 ## Configuration
 
-Edit core/config.py to point the client to your signaling server and room:
+Edit [core/config.py](core/config.py) to point the client at your signaling server and room:
 
 ```python
 HOST = "https://your-signal-server.example/"
@@ -92,8 +78,6 @@ ROOM = "your-room"
 python darkglitch.py -l -c
 ```
 
-Use `-l -s` if you want to start a stream-enabled listener.
-
 ### 2. List online peers (attacker side)
 
 ```bash
@@ -106,11 +90,13 @@ python darkglitch.py -ol
 python darkglitch.py -c <client_id> "whoami"
 ```
 
-### 4. Request a media stream
+### 4. Use an AI-generated bash prompt
 
 ```bash
-python darkglitch.py -s <client_id>
+python darkglitch.py -ai <client_id> "list all folders in root"
 ```
+
+This uses an Ollama-backed provider to turn your prompt into a shell command before executing it remotely.
 
 ### 5. Upload or download files
 
@@ -119,11 +105,33 @@ python darkglitch.py -u <client_id> /path/to/local/file /path/to/remote/file
 python darkglitch.py -d <client_id> /path/to/remote/file /path/to/local/file
 ```
 
+### 6. Request a media stream
+
+```bash
+python darkglitch.py -s <client_id>
+```
+
 ### Help and version
 
 ```bash
 python darkglitch.py -h
 python darkglitch.py -v
+```
+
+## AI setup
+
+If you want to use the AI prompt mode, make sure Ollama is installed and running:
+
+```bash
+ollama serve
+ollama pull deepseek-r1:14b
+```
+
+You can override the default model and timeout if needed:
+
+```bash
+export OLLAMA_MODEL=llama3.2:3b
+export OLLAMA_TIMEOUT=60
 ```
 
 ## Notes

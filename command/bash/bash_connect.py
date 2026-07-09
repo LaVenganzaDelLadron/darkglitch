@@ -1,8 +1,7 @@
-# command/bash_connect.py
+# command/bash/bash_connect.py
 import asyncio
 
 from signaling.signal import SignalClient
-from signaling.handlers import OnlineHandler
 from core.config import HOST, ROOM
 from core.client import client_id, username
 
