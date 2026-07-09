@@ -88,4 +88,21 @@ def test_bash_prompt_falls_back_when_provider_times_out(monkeypatch):
 
     assert recorded["signal_args"][0] == "D4RKGLI7CH"
     assert recorded["sender_signal"].target == "D4RKGLI7CH"
-    assert recorded["sender_signal"].prompt == "ls -la /"
+    assert recorded["sender_signal"].prompt == recorded["signal_args"][1]
+
+
+def test_extract_command_text_handles_response_objects():
+    import command.ai_bash.bash_prompt as bash_prompt_module
+
+    class ResponseObject:
+        def __init__(self, text):
+            self.response = text
+
+    assert bash_prompt_module._extract_command_text(ResponseObject("```bash\nls -la /\n```")) == "ls -la /"
+
+
+def test_extract_command_text_finds_command_inside_explanatory_text():
+    import command.ai_bash.bash_prompt as bash_prompt_module
+
+    text = "You can use the following command: `ls -A /` to list folders."
+    assert bash_prompt_module._extract_command_text(text) == "ls -A /"
