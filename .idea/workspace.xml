@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="feat: recursion issue fixed">
-      <change afterPath="$PROJECT_DIR$/command/ai_bash/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/darkglitch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/darkglitch.iml" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fixing -ai issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai/ollama_provider.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai/ollama_provider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/bash_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/bash_connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/stream_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/stream_connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/darkglitch-1.1.5-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/darkglitch-1.1.5.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/signal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="85" />
+    <option name="cachedIndexableFilesCount" value="88" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add-new-banner" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,61 +49,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.841857994098989" />
-      <entry key="MS500" value="3.1728827246588374" />
-      <entry key="S2" value="3.754624510711739" />
-      <entry key="S5" value="3.8981838723659736" />
-      <entry key="S10" value="3.9505319926308036" />
-      <entry key="S30" value="4.56720890843557" />
-      <entry key="S60" value="6.700777594176654" />
-      <entry key="M2" value="10.320158302124138" />
-      <entry key="M5" value="20.164747373811714" />
-      <entry key="M10" value="35.33067232227937" />
-      <entry key="M15" value="48.14135823672212" />
-      <entry key="M30" value="86.50127309906041" />
-      <entry key="H1" value="167.8178029335704" />
-      <entry key="H2" value="317.71246817994137" />
-      <entry key="H4" value="532.3203497652462" />
-      <entry key="D1" value="985.2583487877433" />
-      <entry key="W1" value="1119.1902730292907" />
+      <entry key="MS100" value="1.0127841016045844" />
+      <entry key="MS500" value="1.5084698952069615" />
+      <entry key="S2" value="2.8624053704170174" />
+      <entry key="S5" value="4.462154837210296" />
+      <entry key="S10" value="7.1088158228392055" />
+      <entry key="S30" value="14.09373681258412" />
+      <entry key="S60" value="19.13167289815911" />
+      <entry key="M2" value="24.70095995393278" />
+      <entry key="M5" value="35.94827840955689" />
+      <entry key="M10" value="51.65785953930427" />
+      <entry key="M15" value="64.71060165339253" />
+      <entry key="M30" value="103.31619350087374" />
+      <entry key="H1" value="184.72863193789465" />
+      <entry key="H2" value="334.71026917970727" />
+      <entry key="H4" value="549.4916213955615" />
+      <entry key="D1" value="1003.0049549132247" />
+      <entry key="W1" value="1137.1492037617895" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.4481517121873374E-303" />
-      <entry key="MS500" value="2.704972239622437E-61" />
-      <entry key="S2" value="7.22593859849497E-16" />
-      <entry key="S5" value="9.686859547119714E-7" />
-      <entry key="S10" value="0.001475677183411469" />
-      <entry key="S30" value="0.32464821858652926" />
-      <entry key="S60" value="1.3764819714493979" />
-      <entry key="M2" value="2.991076571174816" />
-      <entry key="M5" value="5.705046041550538" />
-      <entry key="M10" value="8.170473453901343" />
-      <entry key="M15" value="9.681577225489269" />
-      <entry key="M30" value="12.968050001618048" />
-      <entry key="H1" value="19.80746316846942" />
-      <entry key="H2" value="34.255920400171696" />
-      <entry key="H4" value="55.51116841672034" />
-      <entry key="D1" value="98.48877728856851" />
-      <entry key="W1" value="110.74740264742208" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="2.2133745263113316E-80" />
+      <entry key="S2" value="1.222129678149159E-20" />
+      <entry key="S5" value="1.1952870445276543E-8" />
+      <entry key="S10" value="1.6392151796427784E-4" />
+      <entry key="S30" value="0.1560610623913681" />
+      <entry key="S60" value="0.9543579487006992" />
+      <entry key="M2" value="2.4905651957626826" />
+      <entry key="M5" value="5.302092585654629" />
+      <entry key="M10" value="7.876645503514187" />
+      <entry key="M15" value="9.448049612723427" />
+      <entry key="M30" value="12.810695307601192" />
+      <entry key="H1" value="19.686924231071746" />
+      <entry key="H2" value="34.15152859974233" />
+      <entry key="H4" value="55.42652126152992" />
+      <entry key="D1" value="98.46373098746174" />
+      <entry key="W1" value="110.74337881672972" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.809688183906527" />
-      <entry key="MS500" value="3.1627163116472854" />
-      <entry key="S2" value="3.7516766316311183" />
-      <entry key="S5" value="3.896965456606586" />
-      <entry key="S10" value="3.951226596171593" />
-      <entry key="S30" value="4.874617742099725" />
-      <entry key="S60" value="8.038791314292295" />
-      <entry key="M2" value="13.267527880545963" />
-      <entry key="M5" value="25.831922923465882" />
-      <entry key="M10" value="43.47090385184046" />
-      <entry key="M15" value="57.79722380381731" />
-      <entry key="M30" value="99.44869012949816" />
-      <entry key="H1" value="187.60708417090203" />
-      <entry key="H2" value="351.95176474510265" />
-      <entry key="H4" value="587.8175009319051" />
-      <entry key="D1" value="1083.7427257105176" />
-      <entry key="W1" value="1229.936959343615" />
+      <entry key="MS100" value="0.9581521726397907" />
+      <entry key="MS500" value="1.4919322422622259" />
+      <entry key="S2" value="2.8534978816685843" />
+      <entry key="S5" value="4.455431638673928" />
+      <entry key="S10" value="7.102474944841085" />
+      <entry key="S30" value="14.236539671588623" />
+      <entry key="S60" value="20.056119917038217" />
+      <entry key="M2" value="27.153269994417453" />
+      <entry key="M5" value="41.21436409629506" />
+      <entry key="M10" value="59.5049332040075" />
+      <entry key="M15" value="74.1332787782771" />
+      <entry key="M30" value="116.10636432701031" />
+      <entry key="H1" value="204.3974136050788" />
+      <entry key="H2" value="368.8451888780192" />
+      <entry key="H4" value="604.9041288968272" />
+      <entry key="D1" value="1101.464283670151" />
+      <entry key="W1" value="1247.8918658451196" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -132,28 +118,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.run.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.run.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "fix-ai-issue",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/utils" />
@@ -200,7 +186,17 @@
       <workItem from="1783342969991" duration="36000" />
       <workItem from="1783363971010" duration="4000" />
       <workItem from="1783604477813" duration="2027000" />
+      <workItem from="1783612407257" duration="1071000" />
     </task>
+    <task id="LOCAL-00001" summary="fixing -ai issue">
+      <option name="closed" value="true" />
+      <created>1783612478770</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783612478770</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +206,9 @@
     <MESSAGE value="The listener no longer exits just because the signaling connection drops or the process remains idle." />
     <MESSAGE value="apply recursion in listener" />
     <MESSAGE value="add new banner for helper" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new banner for helper" />
+    <MESSAGE value="ollama provider implemented" />
+    <MESSAGE value="fixing -ai issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing -ai issue" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />

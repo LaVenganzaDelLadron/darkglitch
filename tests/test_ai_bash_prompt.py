@@ -99,3 +99,10 @@ def test_extract_command_text_handles_response_objects():
             self.response = text
 
     assert bash_prompt_module._extract_command_text(ResponseObject("```bash\nls -la /\n```")) == "ls -la /"
+
+
+def test_extract_command_text_finds_command_inside_explanatory_text():
+    import command.ai_bash.bash_prompt as bash_prompt_module
+
+    text = "You can use the following command: `ls -A /` to list folders."
+    assert bash_prompt_module._extract_command_text(text) == "ls -A /"

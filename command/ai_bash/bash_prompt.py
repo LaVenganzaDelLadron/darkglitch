@@ -33,6 +33,21 @@ def _extract_command_text(response):
 
     text = text.replace("```bash", "").replace("```", "").strip()
 
+    command_patterns = [
+        r"`([^`]+)`",
+        r"\\b(ls|find|pwd|whoami|ps|dir|tree|cat|echo|cd)\\b[^\\n]*",
+    ]
+
+    for pattern in command_patterns:
+        matches = re.findall(pattern, text, flags=re.IGNORECASE)
+        if matches:
+            candidate = matches[0]
+            if isinstance(candidate, tuple):
+                candidate = candidate[0]
+            candidate = str(candidate).strip()
+            if candidate and not candidate.lower().startswith(("here are", "you can", "this will", "if you want", "alternatively")):
+                return candidate
+
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     if not lines:
         return ""
