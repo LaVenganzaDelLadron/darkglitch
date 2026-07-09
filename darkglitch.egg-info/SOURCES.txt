@@ -2,6 +2,9 @@ LICENSE
 README.md
 darkglitch.py
 pyproject.toml
+ai/__init__.py
+ai/base.py
+ai/ollama_provider.py
 command/__init__.py
 command/ai_bash/__init__.py
 command/ai_bash/bash_prompt.py
@@ -35,6 +38,7 @@ signaling/peer.py
 signaling/signal.py
 tests/test_ai_bash_prompt.py
 tests/test_file_transfer.py
+tests/test_packaging.py
 utils/__init__.py
 utils/banner.py
 utils/colors.py

@@ -43,7 +43,7 @@ include-package-data = false
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["command*", "command_injection*", "core*", "media*", "signaling*", "utils*"]
+include = ["ai*", "command*", "command_injection*", "core*", "media*", "signaling*", "utils*"]
 exclude = ["tests*"]
 
 [tool.setuptools.dynamic]

@@ -33,6 +33,8 @@ else
     pip install websockets aiortc opencv-python Pillow
 fi
 
+pip install -e .
+
 echo
 echo "Virtual environment is ready at: $VENV_DIR"
 echo "Activate it with: source \"$VENV_DIR/bin/activate\""
@@ -69,4 +71,4 @@ else
     echo "$activate_line"
 fi
 
-exec "$PYTHON" main.py -l
+exec "$VENV_DIR/bin/darkglitch" -l
