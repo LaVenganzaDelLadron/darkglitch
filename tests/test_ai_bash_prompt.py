@@ -106,3 +106,27 @@ def test_extract_command_text_finds_command_inside_explanatory_text():
 
     text = "You can use the following command: `ls -A /` to list folders."
     assert bash_prompt_module._extract_command_text(text) == "ls -A /"
+
+
+def test_ollama_provider_extracts_text_from_response_objects(monkeypatch):
+    import sys
+    import types
+
+    import ai.ollama_provider as ollama_provider_module
+
+    class FakeResponse:
+        def __init__(self, text):
+            self.response = text
+
+    class FakeClient:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def generate(self, model, prompt):
+            return FakeResponse("ls -la /")
+
+    monkeypatch.setitem(sys.modules, "ollama", types.SimpleNamespace(Client=FakeClient))
+
+    provider = ollama_provider_module.OllamaProvider(host="http://127.0.0.1:11434", default_model="test-model")
+
+    assert provider.generate("list root folders") == "ls -la /"

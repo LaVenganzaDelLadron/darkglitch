@@ -40,4 +40,18 @@ class OllamaProvider(LLMProvider):
             if isinstance(response.get("content"), str):
                 return response["content"].strip()
 
+        for attr_name in ("response", "content"):
+            value = getattr(response, attr_name, None)
+            if isinstance(value, str):
+                return value.strip()
+
+        message = getattr(response, "message", None)
+        if isinstance(message, dict):
+            content = message.get("content")
+            if isinstance(content, str):
+                return content.strip()
+
+        if hasattr(message, "content") and isinstance(message.content, str):
+            return message.content.strip()
+
         return str(response).strip()

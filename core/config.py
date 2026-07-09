@@ -1,4 +1,4 @@
 # core/config.py
 
-HOST = "http://127.0.0.1:8000/"
+HOST = "https://malware-signal.vercel.app/"
 ROOM = "D4RKGLI7CH"

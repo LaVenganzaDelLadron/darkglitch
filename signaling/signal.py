@@ -58,7 +58,7 @@ class SignalClient:
         self.message_handler = None
 
     async def connect(self):
-        logger.info("Connecting to signaling bash: %s", self.url)
+        #logger.info("Connecting to signaling bash: %s", self.url)
         try:
             self.websocket = await websockets.connect(self.url)
         except Exception:
@@ -66,7 +66,7 @@ class SignalClient:
             raise
 
         await self._send_registration()
-        logger.info("Connected to signaling bash at %s", self.url)
+        #logger.info("Connected to signaling bash at %s", self.url)
         asyncio.create_task(self.listen())
         return self.websocket
 
@@ -75,10 +75,10 @@ class SignalClient:
             logger.warning("Listener started before a websocket connection existed")
             return
 
-        logger.info("Listening for inbound signaling messages")
+        #logger.info("Listening for inbound signaling messages")
         try:
             async for message in self.websocket:
-                logger.info("Incoming raw websocket message: %s", message)
+                #logger.info("Incoming raw websocket message: %s", message)
                 try:
                     data = json.loads(message)
                 except json.JSONDecodeError:
@@ -122,7 +122,7 @@ class SignalClient:
         payload = dict(packet)
         payload.setdefault("sender", str(self.client_id))
 
-        logger.info("Sending signaling payload: %s", payload)
+        #logger.info("Sending signaling payload: %s", payload)
 
         try:
             await self.websocket.send(json.dumps(payload))
@@ -140,7 +140,7 @@ class SignalClient:
             "username": self.username,
         }
 
-        logger.info("Sending registration payload: %s", registration)
+        #logger.info("Sending registration payload: %s", registration)
         await self.send(registration)
 
     async def close(self):
