@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fixing -ai issue">
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="update bash">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.egg-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.sh" beforeDir="false" afterPath="$PROJECT_DIR$/install.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="60" />
+    <option name="cachedIndexableFilesCount" value="61" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,61 +48,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6983810764839464" />
-      <entry key="MS500" value="3.0829986192157333" />
-      <entry key="S2" value="3.7261779477941257" />
-      <entry key="S5" value="3.886239367498517" />
-      <entry key="S10" value="3.9431467961069835" />
-      <entry key="S30" value="5.223194137060775" />
-      <entry key="S60" value="13.916497652129733" />
-      <entry key="M2" value="34.972422412032564" />
-      <entry key="M5" value="74.59747328426164" />
-      <entry key="M10" value="109.85379441525714" />
-      <entry key="M15" value="132.81352332574664" />
-      <entry key="M30" value="183.40091134089502" />
-      <entry key="H1" value="271.1172184060697" />
-      <entry key="H2" value="425.41628885832745" />
-      <entry key="H4" value="645.6125672502873" />
-      <entry key="D1" value="1114.446809864297" />
-      <entry key="W1" value="1254.0888335060479" />
+      <entry key="MS100" value="1.0013342845881916" />
+      <entry key="MS500" value="1.315725171008763" />
+      <entry key="S2" value="2.431939148135218" />
+      <entry key="S5" value="3.595706101106923" />
+      <entry key="S10" value="4.4773639466656086" />
+      <entry key="S30" value="5.392243258415303" />
+      <entry key="S60" value="5.681143682605286" />
+      <entry key="M2" value="5.836612398533501" />
+      <entry key="M5" value="5.933665768792314" />
+      <entry key="M10" value="5.970276778236332" />
+      <entry key="M15" value="6.1139923623568615" />
+      <entry key="M30" value="11.863077558704935" />
+      <entry key="H1" value="54.51563607241717" />
+      <entry key="H2" value="185.9677401011023" />
+      <entry key="H4" value="425.9176927064863" />
+      <entry key="D1" value="1043.3489097655763" />
+      <entry key="W1" value="1247.3107566241558" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="3.676519576321918E-139" />
-      <entry key="S5" value="4.664445780163192E-56" />
-      <entry key="S10" value="3.238171793952981E-28" />
-      <entry key="S30" value="1.95816461570679E-9" />
-      <entry key="S60" value="1.069026853816463E-4" />
-      <entry key="M2" value="0.026359463981602622" />
-      <entry key="M5" value="0.8596125969334415" />
-      <entry key="M10" value="3.1715315204497023" />
-      <entry key="M15" value="5.151819672196442" />
-      <entry key="M30" value="9.459799811512605" />
-      <entry key="H1" value="16.917356130684933" />
-      <entry key="H2" value="31.658290373992987" />
-      <entry key="H4" value="53.364970943267934" />
-      <entry key="D1" value="97.84366919177286" />
-      <entry key="W1" value="110.64348157009628" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="3.229558719344111E-297" />
+      <entry key="S30" value="4.214994042269563E-99" />
+      <entry key="S60" value="1.5684204564695427E-49" />
+      <entry key="M2" value="1.009656199535438E-24" />
+      <entry key="M5" value="9.28105930462051E-10" />
+      <entry key="M10" value="1.0421168554650919E-4" />
+      <entry key="M15" value="0.005285169401869147" />
+      <entry key="M30" value="0.30299193969563537" />
+      <entry key="H1" value="3.0276596748427025" />
+      <entry key="H2" value="13.392903528459023" />
+      <entry key="H4" value="34.70962474898987" />
+      <entry key="D1" value="91.07482333519934" />
+      <entry key="W1" value="109.51612344433205" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.655899341243413" />
-      <entry key="MS500" value="3.0646556531594817" />
-      <entry key="S2" value="3.7204334360589955" />
-      <entry key="S5" value="3.8838261078282006" />
-      <entry key="S10" value="3.9419195381133068" />
-      <entry key="S30" value="5.222439981993851" />
-      <entry key="S60" value="13.914620958473884" />
-      <entry key="M2" value="34.99505781908845" />
-      <entry key="M5" value="75.44801938257021" />
-      <entry key="M10" value="113.01110483735873" />
-      <entry key="M15" value="137.94974840513748" />
-      <entry key="M30" value="192.84454491734468" />
-      <entry key="H1" value="288.0184413987535" />
-      <entry key="H2" value="457.05890127130755" />
-      <entry key="H4" value="698.9639022310793" />
-      <entry key="D1" value="1212.286080267478" />
-      <entry key="W1" value="1364.7315955113422" />
+      <entry key="MS100" value="0.9672339470471043" />
+      <entry key="MS500" value="1.2964977381722402" />
+      <entry key="S2" value="2.3988725099362873" />
+      <entry key="S5" value="3.5741935226295434" />
+      <entry key="S10" value="4.464562542625246" />
+      <entry key="S30" value="5.387425672365674" />
+      <entry key="S60" value="5.678658652162157" />
+      <entry key="M2" value="5.835350197975068" />
+      <entry key="M5" value="5.933156081601659" />
+      <entry key="M10" value="5.970124870176278" />
+      <entry key="M15" value="6.119090918363969" />
+      <entry key="M30" value="12.165466305405015" />
+      <entry key="H1" value="57.540365715791175" />
+      <entry key="H2" value="199.35398976922374" />
+      <entry key="H4" value="460.6184376731777" />
+      <entry key="D1" value="1134.419636840351" />
+      <entry key="W1" value="1356.82616758098" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -192,7 +187,9 @@
       <workItem from="1783604477813" duration="2027000" />
       <workItem from="1783612407257" duration="1071000" />
       <workItem from="1783614884353" duration="1874000" />
-      <workItem from="1783616978616" duration="1386000" />
+      <workItem from="1783616978616" duration="1505000" />
+      <workItem from="1783671573753" duration="431000" />
+      <workItem from="1783719211830" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -202,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783612478770</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update bash">
+      <option name="closed" value="true" />
+      <created>1783626176785</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1783626176786</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +220,8 @@
     <MESSAGE value="ollama provider implemented" />
     <MESSAGE value="fixing -ai issue" />
     <MESSAGE value="implement gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement gitignore" />
+    <MESSAGE value="update bash" />
+    <option name="LAST_COMMIT_MESSAGE" value="update bash" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
