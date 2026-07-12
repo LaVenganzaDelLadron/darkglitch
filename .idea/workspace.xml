@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="update bash">
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="delete bash">
+      <change afterPath="$PROJECT_DIR$/glitch.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="61" />
+    <option name="cachedIndexableFilesCount" value="57" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -141,8 +143,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -190,6 +192,9 @@
       <workItem from="1783616978616" duration="1505000" />
       <workItem from="1783671573753" duration="431000" />
       <workItem from="1783719211830" duration="606000" />
+      <workItem from="1783768594448" duration="102000" />
+      <workItem from="1783813017431" duration="77000" />
+      <workItem from="1783816904468" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -207,7 +212,23 @@
       <option name="project" value="LOCAL" />
       <updated>1783626176786</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="remove the tests file">
+      <option name="closed" value="true" />
+      <created>1783768614376</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1783768614376</updated>
+    </task>
+    <task id="LOCAL-00004" summary="delete bash">
+      <option name="closed" value="true" />
+      <created>1783768660789</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783768660789</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +242,9 @@
     <MESSAGE value="fixing -ai issue" />
     <MESSAGE value="implement gitignore" />
     <MESSAGE value="update bash" />
-    <option name="LAST_COMMIT_MESSAGE" value="update bash" />
+    <MESSAGE value="remove the tests file" />
+    <MESSAGE value="delete bash" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete bash" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />

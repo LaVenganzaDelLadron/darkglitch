@@ -1,6 +1,12 @@
-# darkglitch
+<div align="center">
+  <img src="./glitch.gif" alt="darkglitch" />
 
-darkglitch is a lightweight Python proof-of-concept for remote command execution, file transfer, and media streaming over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
+  # darkglitch
+
+  darkglitch is a lightweight Python proof-of-concept for remote command execution, file transfer, and media streaming over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
+</div>
+
+
 
 ## What it supports
 
