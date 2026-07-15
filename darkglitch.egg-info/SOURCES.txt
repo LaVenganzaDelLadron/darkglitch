@@ -16,6 +16,8 @@ command/list/online_list.py
 command/listener/__init__.py
 command/listener/listen_bash.py
 command/listener/listen_stream.py
+command/run/build_exe.py
+command/run/listener_exe_entry.py
 command/transfer/__init__.py
 command/transfer/transfer_file.py
 command_injection/__init__.py
@@ -36,9 +38,6 @@ signaling/__init__.py
 signaling/handlers.py
 signaling/peer.py
 signaling/signal.py
-tests/test_ai_bash_prompt.py
-tests/test_file_transfer.py
-tests/test_packaging.py
 utils/__init__.py
 utils/banner.py
 utils/colors.py

