@@ -13,10 +13,12 @@ from command.list.online_list import online_list_mode
 from command.bash.bash_connect import bash_mode
 from command.bash.stream_connect import stream_mode
 from command.ai_bash.bash_prompt import bash_prompt
-
+from command.run.build_exe import build_listener_exe
 
 
 def dispatch_command(argv=None):
+
+
     args = list(sys.argv[1:] if argv is None else argv)
 
     if not args:
@@ -33,6 +35,10 @@ def dispatch_command(argv=None):
 
     if args[0] == "-l" and len(args) >= 2 and args[1] == "-c":
         return "listen"
+
+    if args[0] in ("-r", "--run"):
+        return "build_listener_exe"
+
 
     if args[0] == "-ai":
         return "generate_command"
@@ -72,6 +78,12 @@ def main():
         if command == "listen":
             asyncio.run(listen_bash_mode())
             return
+
+        if command == "build_listener_exe":
+            out = build_listener_exe()
+            print(f"[+] Listener EXE created: {out}")
+            return
+
 
         if command == "listen_stream":
             asyncio.run(listen_stream_mode())

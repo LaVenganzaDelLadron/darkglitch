@@ -3,3 +3,4 @@ aiortc
 opencv-python
 Pillow
 pillow
+pyinstaller
