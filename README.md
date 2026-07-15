@@ -52,9 +52,20 @@ ROOM = "your-room"
 
 ### 1. Start a listener (victim side)
 
+Start from source:
+
 ```bash
 python darkglitch.py -l -c
 ```
+
+Or generate a Windows EXE that auto-starts the same listener:
+
+```bash
+python darkglitch.py -r
+```
+
+The output is placed in `./dist/darkglitch_listener.exe` (built with `--noconsole`, so it should not pop a console window). 
+
 
 ### 2. List online peers (attacker side)
 
