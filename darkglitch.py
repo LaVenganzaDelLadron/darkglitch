@@ -39,7 +39,6 @@ def dispatch_command(argv=None):
     if args[0] in ("-r", "--run"):
         return "build_listener_exe"
 
-
     if args[0] == "-ai":
         return "generate_command"
 
