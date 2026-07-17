@@ -7,8 +7,6 @@ from signaling.signal import SignalClient
 from signaling.peer import Peer
 from media.local_media import LocalMedia
 
-from command_injection.injector import RemoteCommandHandler as ReceiverHandler
-
 
 async def listen_stream_mode():
     print("[+] Listen mode")

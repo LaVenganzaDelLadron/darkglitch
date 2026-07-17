@@ -8,10 +8,8 @@ if os.environ.get("XDG_SESSION_TYPE", "").lower() == "wayland":
     os.environ["QT_QPA_PLATFORM"] = "xcb"
 
 import cv2
-
 from core.client import client_id, username
 from core.config import ROOM, HOST
-
 from signaling.peer import Peer
 from signaling.signal import SignalClient
 

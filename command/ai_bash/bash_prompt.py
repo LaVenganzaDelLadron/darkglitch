@@ -1,4 +1,5 @@
 # command/ai_bash/bash_prompt.py
+
 from core.client import client_id, username
 from core.config import HOST, ROOM
 from signaling.signal import SignalClient

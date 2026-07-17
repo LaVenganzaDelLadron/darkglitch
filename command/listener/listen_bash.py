@@ -4,10 +4,7 @@ import asyncio
 
 from core.client import client_id, username
 from core.config import ROOM, HOST
-
 from signaling.signal import SignalClient
-from signaling.peer import Peer
-from media.local_media import LocalMedia
 
 from command_injection.injector import RemoteCommandHandler as ReceiverHandler
 

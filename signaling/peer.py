@@ -1,6 +1,6 @@
 # signaling/peer.py
-import asyncio
 
+import asyncio
 from aiortc import (
     RTCPeerConnection,
     RTCConfiguration,

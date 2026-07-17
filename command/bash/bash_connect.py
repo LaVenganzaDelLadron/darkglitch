@@ -1,11 +1,10 @@
 # command/bash/bash_connect.py
-import asyncio
 
 from signaling.signal import SignalClient
 from core.config import HOST, ROOM
 from core.client import client_id, username
-
 from command_injection.injector import RemoteCommandHandler as SenderHandler
+
 
 async def bash_mode(target, command):
     print("[+] Bash Mode")

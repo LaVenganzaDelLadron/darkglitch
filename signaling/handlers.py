@@ -1,6 +1,5 @@
 # signaling/handlers.py
 
-
 class OnlineHandler:
     def __init__(self, client_id):
         self.client_id = client_id
