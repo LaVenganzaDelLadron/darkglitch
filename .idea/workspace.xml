@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="update">
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="remove unnecessary imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/bash_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/bash_connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/stream_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/stream_connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listener/listen_bash.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/listener/listen_bash.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listener/listen_stream.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/listener/listen_stream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command_injection/injector.py" beforeDir="false" afterPath="$PROJECT_DIR$/command_injection/injector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/receiver_media.py" beforeDir="false" afterPath="$PROJECT_DIR$/media/receiver_media.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/peer.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/peer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/signaling/signal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="64" />
+    <option name="cachedIndexableFilesCount" value="62" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -59,61 +49,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.053289703321438" />
-      <entry key="MS500" value="1.5871850456248582" />
-      <entry key="S2" value="2.636140025510202" />
-      <entry key="S5" value="4.9087843320661015" />
-      <entry key="S10" value="8.002966045775372" />
-      <entry key="S30" value="18.43985304744886" />
-      <entry key="S60" value="29.894775113228008" />
-      <entry key="M2" value="41.90888113291587" />
-      <entry key="M5" value="57.84239583963146" />
-      <entry key="M10" value="68.97501485533434" />
-      <entry key="M15" value="74.24129783256352" />
-      <entry key="M30" value="85.00158645164375" />
-      <entry key="H1" value="126.92565264070751" />
-      <entry key="H2" value="255.20252272208953" />
-      <entry key="H4" value="494.17968883684944" />
-      <entry key="D1" value="1119.8766036558397" />
-      <entry key="W1" value="1328.3781409036144" />
+      <entry key="MS100" value="1.0040773791557633" />
+      <entry key="MS500" value="1.4278394306723028" />
+      <entry key="S2" value="3.0752892463148997" />
+      <entry key="S5" value="4.73891312111732" />
+      <entry key="S10" value="5.711003056755707" />
+      <entry key="S30" value="8.626279650288062" />
+      <entry key="S60" value="16.855224025528784" />
+      <entry key="M2" value="31.236161926239838" />
+      <entry key="M5" value="53.50833114759666" />
+      <entry key="M10" value="68.85739082230937" />
+      <entry key="M15" value="76.04372755997447" />
+      <entry key="M30" value="88.97372069992745" />
+      <entry key="H1" value="131.64670970105195" />
+      <entry key="H2" value="259.9032316642845" />
+      <entry key="H4" value="498.9494456387065" />
+      <entry key="D1" value="1126.032900668166" />
+      <entry key="W1" value="1335.235129993712" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="5.1287139528888325E-96" />
-      <entry key="S5" value="7.656025847998377E-39" />
-      <entry key="S10" value="8.749871912204419E-20" />
-      <entry key="S30" value="4.439498345813716E-7" />
-      <entry key="S60" value="6.662956060048508E-4" />
-      <entry key="M2" value="0.02581270241576519" />
-      <entry key="M5" value="0.23159724573488255" />
-      <entry key="M10" value="0.4812953656709549" />
-      <entry key="M15" value="0.6173402702875577" />
-      <entry key="M30" value="1.0206146006305246" />
-      <entry key="H1" value="3.562762499503941" />
-      <entry key="H2" value="13.53557015062913" />
-      <entry key="H4" value="34.62939017821105" />
-      <entry key="D1" value="91.60457756210646" />
-      <entry key="W1" value="110.43531242575503" />
+      <entry key="S2" value="3.74013523992289E-110" />
+      <entry key="S5" value="1.6949423161305724E-44" />
+      <entry key="S10" value="1.3018995030840792E-22" />
+      <entry key="S30" value="5.0682631253072047E-8" />
+      <entry key="S60" value="2.2512803302359298E-4" />
+      <entry key="M2" value="0.0150042671604978" />
+      <entry key="M5" value="0.18641717219379422" />
+      <entry key="M10" value="0.43180527426091" />
+      <entry key="M15" value="0.5742602860269909" />
+      <entry key="M30" value="0.9843597890417304" />
+      <entry key="H1" value="3.4989111653115703" />
+      <entry key="H2" value="13.413730480971031" />
+      <entry key="H4" value="34.47318060646875" />
+      <entry key="D1" value="91.53557797613549" />
+      <entry key="W1" value="110.42342522843516" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9558805820051028" />
-      <entry key="MS500" value="1.5566780871950208" />
-      <entry key="S2" value="2.6206916783088148" />
-      <entry key="S5" value="4.891743925615229" />
-      <entry key="S10" value="7.980269487343133" />
-      <entry key="S30" value="18.411726965281797" />
-      <entry key="S60" value="29.87386463333567" />
-      <entry key="M2" value="41.92075718110719" />
-      <entry key="M5" value="58.06646738534311" />
-      <entry key="M10" value="69.45172287795945" />
-      <entry key="M15" value="74.85529786655293" />
-      <entry key="M30" value="86.0199619269421" />
-      <entry key="H1" value="130.48489492660156" />
-      <entry key="H2" value="268.73135875748164" />
-      <entry key="H4" value="528.8002262954492" />
-      <entry key="D1" value="1211.4770651538056" />
-      <entry key="W1" value="1438.8127355335366" />
+      <entry key="MS100" value="0.9699022119331621" />
+      <entry key="MS500" value="1.4185513509699583" />
+      <entry key="S2" value="3.070176050066279" />
+      <entry key="S5" value="4.73558686211291" />
+      <entry key="S10" value="5.708925991998879" />
+      <entry key="S30" value="8.622278000331358" />
+      <entry key="S60" value="16.8477478255738" />
+      <entry key="M2" value="31.242855624664326" />
+      <entry key="M5" value="53.68860592110552" />
+      <entry key="M10" value="69.28503788029226" />
+      <entry key="M15" value="76.61485228112745" />
+      <entry key="M30" value="89.95590667379051" />
+      <entry key="H1" value="135.14215662221812" />
+      <entry key="H2" value="273.3102850859447" />
+      <entry key="H4" value="533.4138116785502" />
+      <entry key="D1" value="1217.5643653836903" />
+      <entry key="W1" value="1445.6578374611731" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -214,7 +204,9 @@
       <workItem from="1784212549721" duration="19000" />
       <workItem from="1784212601983" duration="147000" />
       <workItem from="1784227215053" duration="21000" />
-      <workItem from="1784293586845" duration="207000" />
+      <workItem from="1784293586845" duration="365000" />
+      <workItem from="1784294090194" duration="366000" />
+      <workItem from="1784295272335" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -280,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784211206772</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="remove unnecessary imports">
+      <option name="closed" value="true" />
+      <created>1784293836739</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1784293836739</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +311,8 @@
     <MESSAGE value="Automate supply chaing" />
     <MESSAGE value="update version" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="remove unnecessary imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary imports" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
