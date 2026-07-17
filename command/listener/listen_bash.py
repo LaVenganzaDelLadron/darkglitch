@@ -6,7 +6,7 @@ from core.client import client_id, username
 from core.config import ROOM, HOST
 from signaling.signal import SignalClient
 
-from command_injection.injector import RemoteCommandHandler as ReceiverHandler
+from injector.command_injector import RemoteCommandHandler as ReceiverHandler
 
 
 async def listen_bash_mode():

@@ -7,7 +7,7 @@ from pathlib import Path
 from core.client import client_id, username
 from core.config import HOST, ROOM
 from signaling.signal import SignalClient
-from command_injection.injector import RemoteCommandHandler as SenderHandler
+from injector.command_injector import RemoteCommandHandler as SenderHandler
 
 
 def build_transfer_payload(source_path, remote_path, mode="upload"):

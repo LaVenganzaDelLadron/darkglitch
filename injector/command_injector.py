@@ -1,4 +1,4 @@
-# command_injection/injector.py
+# injector/command_injector.py
 
 import asyncio
 import json

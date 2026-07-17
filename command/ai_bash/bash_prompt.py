@@ -3,7 +3,7 @@
 from core.client import client_id, username
 from core.config import HOST, ROOM
 from signaling.signal import SignalClient
-from command_injection.injector import RemoteCommandHandler as SenderHandler
+from injector.command_injector import RemoteCommandHandler as SenderHandler
 from ai.ollama_provider import OllamaProvider
 
 
@@ -94,7 +94,7 @@ def _fallback_command(prompt):
     return "whoami"
 
 
-async def bash_prompt(target, prompt, provider=None):
+async def bash_prompt_mode(target, prompt, provider=None):
     print("[+] Bash Prompt")
 
     generated_command = ""
