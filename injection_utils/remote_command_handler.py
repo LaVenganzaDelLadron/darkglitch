@@ -47,6 +47,8 @@ class RemoteCommandHandler:
         await self.signal.send(packet)
 
         if wait_for_result:
+            if future is None:
+                raise RuntimeError("RESULT FUTURE WAS NOT CREATED")
             try:
                 return await asyncio.wait_for(future, timeout=timeout)
             except asyncio.TimeoutError:

