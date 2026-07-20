@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fix the -l -b and -ol command">
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fixed the -b &lt;command&gt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/injection_utils/remote_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/injection_utils/remote_command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/malware_signal/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/malware_signal/signal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/version.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,61 +63,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000621361533" />
-      <entry key="MS500" value="1.039427210226564" />
-      <entry key="S2" value="1.6745886012761773" />
-      <entry key="S5" value="2.2814399449969036" />
-      <entry key="S10" value="2.6229714485927342" />
-      <entry key="S30" value="3.3296168084754583" />
-      <entry key="S60" value="3.990308852974761" />
-      <entry key="M2" value="4.683637203886585" />
-      <entry key="M5" value="7.497218476130023" />
-      <entry key="M10" value="24.290089420350707" />
-      <entry key="M15" value="51.116508700788785" />
-      <entry key="M30" value="155.59365599548735" />
-      <entry key="H1" value="397.5954090861086" />
-      <entry key="H2" value="805.7574024235403" />
-      <entry key="H4" value="1332.6064423760392" />
-      <entry key="D1" value="2565.6302039707753" />
-      <entry key="W1" value="2994.7714311835666" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000036846" />
+      <entry key="S2" value="1.0072315089724482" />
+      <entry key="S5" value="1.6435890138479872" />
+      <entry key="S10" value="4.660003979600763" />
+      <entry key="S30" value="16.762451781128007" />
+      <entry key="S60" value="25.401058910753466" />
+      <entry key="M2" value="32.896964551628955" />
+      <entry key="M5" value="41.6189796628882" />
+      <entry key="M10" value="49.32715734109301" />
+      <entry key="M15" value="59.951065750238094" />
+      <entry key="M30" value="121.68584054468856" />
+      <entry key="H1" value="318.24707716445573" />
+      <entry key="H2" value="711.6570196361845" />
+      <entry key="H4" value="1259.4029281936464" />
+      <entry key="D1" value="2582.477565391888" />
+      <entry key="W1" value="3049.1893249290933" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="3.988095431667188E-145" />
-      <entry key="S10" value="8.511722114892955E-73" />
-      <entry key="S30" value="1.8312687149508328E-24" />
-      <entry key="S60" value="3.2221588547603055E-12" />
-      <entry key="M2" value="5.393545696344237E-6" />
-      <entry key="M5" value="0.04151959588776917" />
-      <entry key="M10" value="1.1233278090951613" />
-      <entry key="M15" value="4.066176914087082" />
-      <entry key="M30" value="20.07210497797206" />
-      <entry key="H1" value="57.11954696542263" />
-      <entry key="H2" value="110.66970203729711" />
-      <entry key="H4" value="170.60925715505644" />
-      <entry key="D1" value="295.65366394528075" />
-      <entry key="W1" value="337.0475354713713" />
+      <entry key="S5" value="7.627110242186444E-278" />
+      <entry key="S10" value="3.72232832820007E-139" />
+      <entry key="S30" value="1.3900096746434576E-46" />
+      <entry key="S60" value="2.807241794755409E-23" />
+      <entry key="M2" value="1.5919917006249122E-11" />
+      <entry key="M5" value="2.548470980001554E-4" />
+      <entry key="M10" value="0.0880075229896499" />
+      <entry key="M15" value="0.7444950168142" />
+      <entry key="M30" value="8.58876425066392" />
+      <entry key="H1" value="37.36402340647471" />
+      <entry key="H2" value="89.5082737181587" />
+      <entry key="H4" value="153.43336589229767" />
+      <entry key="D1" value="290.47101491576177" />
+      <entry key="W1" value="336.19708753271897" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.7684376380619518" />
-      <entry key="MS500" value="0.9860534924321857" />
-      <entry key="S2" value="1.6527747939716138" />
-      <entry key="S5" value="2.269586277206666" />
-      <entry key="S10" value="2.6161210033306346" />
-      <entry key="S30" value="3.326310966231667" />
-      <entry key="S60" value="3.987716738389192" />
-      <entry key="M2" value="4.681503550976557" />
-      <entry key="M5" value="7.53638583088744" />
-      <entry key="M10" value="25.40617444450343" />
-      <entry key="M15" value="55.168212012592306" />
-      <entry key="M30" value="175.63296202866414" />
-      <entry key="H1" value="454.6656421861667" />
-      <entry key="H2" value="916.3760127020197" />
-      <entry key="H4" value="1503.1746392448579" />
-      <entry key="D1" value="2861.2714129587057" />
-      <entry key="W1" value="3331.816913556264" />
+      <entry key="MS100" value="0.9075191553171609" />
+      <entry key="MS500" value="0.9807790039922128" />
+      <entry key="S2" value="1.0023785714903084" />
+      <entry key="S5" value="1.6411734998883036" />
+      <entry key="S10" value="4.657642131180612" />
+      <entry key="S30" value="16.76000279748537" />
+      <entry key="S60" value="25.39918308772766" />
+      <entry key="M2" value="32.8956819618863" />
+      <entry key="M5" value="41.618501598531076" />
+      <entry key="M10" value="49.41416403737973" />
+      <entry key="M15" value="60.692596179450774" />
+      <entry key="M30" value="130.26039557164415" />
+      <entry key="H1" value="355.5787495155686" />
+      <entry key="H2" value="801.1239228291593" />
+      <entry key="H4" value="1412.7993429806104" />
+      <entry key="D1" value="2872.936339528506" />
+      <entry key="W1" value="3385.384363949033" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -239,7 +238,7 @@
       <workItem from="1784526958559" duration="66000" />
       <workItem from="1784529638697" duration="622000" />
       <workItem from="1784542866994" duration="528000" />
-      <workItem from="1784558094500" duration="1694000" />
+      <workItem from="1784558094500" duration="3600000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -337,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784507487813</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed the -b &lt;command&gt;">
+      <option name="closed" value="true" />
+      <created>1784560020808</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1784560020808</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +379,8 @@
     <MESSAGE value="update my config.py" />
     <MESSAGE value="fixing -all option issue" />
     <MESSAGE value="Refactored Simulation Malware Supply Chain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Simulation Malware Supply Chain" />
+    <MESSAGE value="fixed the -b &lt;command&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the -b &lt;command&gt;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
