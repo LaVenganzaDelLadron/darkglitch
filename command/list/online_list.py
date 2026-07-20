@@ -10,13 +10,11 @@ async def online_list_mode():
     print("[+] ONLINE LIST MODE")
     signal = SignalClient(ROOM, client_id, HOST, username=username)
 
-    await signal.connect()
-    await signal.add_handler(OnlineHandler(client_id))
-    await signal.send({"type": "get_online"})
-
     try:
-        while True:
-            await asyncio.sleep(1)
+        signal.add_handler(OnlineHandler(client_id))
+        await signal.connect()
+        await signal.send({"type": "get_online"})
+        await signal.listen()
     except asyncio.CancelledError:
         pass
     finally:
