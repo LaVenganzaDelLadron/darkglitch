@@ -1,9 +1,0 @@
-ai
-command
-command_injection
-core
-darkglitch
-helper
-media
-signaling
-utils

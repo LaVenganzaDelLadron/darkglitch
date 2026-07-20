@@ -4,19 +4,64 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="update my config.py">
-      <change afterPath="$PROJECT_DIR$/command/bash/bash_all.py" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fixing -all option issue">
+      <change afterPath="$PROJECT_DIR$/command/listen/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/command/listen/listener.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/command/transfer/file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/ai/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/ai/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/ai/ollama/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/ai/ollama/ollama_provider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/data/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/injection_utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/injection_utils/remote_command_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/malware_signal/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/malware_signal/handler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/malware_signal/handler/debug_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/malware_signal/handler/online_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/malware_signal/peer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/malware_signal/signal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transfer_utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transfer_utils/transfer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/bash_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/bash_connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listener/listen_bash.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/listener/listen_bash.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/transfer/transfer_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/transfer/transfer_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command_injection/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/injector/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command_injection/injector.py" beforeDir="false" afterPath="$PROJECT_DIR$/injector/command_injector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai/ollama_provider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/ai_bash/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_utils/ai.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/bash/bash_all.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/bash/bash_connect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/bash/stream_connect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/list/online_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/list/online_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/listener/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/shell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/listener/listen_bash.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/listener/listen_stream.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/run/build_exe.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/run/listener_exe_entry.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/transfer/transfer_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/requires.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/top_level.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/injector/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/injector/command_injector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/media/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/local_media.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/receiver_media.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/handlers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/peer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signaling/signal.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/version.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +69,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="62" />
+    <option name="cachedIndexableFilesCount" value="43" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,7 +81,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="comments" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,61 +104,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000000007" />
-      <entry key="MS500" value="1.0009105129048308" />
-      <entry key="S2" value="1.2332882888984866" />
-      <entry key="S5" value="1.8432195975056025" />
-      <entry key="S10" value="2.661835550922064" />
-      <entry key="S30" value="5.490213469309885" />
-      <entry key="S60" value="8.046993806514998" />
-      <entry key="M2" value="11.65179244514868" />
-      <entry key="M5" value="24.62567648011263" />
-      <entry key="M10" value="55.21689541821243" />
-      <entry key="M15" value="86.67787953855779" />
-      <entry key="M30" value="156.51852729840442" />
-      <entry key="H1" value="243.33275559368232" />
-      <entry key="H2" value="391.75422469705" />
-      <entry key="H4" value="644.6071844883793" />
-      <entry key="D1" value="1322.0619947407708" />
-      <entry key="W1" value="1553.7021193669293" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000000000022" />
+      <entry key="S5" value="1.0000054922295438" />
+      <entry key="S10" value="1.009848396382111" />
+      <entry key="S30" value="2.672354387694256" />
+      <entry key="S60" value="7.502041095000363" />
+      <entry key="M2" value="16.55134680813962" />
+      <entry key="M5" value="42.238059641362234" />
+      <entry key="M10" value="81.37027354539875" />
+      <entry key="M15" value="119.38425627950504" />
+      <entry key="M30" value="242.90483776745597" />
+      <entry key="H1" value="500.3194681821403" />
+      <entry key="H2" value="895.8509683598297" />
+      <entry key="H4" value="1386.5903191858545" />
+      <entry key="D1" value="2524.3690709671314" />
+      <entry key="W1" value="2917.854962957637" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.106084566498843E-96" />
-      <entry key="MS500" value="7.914849389250063E-20" />
-      <entry key="S2" value="1.677299678694706E-5" />
-      <entry key="S5" value="0.012298294346360539" />
-      <entry key="S10" value="0.11111376723317014" />
-      <entry key="S30" value="0.603332936294115" />
-      <entry key="S60" value="1.3016751024944462" />
-      <entry key="M2" value="2.2867945436904544" />
-      <entry key="M5" value="4.813283161086964" />
-      <entry key="M10" value="9.826821324894153" />
-      <entry key="M15" value="14.33223144595823" />
-      <entry key="M30" value="22.940682060873705" />
-      <entry key="H1" value="31.45882589362223" />
-      <entry key="H2" value="44.11067541882485" />
-      <entry key="H4" value="66.54311590228615" />
-      <entry key="D1" value="128.1044403148248" />
-      <entry key="W1" value="149.01483313192048" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.281566706187771E-196" />
+      <entry key="S2" value="1.1003814781504037E-49" />
+      <entry key="S5" value="3.24245841465961E-20" />
+      <entry key="S10" value="2.427011717120454E-10" />
+      <entry key="S30" value="0.0012053233080858768" />
+      <entry key="S60" value="0.08266519357199678" />
+      <entry key="M2" value="0.8638975300130921" />
+      <entry key="M5" value="5.012891049508431" />
+      <entry key="M10" value="12.343095362295585" />
+      <entry key="M15" value="20.09700402989406" />
+      <entry key="M30" value="44.623686346395935" />
+      <entry key="H1" value="85.16693470460805" />
+      <entry key="H2" value="135.1362526911851" />
+      <entry key="H4" value="188.52726084345676" />
+      <entry key="D1" value="300.61583936579166" />
+      <entry key="W1" value="337.8499136031214" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9265880618903716" />
-      <entry key="MS500" value="0.9857644384736934" />
-      <entry key="S2" value="1.228707109596754" />
-      <entry key="S5" value="1.8489448643209971" />
-      <entry key="S10" value="2.7443863778892887" />
-      <entry key="S30" value="6.031279937155029" />
-      <entry key="S60" value="9.285014392468062" />
-      <entry key="M2" value="13.884538143299032" />
-      <entry key="M5" value="29.393580646423487" />
-      <entry key="M10" value="64.99805584566205" />
-      <entry key="M15" value="100.966692092626" />
-      <entry key="M30" value="179.42562754733694" />
-      <entry key="H1" value="274.768686164366" />
-      <entry key="H2" value="435.8479289679625" />
-      <entry key="H4" value="711.1362520119692" />
-      <entry key="D1" value="1450.1612993668907" />
-      <entry key="W1" value="1702.7160768075812" />
+      <entry key="MS100" value="0.7422617853145246" />
+      <entry key="MS500" value="0.9421312739048088" />
+      <entry key="S2" value="0.9852078307492034" />
+      <entry key="S5" value="0.9940621542039354" />
+      <entry key="S10" value="1.0068676458910735" />
+      <entry key="S30" value="2.6722153647808025" />
+      <entry key="S60" value="7.581400482304108" />
+      <entry key="M2" value="17.400991490582847" />
+      <entry key="M5" value="47.21295742014712" />
+      <entry key="M10" value="93.65991114938521" />
+      <entry key="M15" value="139.42148033095694" />
+      <entry key="M30" value="287.45983863868827" />
+      <entry key="H1" value="585.4147117066994" />
+      <entry key="H2" value="1030.9256946488404" />
+      <entry key="H4" value="1575.0726244539676" />
+      <entry key="D1" value="2824.9723140879146" />
+      <entry key="W1" value="3255.7028282118504" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -139,9 +184,9 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fix-all-command&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/darkglitch/Documents/MyProject/portfolio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/darkglitch/.config&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -153,6 +198,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/data" />
+      <recent name="$PROJECT_DIR$/malware_signal/handler" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/utils" />
     </key>
@@ -217,7 +264,16 @@
       <workItem from="1784293586845" duration="365000" />
       <workItem from="1784294090194" duration="366000" />
       <workItem from="1784295272335" duration="22000" />
-      <workItem from="1784308639568" duration="2717000" />
+      <workItem from="1784308639568" duration="3265000" />
+      <workItem from="1784322649018" duration="28000" />
+      <workItem from="1784326526945" duration="20000" />
+      <workItem from="1784406346756" duration="1802000" />
+      <workItem from="1784408911211" duration="4059000" />
+      <workItem from="1784413174825" duration="1795000" />
+      <workItem from="1784416003436" duration="5000" />
+      <workItem from="1784427269381" duration="571000" />
+      <workItem from="1784449890015" duration="36000" />
+      <workItem from="1784477190763" duration="6236000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -299,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784308678152</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixing -all option issue">
+      <option name="closed" value="true" />
+      <created>1784311478987</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1784311478987</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +396,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="remove unnecessary imports" />
     <MESSAGE value="update my config.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="update my config.py" />
+    <MESSAGE value="fixing -all option issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing -all option issue" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
