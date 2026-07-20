@@ -4,64 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fixing -all option issue">
-      <change afterPath="$PROJECT_DIR$/command/listen/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/listen/listener.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/transfer/file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/ai/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/ai/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/ai/ollama/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/ai/ollama/ollama_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/data/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/injection_utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/injection_utils/remote_command_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/malware_signal/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/malware_signal/handler/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/malware_signal/handler/debug_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/malware_signal/handler/online_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/malware_signal/peer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/malware_signal/signal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transfer_utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transfer_utils/transfer.py" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="Refactored Simulation Malware Supply Chain">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai/ollama_provider.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/ai_bash/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_utils/ai.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/ai_bash/bash_prompt.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/bash_all.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/bash_connect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/bash/stream_connect.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/command/list/online_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/list/online_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listener/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/bash/shell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listener/listen_bash.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/listener/listen_stream.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/run/build_exe.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/run/listener_exe_entry.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/transfer/transfer_file.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/SOURCES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/requires.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.egg-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/injector/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/injector/command_injector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/media/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/local_media.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/receiver_media.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/handlers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/peer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signaling/signal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/listen/listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/command/listen/listener.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/malware_signal/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/malware_signal/signal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="43" />
+    <option name="cachedIndexableFilesCount" value="54" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -274,6 +221,7 @@
       <workItem from="1784427269381" duration="571000" />
       <workItem from="1784449890015" duration="36000" />
       <workItem from="1784477190763" duration="6236000" />
+      <workItem from="1784507447117" duration="1380000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -363,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784311478987</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Refactored Simulation Malware Supply Chain">
+      <option name="closed" value="true" />
+      <created>1784507487813</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1784507487813</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +353,8 @@
     <MESSAGE value="remove unnecessary imports" />
     <MESSAGE value="update my config.py" />
     <MESSAGE value="fixing -all option issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing -all option issue" />
+    <MESSAGE value="Refactored Simulation Malware Supply Chain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Simulation Malware Supply Chain" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
