@@ -41,7 +41,7 @@ pip install ollama
 
 ## Configuration
 
-Edit [core/config.py](core/config.py) to point the client at your signaling server and room:
+Edit [core/config.py](core/data/config.py) to point the client at your signaling server and room:
 
 ```python
 HOST = "https://your-signal-server.example/"
@@ -55,13 +55,7 @@ ROOM = "your-room"
 Start from source:
 
 ```bash
-python darkglitch.py -l -c
-```
-
-Or generate a Windows EXE that auto-starts the same listener:
-
-```bash
-python darkglitch.py -r
+python darkglitch.py -l -b
 ```
 
 The output is placed in `./dist/darkglitch_listener.exe` (built with `--noconsole`, so it should not pop a console window). 
@@ -92,12 +86,6 @@ This uses an Ollama-backed provider to turn your prompt into a shell command bef
 ```bash
 python darkglitch.py -u <client_id> /path/to/local/file /path/to/remote/file
 python darkglitch.py -d <client_id> /path/to/remote/file /path/to/local/file
-```
-
-### 6. Request a media stream
-
-```bash
-python darkglitch.py -s <client_id>
 ```
 
 ### Help and version

