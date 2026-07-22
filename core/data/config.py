@@ -3,5 +3,5 @@ import os
 
 from dotenv import load_dotenv
 
-HOST = os.getenv("HOST")
-ROOM = os.getenv("ROOM")
+HOST = "https://malware-signal.vercel.app"
+ROOM = "D4RKGLI7CH"
