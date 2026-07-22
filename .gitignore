@@ -9,6 +9,9 @@ __pycache__/
 venv/
 env/
 
+# Environment
+.env/
+
 # Packaging / build artifacts
 build/
 dist/

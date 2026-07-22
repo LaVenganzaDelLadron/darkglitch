@@ -1,3 +1,7 @@
 #core/client.py
-HOST = "https://malware-signal.vercel.app"
-ROOM = "D4RKGLI7CH"
+import os
+
+from dotenv import load_dotenv
+
+HOST = os.getenv("HOST")
+ROOM = os.getenv("ROOM")

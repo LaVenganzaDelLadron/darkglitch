@@ -21,7 +21,7 @@
 
 - Python 3.10+
 - dependencies from requirements.txt
-- an Ollama instance if you want to use the AI prompt mode
+- a Groq API key if you want to use the AI prompt mode
 
 ## Installation
 
@@ -33,10 +33,11 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-If you want to use the AI prompt mode, install the Ollama Python client as well:
+If you want to use the AI prompt mode, install the OpenAI Python client (used with
+Groq's OpenAI-compatible API):
 
 ```bash
-pip install ollama
+pip install openai
 ```
 
 ## Configuration
@@ -79,7 +80,7 @@ python darkglitch.py -c <client_id> "whoami"
 python darkglitch.py -ai <client_id> "list all folders in root"
 ```
 
-This uses an Ollama-backed provider to turn your prompt into a shell command before executing it remotely. If Ollama is unavailable or the model returns something unusable, the tool falls back to a simple built-in command.
+This uses a Groq-backed provider to turn your prompt into a shell command before executing it remotely. If Groq is unavailable or the model returns something unusable, the tool falls back to a simple built-in command.
 
 ### 5. Upload or download files
 
@@ -97,18 +98,17 @@ python darkglitch.py -v
 
 ## AI setup
 
-If you want to use the AI prompt mode, make sure Ollama is installed and running:
+If you want to use the AI prompt mode, export your Groq API key:
 
 ```bash
-ollama serve
-ollama pull llama3.2:3b
+export GROQ_API_KEY="your-groq-api-key"
 ```
 
 You can override the default model and timeout if needed:
 
 ```bash
-export OLLAMA_MODEL=llama3.2:3b
-export OLLAMA_TIMEOUT=60
+export GROQ_MODEL=openai/gpt-oss-20b
+export GROQ_TIMEOUT=60
 ```
 
 ## Notes
