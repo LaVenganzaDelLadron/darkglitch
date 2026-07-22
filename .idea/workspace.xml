@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="use an ai pipeline for lightweight ai model">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="rollback configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/version.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="68" />
+    <option name="cachedIndexableFilesCount" value="67" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,61 +61,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000001226839648" />
-      <entry key="S5" value="1.0048232945959157" />
-      <entry key="S10" value="1.2103793764851971" />
-      <entry key="S30" value="3.8825947883658047" />
-      <entry key="S60" value="6.80819851051403" />
-      <entry key="M2" value="10.933242784689265" />
-      <entry key="M5" value="22.53585539631261" />
-      <entry key="M10" value="40.798406836192086" />
-      <entry key="M15" value="57.358076628626186" />
-      <entry key="M30" value="115.35683978806541" />
-      <entry key="H1" value="290.01107195238245" />
-      <entry key="H2" value="669.9835326741136" />
-      <entry key="H4" value="1227.9946579461332" />
-      <entry key="D1" value="2613.206818406057" />
-      <entry key="W1" value="3107.556049049859" />
+      <entry key="MS100" value="1.0000242146839233" />
+      <entry key="MS500" value="1.2688648802966562" />
+      <entry key="S2" value="4.119038403163521" />
+      <entry key="S5" value="8.610670058033678" />
+      <entry key="S10" value="17.629732011907404" />
+      <entry key="S30" value="40.75827615096131" />
+      <entry key="S60" value="54.56785547853523" />
+      <entry key="M2" value="66.04693146423169" />
+      <entry key="M5" value="82.79136052812838" />
+      <entry key="M10" value="102.94673820428207" />
+      <entry key="M15" value="120.21034830835032" />
+      <entry key="M30" value="178.77961638039415" />
+      <entry key="H1" value="353.21795610095774" />
+      <entry key="H2" value="732.9495436909446" />
+      <entry key="H4" value="1291.2745613962347" />
+      <entry key="D1" value="2678.25551860373" />
+      <entry key="W1" value="3173.3947582470787" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="2.824222727173108E-187" />
-      <entry key="S30" value="1.2677858835571654E-62" />
-      <entry key="S60" value="2.680981798199133E-31" />
-      <entry key="M2" value="1.5557787007326597E-15" />
-      <entry key="M5" value="6.342821672110445E-6" />
-      <entry key="M10" value="0.013884210907808784" />
-      <entry key="M15" value="0.21736822791678692" />
-      <entry key="M30" value="4.640853050061463" />
-      <entry key="H1" value="27.4654806014816" />
-      <entry key="H2" value="76.74144367755392" />
-      <entry key="H4" value="142.07026946336265" />
-      <entry key="D1" value="286.7697696479255" />
-      <entry key="W1" value="335.5817336359242" />
+      <entry key="S10" value="1.2673209755819273E-188" />
+      <entry key="S30" value="4.5051418675051005E-63" />
+      <entry key="S60" value="1.5981779902704459E-31" />
+      <entry key="M2" value="1.2011948498131972E-15" />
+      <entry key="M5" value="5.719377432412407E-6" />
+      <entry key="M10" value="0.013184216626114213" />
+      <entry key="M15" value="0.20999944654611488" />
+      <entry key="M30" value="4.56151239820909" />
+      <entry key="H1" value="27.22969170046551" />
+      <entry key="H2" value="76.41132413436189" />
+      <entry key="H4" value="141.76436748436032" />
+      <entry key="D1" value="286.66676634107705" />
+      <entry key="W1" value="335.5645115823117" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9265880618903709" />
-      <entry key="MS500" value="0.9848664428955506" />
-      <entry key="S2" value="0.9961950676490284" />
-      <entry key="S5" value="1.0031812178484067" />
-      <entry key="S10" value="1.20656466714674" />
-      <entry key="S30" value="3.8673673857481417" />
-      <entry key="S60" value="6.793202596564465" />
-      <entry key="M2" value="10.921294685273125" />
-      <entry key="M5" value="22.523865916653353" />
-      <entry key="M10" value="40.80093980223501" />
-      <entry key="M15" value="57.564945709942194" />
-      <entry key="M30" value="119.98363938436148" />
-      <entry key="H1" value="317.4490689394502" />
-      <entry key="H2" value="746.6875061720363" />
-      <entry key="H4" value="1370.0296725413161" />
-      <entry key="D1" value="2899.964324034068" />
-      <entry key="W1" value="3443.135712173981" />
+      <entry key="MS100" value="0.008379394410200762" />
+      <entry key="MS500" value="0.6227144464652673" />
+      <entry key="S2" value="3.862306785969336" />
+      <entry key="S5" value="8.491999410320574" />
+      <entry key="S10" value="17.562058983708507" />
+      <entry key="S30" value="40.72391756744975" />
+      <entry key="S60" value="54.54276347329959" />
+      <entry key="M2" value="66.02909180939712" />
+      <entry key="M5" value="82.77695562191498" />
+      <entry key="M10" value="102.94732010748302" />
+      <entry key="M15" value="120.4089829499058" />
+      <entry key="M30" value="183.32670175686025" />
+      <entry key="H1" value="380.4200924516241" />
+      <entry key="H2" value="809.3234047992374" />
+      <entry key="H4" value="1433.0036728579098" />
+      <entry key="D1" value="2964.9100124791753" />
+      <entry key="W1" value="3508.9571975878566" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -146,7 +143,7 @@
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/darkglitch/.config&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/darkglitch/Documents/MyProject/GlitchRecon&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -243,7 +240,9 @@
       <workItem from="1784705222277" duration="1343000" />
       <workItem from="1784725142076" duration="2588000" />
       <workItem from="1784728010016" duration="342000" />
-      <workItem from="1784729077591" duration="392000" />
+      <workItem from="1784729077591" duration="1315000" />
+      <workItem from="1784730989384" duration="23000" />
+      <workItem from="1784738933182" duration="635000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -357,7 +356,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784728076852</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="rollback configuration">
+      <option name="closed" value="true" />
+      <created>1784729582289</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1784729582289</updated>
+    </task>
+    <task id="LOCAL-00016" summary="rollback configuration">
+      <option name="closed" value="true" />
+      <created>1784729632853</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1784729632853</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +409,8 @@
     <MESSAGE value="Refactored Simulation Malware Supply Chain" />
     <MESSAGE value="fixed the -b &lt;command&gt;" />
     <MESSAGE value="use an ai pipeline for lightweight ai model" />
-    <option name="LAST_COMMIT_MESSAGE" value="use an ai pipeline for lightweight ai model" />
+    <MESSAGE value="rollback configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="rollback configuration" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
