@@ -42,7 +42,7 @@ def main():
             helper()
             return
         if command == "version":
-            version()
+            print(version())
             return
         if command == "listen":
             asyncio.run(listen_bash_mode())
