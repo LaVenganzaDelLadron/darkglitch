@@ -1,10 +1,10 @@
 #darkglitch.py
 import asyncio
 import sys
-
+from command.bash.shell import stream_mode
 from command.bash.shell import single_bash_mode, ai_bash_mode
 from command.list.online_list import online_list_mode
-from command.listen.listener import listen_bash_mode
+from command.listen.listener import listen_bash_mode, listen_stream_mode
 from command.transfer.file import upload_file, download_file
 from utils.helper import helper
 from utils.version import version
@@ -31,6 +31,10 @@ def dispatch_command(argv=None):
         return "upload_file"
     if args[0] == "-d":
         return "download_file"
+    if args[0] == "-l" and len(args) >= 2 and args[1] == "-b":
+        return "listen_stream"
+    if args[0] == "s":
+        return "connect_stream"
     return help
 
 
@@ -84,7 +88,15 @@ def main():
             local_path = sys.argv[4] if len(sys.argv) > 4 else None
             asyncio.run(download_file(target, remote_path, local_path))
             return
-
+        if command == "listen_stream":
+            asyncio.run(listen_stream_mode())
+            return
+        if command == "connect_stream":
+            if len(sys.argv) < 3:
+                helper()
+            target = str(sys.argv[2])
+            asyncio.run(stream_mode(target))
+            return
         help()
 
     except KeyboardInterrupt:

