@@ -7,7 +7,7 @@ class WebCam:
         self.video = None
 
     async def start(self):
-        self.player = MediaPlayer("/dev/video0", format="v412", options={"video_size": "640x480", "framerate": "30"})
+        self.player = MediaPlayer("/dev/video0", format="v4l2", options={"video_size": "640x480", "framerate": "30"})
         self .video = self.player.video
         self .audio = self.player.audio
 

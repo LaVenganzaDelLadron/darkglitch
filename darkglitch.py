@@ -31,9 +31,9 @@ def dispatch_command(argv=None):
         return "upload_file"
     if args[0] == "-d":
         return "download_file"
-    if args[0] == "-l" and len(args) >= 2 and args[1] == "-b":
+    if args[0] == "-l" and len(args) >= 2 and args[1] == "-s":
         return "listen_stream"
-    if args[0] == "s":
+    if args[0] == "-s":
         return "connect_stream"
     return help
 
