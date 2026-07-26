@@ -1,13 +1,13 @@
 #darkglitch.py
 import asyncio
 import sys
-from command.bash.shell import stream_mode
-from command.bash.shell import single_bash_mode, ai_bash_mode
-from command.list.online_list import online_list_mode
-from command.listen.listener import listen_bash_mode, listen_stream_mode
-from command.transfer.file import upload_file, download_file
-from utils.helper import helper
-from utils.version import version
+from tools.command.bash import stream_mode
+from tools.command.bash import single_bash_mode, ai_bash_mode
+from tools.command.list import online_list_mode
+from tools.command.listen.listener import listen_bash_mode, listen_stream_mode
+from tools.command.transfer.file import upload_file, download_file
+from utilities.helper import helper
+from utilities.version import version
 
 
 def dispatch_command(argv=None):

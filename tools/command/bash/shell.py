@@ -1,15 +1,14 @@
 #command/bash/shell.py
 import asyncio
 import cv2
-from ai_utils.ai import _fallback_command, _extract_command_text
-from core.ai.groq.groq_provider import GroqProvider
-from malware_signal import peer
+from tools.ai_utils.ai import _fallback_command, _extract_command_text
+from core.ai.groq import GroqProvider
 from malware_signal.peer import Peer
 from malware_signal.signal import SignalClient
 from core.data.config import HOST, ROOM
 from core.data.client import client_id, username
-from injection_utils.remote_command_handler import RemoteCommandHandler as SenderHandler
-from media_utils.media import show_video
+from tools.injection_utils.remote_command_handler import RemoteCommandHandler as SenderHandler
+from tools.media_utils.media import show_video
 
 
 async def single_bash_mode(target, command):

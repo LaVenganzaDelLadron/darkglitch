@@ -5,7 +5,7 @@ import textwrap
 from pathlib import Path
 
 from malware_signal.signal import SignalClient
-from injection_utils.remote_command_handler import RemoteCommandHandler as SenderHandler
+from tools.injection_utils import RemoteCommandHandler as SenderHandler
 from core.data.config import HOST, ROOM
 from core.data.client import client_id, username
 

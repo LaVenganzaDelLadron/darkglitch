@@ -1,6 +1,6 @@
 import random
 
-from utils.colors import COLORS
+from utilities.colors import COLORS
 
 
 def randomizer():
