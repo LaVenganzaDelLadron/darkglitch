@@ -1,11 +1,13 @@
 <div align="center">
   <img src="./glitch.gif" alt="darkglitch" />
 
-    # DarkGlitch
 
-    ## AI-Driven Security Agent Architecture
+# DarkGlitch
+## AI-Driven Security Agent Architecture
 
 </div>
+
+
 
 ---
 
