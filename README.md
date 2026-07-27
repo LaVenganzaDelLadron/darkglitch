@@ -1,116 +1,396 @@
 <div align="center">
   <img src="./glitch.gif" alt="darkglitch" />
 
-  # darkglitch
+    # DarkGlitch
 
-  darkglitch is a lightweight Python proof-of-concept for remote command execution, file transfer, and media streaming over a WebSocket signaling channel. It is intended for authorized security testing and educational use.
+    ## AI-Driven Security Agent Architecture
+
 </div>
 
+---
 
+DarkGlitch is an experimental AI-assisted security research framework exploring the intersection of **LLM reasoning, distributed agents, WebRTC communication, and cybersecurity automation**.
 
-## What it supports
+The project demonstrates how an AI pipeline can interpret high-level security objectives, reason about system information, interact with controlled testing environments, and produce structured analysis.
 
-- start a listener that registers a client and waits for commands
-- list online peers in the same signaling room
-- run shell commands remotely
-- upload and download files
-- stream media from a connected client
-- turn a natural-language prompt into a shell command with an AI provider
+> ⚠️ **Disclaimer**
+>
+> DarkGlitch is intended for authorized security research, laboratory environments, and educational purposes only. Do not use this software against systems, networks, or devices without explicit permission.
 
-## Requirements
+---
 
-- Python 3.10+
-- dependencies from requirements.txt
-- a Groq API key if you want to use the AI prompt mode
+# Overview
 
-## Installation
+DarkGlitch explores an AI-driven agent architecture based on the following lifecycle:
 
-From the project root:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e .
+```
+Perception
+     |
+     v
+Analysis
+     |
+     v
+Planning
+     |
+     v
+Decision Making
+     |
+     v
+Tool Interaction
+     |
+     v
+Feedback
+     |
+     v
+Reporting
 ```
 
-If you want to use the AI prompt mode, install the OpenAI Python client (used with
-Groq's OpenAI-compatible API):
+The goal is to research how AI systems can assist security workflows by transforming human intent into structured actions and analyzing resulting data.
 
-```bash
-pip install openai
+---
+
+# Core Architecture
+
+## Communication Layer
+
+DarkGlitch uses a decentralized peer architecture with a signaling service responsible for coordinating connections between authorized research nodes.
+
+Components:
+
+```
+communication/
+├── signaling client
+├── peer management
+├── message routing
+└── session handling
 ```
 
-## Configuration
+Responsibilities:
 
-Edit [core/config.py](core/data/config.py) to point the client at your signaling server and room:
+* establish peer communication
+* exchange session information
+* maintain connection state
+* transport structured messages
 
-```python
-HOST = "https://your-signal-server.example/"
-ROOM = "your-room"
+---
+
+# AI Pipeline
+
+## 1. Perception Layer
+
+The perception layer collects information from available inputs.
+
+Sources include:
+
+* user objectives
+* system information
+* communication events
+* research telemetry
+
+Example:
+
+```
+User Objective:
+"Analyze endpoint behavior"
+
+        |
+        v
+
+Structured AI Task
 ```
 
-## Basic workflow
+---
 
-### 1. Start a listener (victim side)
+## 2. Analysis Layer
 
-Start from source:
+The analysis layer transforms raw information into structured data.
 
-```bash
-python darkglitch.py -l -b
+Responsibilities:
+
+* normalize responses
+* extract useful information
+* remove unnecessary output noise
+* prepare data for reasoning
+
+The system evaluates:
+
+* context
+* intent
+* available capabilities
+* expected output format
+
+---
+
+## 3. Planning Layer
+
+The AI planning layer converts objectives into structured workflows.
+
+Current capabilities:
+
+* intent understanding
+* task generation
+* reasoning assistance
+* response interpretation
+
+Future research areas:
+
+* multi-step planning
+* long-term context
+* adaptive workflows
+* improved reasoning evaluation
+
+---
+
+## 4. Decision Layer
+
+The decision layer manages:
+
+* task routing
+* provider selection
+* workflow state
+* validation checks
+
+Architecture:
+
+```
+Request
+   |
+   v
+Router
+   |
+   +---- AI Provider
+   |
+   +---- Local Processing
+   |
+   +---- Analysis Engine
 ```
 
-The output is placed in `./dist/darkglitch_listener.exe` (built with `--noconsole`, so it should not pop a console window). 
+---
 
+## 5. Tool Interaction Layer
 
-### 2. List online peers (attacker side)
+The framework uses modular tools to interact with controlled environments.
 
-```bash
-python darkglitch.py -ol
+Example structure:
+
+```
+tools/
+
+├── analysis/
+├── communication/
+├── system/
+├── media/
+└── reporting/
 ```
 
-### 3. Send a remote command
+Each capability is designed as an independent module.
 
-```bash
-python darkglitch.py -c <client_id> "whoami"
+Benefits:
+
+* easier testing
+* modular development
+* improved auditing
+* cleaner architecture
+
+---
+
+# Memory System
+
+Current implementation focuses on short-lived state management.
+
+Examples:
+
+* request tracking
+* session state
+* connection lifecycle
+* temporary task context
+
+Future improvements:
+
+* vector-based memory
+* historical analysis
+* knowledge retrieval
+* long-term agent context
+
+---
+
+# Feedback Loop
+
+DarkGlitch follows a continuous analysis cycle:
+
+```
+Input
+ |
+ v
+Process
+ |
+ v
+Observe Result
+ |
+ v
+Analyze
+ |
+ v
+Improve Decision
 ```
 
-### 4. Use an AI-generated bash prompt
+The feedback system enables:
 
-```bash
-python darkglitch.py -ai <client_id> "list all folders in root"
+* result interpretation
+* error handling
+* system analysis
+* workflow improvement
+
+---
+
+# Research Areas
+
+## AI Security
+
+DarkGlitch can be used to study:
+
+* LLM reliability
+* AI decision making
+* prompt robustness
+* tool-use safety
+* autonomous agent boundaries
+
+---
+
+## Defensive Research
+
+Potential applications:
+
+* detection engineering
+* security automation research
+* behavioral analysis
+* incident response simulations
+
+---
+
+## Distributed Systems
+
+The project explores:
+
+* peer communication
+* asynchronous workflows
+* real-time messaging
+* state management
+
+---
+
+# Current Limitations
+
+The project is experimental and has several research limitations:
+
+## AI Limitations
+
+* limited long-term memory
+* dependency on model quality
+* possible incorrect reasoning
+* lack of adaptive learning
+
+## Networking Limitations
+
+* connection reliability challenges
+* session recovery improvements needed
+* scalability testing required
+
+## Security Engineering Improvements
+
+Future research should focus on:
+
+* stronger authentication
+* authorization controls
+* auditing
+* policy enforcement
+* isolated testing environments
+
+---
+
+# Future Roadmap
+
+## AI Improvements
+
+Planned research:
+
+* agent memory system
+* better task decomposition
+* tool selection framework
+* evaluation pipeline
+* local model support
+
+---
+
+## Security Improvements
+
+Planned improvements:
+
+* stronger identity management
+* detailed event logging
+* security policy engine
+* sandboxed execution environment
+* improved telemetry collection
+
+---
+
+## Platform Improvements
+
+Future architecture:
+
+```
+DarkGlitch
+
+├── AI Engine
+├── Agent Framework
+├── Policy System
+├── Telemetry
+├── Analysis Engine
+└── Reporting System
 ```
 
-This uses a Groq-backed provider to turn your prompt into a shell command before executing it remotely. If Groq is unavailable or the model returns something unusable, the tool falls back to a simple built-in command.
+---
 
-### 5. Upload or download files
+# Technology Stack
 
-```bash
-python darkglitch.py -u <client_id> /path/to/local/file /path/to/remote/file
-python darkglitch.py -d <client_id> /path/to/remote/file /path/to/local/file
-```
+| Component        | Technology           |
+| ---------------- | -------------------- |
+| Language         | Python               |
+| AI Integration   | LLM Providers        |
+| Communication    | WebRTC / WebSocket   |
+| Async Runtime    | asyncio              |
+| Media Processing | aiortc               |
+| Data Format      | JSON                 |
+| Architecture     | Modular Agent System |
 
-### Help and version
+---
 
-```bash
-python darkglitch.py -h
-python darkglitch.py -v
-```
+# Project Goals
 
-## AI setup
+DarkGlitch is designed to explore:
 
-If you want to use the AI prompt mode, export your Groq API key:
+* How AI can assist cybersecurity workflows
+* How autonomous agents should be designed safely
+* How distributed security tools communicate
+* How humans interact with AI-driven systems
 
-```bash
-export GROQ_API_KEY="your-groq-api-key"
-```
+---
 
-You can override the default model and timeout if needed:
+# Educational Value
 
-```bash
-export GROQ_MODEL=openai/gpt-oss-20b
-export GROQ_TIMEOUT=60
-```
+This project provides practical experience with:
 
-## Notes
+* artificial intelligence integration
+* distributed systems
+* asynchronous programming
+* security architecture
+* agent design
+* cybersecurity research methodology
 
-This repository is for research and learning only. Do not deploy it against systems or networks without explicit permission.
+---
+
+# License
+
+This project is intended for educational and authorized security research purposes.
+
+Use responsibly.
