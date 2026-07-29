@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from core.ai.base import LLMProvider
+from app.core.ai.base import LLMProvider
 
 load_dotenv()
 

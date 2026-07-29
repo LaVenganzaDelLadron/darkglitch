@@ -42,7 +42,7 @@ pip install openai
 
 ## Configuration
 
-Edit [core/config.py](core/data/config.py) to point the client at your signaling server and room:
+Edit [core/config.py](app/core/data/config.py) to point the client at your signaling server and room:
 
 ```python
 HOST = "https://your-signal-server.example/"

