@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fix: file structure">
-      <change afterPath="$PROJECT_DIR$/app/core/ai/factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/prompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/tool_call.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/usage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/utils/output_compressor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt/prompt.md" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="add: implement pipeline, tools for termina, prompt, and route">
+      <change beforePath="$PROJECT_DIR$/.idea/darkglitch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/darkglitch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/pipeline/context_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/pipeline/context_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/pipeline/executor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/pipeline/executor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +40,7 @@
         </map>
       </branch-storage>
     </excluded-from-favorite>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -74,61 +66,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000057420606514" />
-      <entry key="MS500" value="1.0894980463250714" />
-      <entry key="S2" value="1.5469572568379348" />
-      <entry key="S5" value="1.7855636595040538" />
-      <entry key="S10" value="1.8866320652169688" />
-      <entry key="S30" value="2.0710142324997363" />
-      <entry key="S60" value="2.621340671496765" />
-      <entry key="M2" value="5.056913308599364" />
-      <entry key="M5" value="15.539601841304865" />
-      <entry key="M10" value="27.833783417104172" />
-      <entry key="M15" value="39.641524804699564" />
-      <entry key="M30" value="86.19028730279491" />
-      <entry key="H1" value="209.78095884960607" />
-      <entry key="H2" value="522.6684363555252" />
-      <entry key="H4" value="1107.8379498841307" />
-      <entry key="D1" value="2860.0281172633936" />
-      <entry key="W1" value="3542.285715434202" />
+      <entry key="MS100" value="1.0001123275940704" />
+      <entry key="MS500" value="1.1622173458673979" />
+      <entry key="S2" value="1.6346354430099024" />
+      <entry key="S5" value="1.8336998610944533" />
+      <entry key="S10" value="1.9130716626281057" />
+      <entry key="S30" value="1.9701412139426622" />
+      <entry key="S60" value="1.9849578610210923" />
+      <entry key="M2" value="1.994760553683314" />
+      <entry key="M5" value="2.5290012602080476" />
+      <entry key="M10" value="6.525367917287772" />
+      <entry key="M15" value="13.296102850406122" />
+      <entry key="M30" value="44.658899795795925" />
+      <entry key="H1" value="143.0485855070839" />
+      <entry key="H2" value="422.9088594870777" />
+      <entry key="H4" value="993.6901691936389" />
+      <entry key="D1" value="2826.224914639228" />
+      <entry key="W1" value="3562.543650840722" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="8.116775335999397E-196" />
-      <entry key="S10" value="2.8501756607408444E-98" />
-      <entry key="S30" value="3.613835849346381E-33" />
-      <entry key="S60" value="1.1348412023700517E-16" />
-      <entry key="M2" value="2.872706462677728E-8" />
-      <entry key="M5" value="0.003709568734948648" />
-      <entry key="M10" value="0.2067760045370262" />
-      <entry key="M15" value="0.8541059021150947" />
-      <entry key="M30" value="4.0917505046037475" />
-      <entry key="H1" value="13.46472572717175" />
-      <entry key="H2" value="44.39868482458015" />
-      <entry key="H4" value="107.1947654359573" />
-      <entry key="D1" value="289.25164912812363" />
-      <entry key="W1" value="357.5429529695057" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="5.619318184257645E-185" />
+      <entry key="S30" value="4.531469773281088E-62" />
+      <entry key="S60" value="4.0185597316167235E-31" />
+      <entry key="M2" value="1.7094599004873608E-15" />
+      <entry key="M5" value="4.776947729307E-6" />
+      <entry key="M10" value="0.0074201668787904065" />
+      <entry key="M15" value="0.09292246995079222" />
+      <entry key="M30" value="1.3496266823398961" />
+      <entry key="H1" value="7.733031280475188" />
+      <entry key="H2" value="33.646991111530795" />
+      <entry key="H4" value="93.31718774041106" />
+      <entry key="D1" value="282.6444883535266" />
+      <entry key="W1" value="356.3646401528836" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0022439933062218405" />
-      <entry key="MS500" value="0.3488341676470184" />
-      <entry key="S2" value="1.2182650541921103" />
-      <entry key="S5" value="1.6314395444270544" />
-      <entry key="S10" value="1.8050159114731483" />
-      <entry key="S30" value="2.042666268609348" />
-      <entry key="S60" value="2.60675900190492" />
-      <entry key="M2" value="5.048598885785527" />
-      <entry key="M5" value="15.538498584385394" />
-      <entry key="M10" value="28.036232309278088" />
-      <entry key="M15" value="40.489800344756915" />
-      <entry key="M30" value="90.272084565702" />
-      <entry key="H1" value="223.23065269818485" />
-      <entry key="H2" value="567.0437937289964" />
-      <entry key="H4" value="1215.0049936789803" />
-      <entry key="D1" value="3149.267166245676" />
-      <entry key="W1" value="3899.8264288797322" />
+      <entry key="MS100" value="0.0010779865633560653" />
+      <entry key="MS500" value="0.3266930679368623" />
+      <entry key="S2" value="1.2281784835113685" />
+      <entry key="S5" value="1.6406793696469772" />
+      <entry key="S10" value="1.810544573170358" />
+      <entry key="S30" value="1.934526407284083" />
+      <entry key="S60" value="1.9669637822067185" />
+      <entry key="M2" value="1.9857128153354788" />
+      <entry key="M5" value="2.5250423304841028" />
+      <entry key="M10" value="6.529787902415359" />
+      <entry key="M15" value="13.385912413555857" />
+      <entry key="M30" value="46.0034644689118" />
+      <entry key="H1" value="150.77188193802672" />
+      <entry key="H2" value="456.537554492515" />
+      <entry key="H4" value="1086.9828965753095" />
+      <entry key="D1" value="3108.8570332654685" />
+      <entry key="W1" value="3918.906050579408" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -143,42 +135,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.run.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;implement-ai-pipeline&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/darkglitch/Documents/MyProject/GlitchRecon&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.run.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "implement-ai-pipeline",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/darkglitch/PycharmProjects/darkglitch",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/tools/tool_utilities" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/core/ai" />
       <recent name="$PROJECT_DIR$/core/data" />
-      <recent name="$PROJECT_DIR$/malware_signal/handler" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
+        <option value="bundled-python-sdk-6fa658e1df1a-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.8665.369" />
       </set>
     </attachedChunks>
   </component>
@@ -511,7 +503,23 @@
       <option name="project" value="LOCAL" />
       <updated>1785343449264</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add: implement models, utils, and config">
+      <option name="closed" value="true" />
+      <created>1785344562320</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1785344562320</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add: implement pipeline, tools for termina, prompt, and route">
+      <option name="closed" value="true" />
+      <created>1785345649553</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1785345649553</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,9 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update bash" />
-    <MESSAGE value="remove the tests file" />
-    <MESSAGE value="delete bash" />
     <MESSAGE value="update README.md add some gif" />
     <MESSAGE value="Automate supply chaing" />
     <MESSAGE value="update version" />
@@ -554,7 +559,10 @@
     <MESSAGE value="fix: file structure to prepare pipeline ai pipeline" />
     <MESSAGE value="add: architecture" />
     <MESSAGE value="fix: file structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: file structure" />
+    <MESSAGE value="add: implement models, utils, and config" />
+    <MESSAGE value="add: implement pipeline, tools for termina, prompt, and route" />
+    <MESSAGE value="add: implement pipeline, tools for terminal, prompt, and route" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement pipeline, tools for terminal, prompt, and route" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
