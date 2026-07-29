@@ -57,6 +57,7 @@ The goal is to research how AI systems can assist security workflows by transfor
 
 DarkGlitch uses a decentralized peer architecture with a signaling service responsible for coordinating connections between authorized research nodes.
 
+
 Components:
 
 ```

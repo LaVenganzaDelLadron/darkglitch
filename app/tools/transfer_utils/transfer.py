@@ -4,10 +4,10 @@ import json
 import textwrap
 from pathlib import Path
 
-from malware_signal.signal import SignalClient
-from tools.injection_utils import RemoteCommandHandler as SenderHandler
-from core.data.config import HOST, ROOM
-from core.data.client import client_id, username
+from app.malware_signal.signal import SignalClient
+from app.tools.injection_utils import RemoteCommandHandler as SenderHandler
+from app.core.data import HOST, ROOM
+from app.core.data import client_id, username
 
 
 def build_transfer_payload(source_path, remote_path, mode="upload"):

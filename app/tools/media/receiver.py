@@ -2,7 +2,7 @@ import asyncio
 import cv2
 from aiortc import RTCPeerConnection, RTCConfiguration, RTCIceCandidate, RTCIceServer, RTCSessionDescription
 from aiortc.contrib.media import MediaRecorder, MediaRelay
-from malware_signal.signal import SignalClient
+from app.malware_signal.signal import SignalClient
 
 class Receiver:
     # Initialize the peer connection, recorder, and related state for media handling.
