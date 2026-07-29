@@ -4,21 +4,32 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fix: file structure">
-      <change afterPath="$PROJECT_DIR$/app/core/ai/factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/prompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/tool_call.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/usage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/utils/output_compressor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt/prompt.md" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="add: implement models, utils, and config">
+      <change afterPath="$PROJECT_DIR$/app/core/memory/vectore_store.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/context.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/context_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/executor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/route.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/pipeline/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tools/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tools/registry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tools/terminal/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tools/terminal/terminal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tools/tool_utilities/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/ai_utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/memory/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/ai_utils/ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/ai_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/command/bash/shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/bash/shell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/command/listen/listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/listen/listener.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/command/transfer/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/transfer/file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/injection_utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/memory/conversation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/injection_utils/remote_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/remote_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/media_utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/memory/embedding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/media_utils/media.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/media.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/transfer_utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/memory/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/transfer_utils/transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/transfer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +60,7 @@
         </map>
       </branch-storage>
     </excluded-from-favorite>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -74,61 +86,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000057420606514" />
-      <entry key="MS500" value="1.0894980463250714" />
-      <entry key="S2" value="1.5469572568379348" />
-      <entry key="S5" value="1.7855636595040538" />
-      <entry key="S10" value="1.8866320652169688" />
-      <entry key="S30" value="2.0710142324997363" />
-      <entry key="S60" value="2.621340671496765" />
-      <entry key="M2" value="5.056913308599364" />
-      <entry key="M5" value="15.539601841304865" />
-      <entry key="M10" value="27.833783417104172" />
-      <entry key="M15" value="39.641524804699564" />
-      <entry key="M30" value="86.19028730279491" />
-      <entry key="H1" value="209.78095884960607" />
-      <entry key="H2" value="522.6684363555252" />
-      <entry key="H4" value="1107.8379498841307" />
-      <entry key="D1" value="2860.0281172633936" />
-      <entry key="W1" value="3542.285715434202" />
+      <entry key="MS100" value="1.0358968235936628" />
+      <entry key="MS500" value="1.5157697427298498" />
+      <entry key="S2" value="2.172865094163769" />
+      <entry key="S5" value="2.899711256850492" />
+      <entry key="S10" value="3.3548696850705864" />
+      <entry key="S30" value="3.760066800374369" />
+      <entry key="S60" value="3.9147715655227984" />
+      <entry key="M2" value="4.262385035776737" />
+      <entry key="M5" value="7.096925680162403" />
+      <entry key="M10" value="16.02136801346396" />
+      <entry key="M15" value="26.63143033722292" />
+      <entry key="M30" value="67.79525863405333" />
+      <entry key="H1" value="181.70682791046306" />
+      <entry key="H2" value="481.8509722749449" />
+      <entry key="H4" value="1062.394480705616" />
+      <entry key="D1" value="2849.6540567663196" />
+      <entry key="W1" value="3554.425395403045" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="8.116775335999397E-196" />
-      <entry key="S10" value="2.8501756607408444E-98" />
-      <entry key="S30" value="3.613835849346381E-33" />
-      <entry key="S60" value="1.1348412023700517E-16" />
-      <entry key="M2" value="2.872706462677728E-8" />
-      <entry key="M5" value="0.003709568734948648" />
-      <entry key="M10" value="0.2067760045370262" />
-      <entry key="M15" value="0.8541059021150947" />
-      <entry key="M30" value="4.0917505046037475" />
-      <entry key="H1" value="13.46472572717175" />
-      <entry key="H2" value="44.39868482458015" />
-      <entry key="H4" value="107.1947654359573" />
-      <entry key="D1" value="289.25164912812363" />
-      <entry key="W1" value="357.5429529695057" />
+      <entry key="S5" value="9.329045720865163E-268" />
+      <entry key="S10" value="3.055613887434485E-134" />
+      <entry key="S30" value="3.698656825684375E-45" />
+      <entry key="S60" value="1.1480819874446993E-22" />
+      <entry key="M2" value="2.8894165461157292E-11" />
+      <entry key="M5" value="2.3460160781593173E-4" />
+      <entry key="M10" value="0.05200006902843676" />
+      <entry key="M15" value="0.3402887385247499" />
+      <entry key="M30" value="2.5827184891819996" />
+      <entry key="H1" value="10.697479794154445" />
+      <entry key="H2" value="39.57419481636374" />
+      <entry key="H4" value="101.20327555643617" />
+      <entry key="D1" value="286.49211628315" />
+      <entry key="W1" value="357.05365603759617" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0022439933062218405" />
-      <entry key="MS500" value="0.3488341676470184" />
-      <entry key="S2" value="1.2182650541921103" />
-      <entry key="S5" value="1.6314395444270544" />
-      <entry key="S10" value="1.8050159114731483" />
-      <entry key="S30" value="2.042666268609348" />
-      <entry key="S60" value="2.60675900190492" />
-      <entry key="M2" value="5.048598885785527" />
-      <entry key="M5" value="15.538498584385394" />
-      <entry key="M10" value="28.036232309278088" />
-      <entry key="M15" value="40.489800344756915" />
-      <entry key="M30" value="90.272084565702" />
-      <entry key="H1" value="223.23065269818485" />
-      <entry key="H2" value="567.0437937289964" />
-      <entry key="H4" value="1215.0049936789803" />
-      <entry key="D1" value="3149.267166245676" />
-      <entry key="W1" value="3899.8264288797322" />
+      <entry key="MS100" value="0.0713757609484657" />
+      <entry key="MS500" value="0.8880222234073196" />
+      <entry key="S2" value="1.8696006123471436" />
+      <entry key="S5" value="2.7095120604713303" />
+      <entry key="S10" value="3.2377070088842843" />
+      <entry key="S30" value="3.7144128694333065" />
+      <entry key="S60" value="3.8909810603464905" />
+      <entry key="M2" value="4.250213104601055" />
+      <entry key="M5" value="7.09189543636074" />
+      <entry key="M10" value="16.069765967861983" />
+      <entry key="M15" value="26.967708491920693" />
+      <entry key="M30" value="70.37084309451654" />
+      <entry key="H1" value="192.3919370067742" />
+      <entry key="H2" value="521.4041597324028" />
+      <entry key="H4" value="1163.5714765363118" />
+      <entry key="D1" value="3136.1336751628774" />
+      <entry key="W1" value="3911.4768124166353" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -168,11 +180,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/tools/tool_utilities" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/core/ai" />
       <recent name="$PROJECT_DIR$/core/data" />
-      <recent name="$PROJECT_DIR$/malware_signal/handler" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -511,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785343449264</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add: implement models, utils, and config">
+      <option name="closed" value="true" />
+      <created>1785344562320</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1785344562320</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update bash" />
     <MESSAGE value="remove the tests file" />
     <MESSAGE value="delete bash" />
     <MESSAGE value="update README.md add some gif" />
@@ -554,7 +573,8 @@
     <MESSAGE value="fix: file structure to prepare pipeline ai pipeline" />
     <MESSAGE value="add: architecture" />
     <MESSAGE value="fix: file structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: file structure" />
+    <MESSAGE value="add: implement models, utils, and config" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement models, utils, and config" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />
