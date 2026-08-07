@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="fix: file structure">
-      <change afterPath="$PROJECT_DIR$/app/core/ai/factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/prompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/tool_call.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models/usage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/utils/output_compressor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt/prompt.md" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py">
+      <change beforePath="$PROJECT_DIR$/.idea/darkglitch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/darkglitch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/ai/groq.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/ai/groq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/data/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/command/bash/shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/bash/shell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/command/list/online_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/list/online_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/command/listen/listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/listen/listener.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/tool_utilities/transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/transfer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="67" />
+    <option name="cachedIndexableFilesCount" value="94" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -65,7 +59,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/LaVenganzaDelLadron/darkglitch.git&quot;,
-    &quot;accountId&quot;: &quot;865aa70e-6cd0-406a-bb0a-ab54717e1b3b&quot;
+    &quot;accountId&quot;: &quot;f431b3d7-21ca-4680-8377-8636df156c46&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -74,61 +68,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000057420606514" />
-      <entry key="MS500" value="1.0894980463250714" />
-      <entry key="S2" value="1.5469572568379348" />
-      <entry key="S5" value="1.7855636595040538" />
-      <entry key="S10" value="1.8866320652169688" />
-      <entry key="S30" value="2.0710142324997363" />
-      <entry key="S60" value="2.621340671496765" />
-      <entry key="M2" value="5.056913308599364" />
-      <entry key="M5" value="15.539601841304865" />
-      <entry key="M10" value="27.833783417104172" />
-      <entry key="M15" value="39.641524804699564" />
-      <entry key="M30" value="86.19028730279491" />
-      <entry key="H1" value="209.78095884960607" />
-      <entry key="H2" value="522.6684363555252" />
-      <entry key="H4" value="1107.8379498841307" />
-      <entry key="D1" value="2860.0281172633936" />
-      <entry key="W1" value="3542.285715434202" />
+      <entry key="MS100" value="1.5615069911728017" />
+      <entry key="MS500" value="4.1746868990467805" />
+      <entry key="S2" value="9.828275122310634" />
+      <entry key="S5" value="12.558050866541905" />
+      <entry key="S10" value="13.709194992774641" />
+      <entry key="S30" value="15.509231791935763" />
+      <entry key="S60" value="20.740171012787975" />
+      <entry key="M2" value="31.685111967597656" />
+      <entry key="M5" value="51.62693056683448" />
+      <entry key="M10" value="77.48047789447872" />
+      <entry key="M15" value="99.88427294532376" />
+      <entry key="M30" value="158.0754218510555" />
+      <entry key="H1" value="280.0828726366904" />
+      <entry key="H2" value="579.8304517978819" />
+      <entry key="H4" value="1161.1546235210285" />
+      <entry key="D1" value="2976.379070484142" />
+      <entry key="W1" value="3697.8373422608333" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="8.116775335999397E-196" />
-      <entry key="S10" value="2.8501756607408444E-98" />
-      <entry key="S30" value="3.613835849346381E-33" />
-      <entry key="S60" value="1.1348412023700517E-16" />
-      <entry key="M2" value="2.872706462677728E-8" />
-      <entry key="M5" value="0.003709568734948648" />
-      <entry key="M10" value="0.2067760045370262" />
-      <entry key="M15" value="0.8541059021150947" />
-      <entry key="M30" value="4.0917505046037475" />
-      <entry key="H1" value="13.46472572717175" />
-      <entry key="H2" value="44.39868482458015" />
-      <entry key="H4" value="107.1947654359573" />
-      <entry key="D1" value="289.25164912812363" />
-      <entry key="W1" value="357.5429529695057" />
+      <entry key="MS500" value="1.5244896442657155E-65" />
+      <entry key="S2" value="7.579349418638834E-17" />
+      <entry key="S5" value="5.090322294425014E-7" />
+      <entry key="S10" value="0.0010487037014637905" />
+      <entry key="S30" value="0.21758165103242597" />
+      <entry key="S60" value="0.9069939228192775" />
+      <entry key="M2" value="1.8917352882968161" />
+      <entry key="M5" value="3.1644719686016978" />
+      <entry key="M10" value="4.658463027877892" />
+      <entry key="M15" value="5.9536535487866145" />
+      <entry key="M30" value="9.55610228903558" />
+      <entry key="H1" value="18.206917737649697" />
+      <entry key="H2" value="46.47197333935898" />
+      <entry key="H4" value="107.64389899893696" />
+      <entry key="D1" value="295.46496310357367" />
+      <entry key="W1" value="367.6948154428804" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0022439933062218405" />
-      <entry key="MS500" value="0.3488341676470184" />
-      <entry key="S2" value="1.2182650541921103" />
-      <entry key="S5" value="1.6314395444270544" />
-      <entry key="S10" value="1.8050159114731483" />
-      <entry key="S30" value="2.042666268609348" />
-      <entry key="S60" value="2.60675900190492" />
-      <entry key="M2" value="5.048598885785527" />
-      <entry key="M5" value="15.538498584385394" />
-      <entry key="M10" value="28.036232309278088" />
-      <entry key="M15" value="40.489800344756915" />
-      <entry key="M30" value="90.272084565702" />
-      <entry key="H1" value="223.23065269818485" />
-      <entry key="H2" value="567.0437937289964" />
-      <entry key="H4" value="1215.0049936789803" />
-      <entry key="D1" value="3149.267166245676" />
-      <entry key="W1" value="3899.8264288797322" />
+      <entry key="MS100" value="1.5090604566517012" />
+      <entry key="MS500" value="4.1484191631332115" />
+      <entry key="S2" value="9.812917979875321" />
+      <entry key="S5" value="12.550179871222172" />
+      <entry key="S10" value="13.705833832656712" />
+      <entry key="S30" value="15.718299581503256" />
+      <entry key="S60" value="21.631990440253446" />
+      <entry key="M2" value="33.56135939260051" />
+      <entry key="M5" value="54.78116170157124" />
+      <entry key="M10" value="82.13142765575088" />
+      <entry key="M15" value="105.83100296972225" />
+      <entry key="M30" value="167.6233229632017" />
+      <entry key="H1" value="298.27751098009924" />
+      <entry key="H2" value="626.2821010843387" />
+      <entry key="H4" value="1268.7727903950702" />
+      <entry key="D1" value="3271.831533584262" />
+      <entry key="W1" value="4065.5299083912305" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -178,7 +172,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
+        <option value="bundled-python-sdk-6fa658e1df1a-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.8665.369" />
       </set>
     </attachedChunks>
   </component>
@@ -262,6 +256,7 @@
       <workItem from="1784819231107" duration="11000" />
       <workItem from="1784903961385" duration="9073000" />
       <workItem from="1784914787223" duration="5000" />
+      <workItem from="1786067484768" duration="2758000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -511,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785343449264</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py">
+      <option name="closed" value="true" />
+      <created>1786067311580</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1786067311580</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,8 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update bash" />
-    <MESSAGE value="remove the tests file" />
     <MESSAGE value="delete bash" />
     <MESSAGE value="update README.md add some gif" />
     <MESSAGE value="Automate supply chaing" />
@@ -554,7 +555,9 @@
     <MESSAGE value="fix: file structure to prepare pipeline ai pipeline" />
     <MESSAGE value="add: architecture" />
     <MESSAGE value="fix: file structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: file structure" />
+    <MESSAGE value="fix imports" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />

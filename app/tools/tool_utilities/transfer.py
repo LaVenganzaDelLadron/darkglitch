@@ -5,9 +5,9 @@ import textwrap
 from pathlib import Path
 
 from app.malware_signal.signal import SignalClient
-from app.tools.injection_utils import RemoteCommandHandler as SenderHandler
-from app.core.data import HOST, ROOM
-from app.core.data import client_id, username
+from app.tools.tool_utilities.remote_command_handler import RemoteCommandHandler as SenderHandler
+from app.core.data.config import HOST, ROOM
+from app.core.data.client import client_id, username
 
 
 def build_transfer_payload(source_path, remote_path, mode="upload"):
