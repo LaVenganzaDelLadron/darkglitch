@@ -3,7 +3,6 @@ import json
 from openai import APIStatusError
 from app.tools.registry import ToolRegistry
 from app.core.utils.output_compressor import compress_output
-from app.config.settings import get_settings
 
 MAX_TOOL_STEPS = 10
 

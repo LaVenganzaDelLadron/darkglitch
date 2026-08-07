@@ -11,7 +11,6 @@ Builds the message list in the correct order:
 Ensures only necessary information is sent to the LLM.
 """
 from __future__ import annotations
-
 from app.core.models.message import Message
 from app.core.memory.conversation import ConversationMemory
 
