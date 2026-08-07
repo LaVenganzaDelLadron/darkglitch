@@ -27,6 +27,8 @@ def dispatch_command(argv=None):
         return "single_bash"
     if args[0] == "-ai":
         return "generate_command"
+    if args[0] == "-ai-unsafe":
+        return "generate_command_unsafe"
     if args[0] == "-u":
         return "upload_file"
     if args[0] == "-d":
@@ -68,7 +70,15 @@ def main():
                 return
             target = str(sys.argv[2])
             command_text = sys.argv[3]
-            asyncio.run(ai_bash_mode(target, command_text))
+            asyncio.run(ai_bash_mode(target, command_text, unsafe=False))
+            return
+        if command == "generate_command_unsafe":
+            if len(sys.argv) < 4:
+                helper()
+                return
+            target = str(sys.argv[2])
+            command_text = sys.argv[3]
+            asyncio.run(ai_bash_mode(target, command_text, unsafe=True))
             return
         if command == "upload_file":
             if len(sys.argv) < 4:

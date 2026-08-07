@@ -23,50 +23,67 @@ def _extract_command_text(response):
     if not text:
         return ""
 
+    # Remove markdown code blocks but preserve content
     text = text.replace("```bash", "").replace("```", "").strip()
+    
+    # Remove "Command:" prefix if present
+    if text.startswith("Command:"):
+        text = text[8:].strip()
 
-    command_patterns = [
-        r"`([^`]+)`",
-        r"\\b(ls|find|pwd|whoami|ps|dir|tree|cat|echo|cd)\\b[^\\n]*",
-    ]
+    # Look for backtick-wrapped commands first
+    backtick_match = re.search(r"`([^`]+)`", text, re.DOTALL)
+    if backtick_match:
+        candidate = backtick_match.group(1).strip()
+        if candidate and not candidate.lower().startswith(("here are", "you can", "this will", "if you want", "alternatively")):
+            return candidate
 
-    for pattern in command_patterns:
-        matches = re.findall(pattern, text, flags=re.IGNORECASE)
-        if matches:
-            candidate = matches[0]
-            if isinstance(candidate, tuple):
-                candidate = candidate[0]
-            candidate = str(candidate).strip()
-            if candidate and not candidate.lower().startswith(("here are", "you can", "this will", "if you want", "alternatively")):
-                return candidate
-
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    if not lines:
-        return ""
-
-    candidates = []
+    lines = [line.rstrip() for line in text.split('\n')]
+    
+    # Filter out empty lines and comments
+    filtered_lines = []
+    skip_section = False
+    
     for line in lines:
-        cleaned = line.strip()
-        if not cleaned:
+        stripped = line.strip()
+        
+        # Skip explanatory text
+        if stripped.lower().startswith(("here are", "you can", "this will", "if you want", "alternatively", "example:", "note:", "the", "linux", "windows")):
+            skip_section = True
             continue
-        if cleaned.startswith("$"):
-            candidates.append(cleaned[1:].strip())
-            continue
-        if cleaned.startswith("http") or cleaned.startswith("Note:"):
-            continue
-        if cleaned.lower().startswith(("here are", "you can", "this will", "if you want", "alternatively", "the", "linux", "windows")):
-            continue
-        if re.match(r"^(?:\d+\.|[-*])\s+", cleaned):
-            cleaned = re.sub(r"^(?:\d+\.|[-*])\s+", "", cleaned)
-        if cleaned.startswith("`") and cleaned.endswith("`"):
-            cleaned = cleaned[1:-1].strip()
-        if re.match(r"^[a-zA-Z0-9_./\-\\: ]+$", cleaned) and not any(token in cleaned.lower() for token in ["here are", "you can", "this will", "if you want", "alternatively", "linux", "windows", "note:"]):
-            candidates.append(cleaned)
+        
+        # Start of a command block
+        if stripped and not skip_section:
+            filtered_lines.append(line)
+        elif stripped and skip_section and (stripped.startswith("-") or stripped.startswith("$") or re.match(r"^[a-zA-Z]", stripped)):
+            skip_section = False
+            filtered_lines.append(line)
+        elif stripped.startswith("$"):
+            filtered_lines.append(stripped[1:].strip())
+        elif stripped and not stripped.startswith("http"):
+            if not any(x in stripped.lower() for x in ["here are", "you can", "this will", "alternatively"]):
+                filtered_lines.append(line)
 
-    if candidates:
-        return candidates[0]
-
-    return lines[0]
+    # Reconstruct the command
+    if filtered_lines:
+        # Find the first non-empty line that looks like a command
+        for i, line in enumerate(filtered_lines):
+            if line.strip():
+                # Collect all subsequent lines that are part of the command
+                command_lines = []
+                for j in range(i, len(filtered_lines)):
+                    command_lines.append(filtered_lines[j])
+                
+                # For here-documents, include all lines until EOF
+                result = '\n'.join(command_lines).strip()
+                if result:
+                    return result
+    
+    # Last resort: return first non-empty line
+    for line in lines:
+        if line.strip() and not line.strip().lower().startswith(("here are", "example", "note")):
+            return line.strip()
+    
+    return ""
 
 
 def _fallback_command(prompt):
@@ -74,8 +91,12 @@ def _fallback_command(prompt):
         return "whoami"
 
     prompt_lower = prompt.lower()
+    if any(keyword in prompt_lower for keyword in ["delete", "remove", "rm", "erase"]):
+        return "rm ~/tmp_file"
     if any(keyword in prompt_lower for keyword in ["list", "folder", "directories", "dir", "root"]):
         return "ls -la /"
+    if any(keyword in prompt_lower for keyword in ["create", "file", "code", "python"]):
+        return "echo '# Python file' > /tmp/test.py"
     if any(keyword in prompt_lower for keyword in ["whoami", "user", "logged"]):
         return "whoami"
     if any(keyword in prompt_lower for keyword in ["pwd", "current", "directory"]):

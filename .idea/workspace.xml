@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py">
-      <change beforePath="$PROJECT_DIR$/.idea/darkglitch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/darkglitch.iml" afterDir="false" />
+    <list default="true" id="26a0b363-170b-456e-9a80-f0f9ebddccb7" name="Changes" comment="complete ai pipeline feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/ai/groq.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/ai/groq.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/data/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/ai/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/ai/pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tools/command/bash/shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/bash/shell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tools/command/list/online_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/list/online_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tools/command/listen/listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/command/listen/listener.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tools/tool_utilities/transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/transfer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/tool_utilities/ai_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/ai_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tools/tool_utilities/command_validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tools/tool_utilities/command_validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkglitch.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkglitch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prompt/prompt.md" beforeDir="false" afterPath="$PROJECT_DIR$/prompt/prompt.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,61 +67,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.5615069911728017" />
-      <entry key="MS500" value="4.1746868990467805" />
-      <entry key="S2" value="9.828275122310634" />
-      <entry key="S5" value="12.558050866541905" />
-      <entry key="S10" value="13.709194992774641" />
-      <entry key="S30" value="15.509231791935763" />
-      <entry key="S60" value="20.740171012787975" />
-      <entry key="M2" value="31.685111967597656" />
-      <entry key="M5" value="51.62693056683448" />
-      <entry key="M10" value="77.48047789447872" />
-      <entry key="M15" value="99.88427294532376" />
-      <entry key="M30" value="158.0754218510555" />
-      <entry key="H1" value="280.0828726366904" />
-      <entry key="H2" value="579.8304517978819" />
-      <entry key="H4" value="1161.1546235210285" />
-      <entry key="D1" value="2976.379070484142" />
-      <entry key="W1" value="3697.8373422608333" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000005211043" />
+      <entry key="S10" value="1.0000452890356017" />
+      <entry key="S30" value="1.1091196370931715" />
+      <entry key="S60" value="1.8891115085024324" />
+      <entry key="M2" value="5.513064816499436" />
+      <entry key="M5" value="30.39063124712051" />
+      <entry key="M10" value="80.04005960880968" />
+      <entry key="M15" value="122.54639680604318" />
+      <entry key="M30" value="217.0138505318042" />
+      <entry key="H1" value="363.247510605131" />
+      <entry key="H2" value="668.4309348778015" />
+      <entry key="H4" value="1254.1173698882037" />
+      <entry key="D1" value="3131.995244949141" />
+      <entry key="W1" value="3890.786053535442" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.5244896442657155E-65" />
-      <entry key="S2" value="7.579349418638834E-17" />
-      <entry key="S5" value="5.090322294425014E-7" />
-      <entry key="S10" value="0.0010487037014637905" />
-      <entry key="S30" value="0.21758165103242597" />
-      <entry key="S60" value="0.9069939228192775" />
-      <entry key="M2" value="1.8917352882968161" />
-      <entry key="M5" value="3.1644719686016978" />
-      <entry key="M10" value="4.658463027877892" />
-      <entry key="M15" value="5.9536535487866145" />
-      <entry key="M30" value="9.55610228903558" />
-      <entry key="H1" value="18.206917737649697" />
-      <entry key="H2" value="46.47197333935898" />
-      <entry key="H4" value="107.64389899893696" />
-      <entry key="D1" value="295.46496310357367" />
-      <entry key="W1" value="367.6948154428804" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="3.8426042402668483E-295" />
+      <entry key="S5" value="2.447613117449928E-118" />
+      <entry key="S10" value="2.2995960107905543E-59" />
+      <entry key="S30" value="6.090063904418734E-20" />
+      <entry key="S60" value="4.798485293362623E-10" />
+      <entry key="M2" value="4.3512121719814206E-5" />
+      <entry key="M5" value="0.04415716788143656" />
+      <entry key="M10" value="0.5502912814766995" />
+      <entry key="M15" value="1.4333432698914803" />
+      <entry key="M30" value="4.688825995612913" />
+      <entry key="H1" value="12.753462020057865" />
+      <entry key="H2" value="38.89438832393404" />
+      <entry key="H4" value="98.47757279417043" />
+      <entry key="D1" value="291.11459187072694" />
+      <entry key="W1" value="366.9164800865503" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5090604566517012" />
-      <entry key="MS500" value="4.1484191631332115" />
-      <entry key="S2" value="9.812917979875321" />
-      <entry key="S5" value="12.550179871222172" />
-      <entry key="S10" value="13.705833832656712" />
-      <entry key="S30" value="15.718299581503256" />
-      <entry key="S60" value="21.631990440253446" />
-      <entry key="M2" value="33.56135939260051" />
-      <entry key="M5" value="54.78116170157124" />
-      <entry key="M10" value="82.13142765575088" />
-      <entry key="M15" value="105.83100296972225" />
-      <entry key="M30" value="167.6233229632017" />
-      <entry key="H1" value="298.27751098009924" />
-      <entry key="H2" value="626.2821010843387" />
-      <entry key="H4" value="1268.7727903950702" />
-      <entry key="D1" value="3271.831533584262" />
-      <entry key="W1" value="4065.5299083912305" />
+      <entry key="MS100" value="0.9330329915368074" />
+      <entry key="MS500" value="0.9862327044933592" />
+      <entry key="S2" value="0.9965402628278678" />
+      <entry key="S5" value="0.9986146665771811" />
+      <entry key="S10" value="0.9993502225758275" />
+      <entry key="S30" value="1.1068911522223202" />
+      <entry key="S60" value="1.8813331143456697" />
+      <entry key="M2" value="5.502296697166294" />
+      <entry key="M5" value="30.426441758600014" />
+      <entry key="M10" value="80.58425842745855" />
+      <entry key="M15" value="123.97428457681094" />
+      <entry key="M30" value="221.69656928415648" />
+      <entry key="H1" value="375.9912750530893" />
+      <entry key="H2" value="707.307750266544" />
+      <entry key="H4" value="1352.5711164729098" />
+      <entry key="D1" value="3423.097472768126" />
+      <entry key="W1" value="4257.700282186349" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -256,7 +255,7 @@
       <workItem from="1784819231107" duration="11000" />
       <workItem from="1784903961385" duration="9073000" />
       <workItem from="1784914787223" duration="5000" />
-      <workItem from="1786067484768" duration="2758000" />
+      <workItem from="1786067484768" duration="4780000" />
     </task>
     <task id="LOCAL-00001" summary="fixing -ai issue">
       <option name="closed" value="true" />
@@ -514,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786067311580</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="complete ai pipeline feature">
+      <option name="closed" value="true" />
+      <created>1786070360149</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1786070360150</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete bash" />
     <MESSAGE value="update README.md add some gif" />
     <MESSAGE value="Automate supply chaing" />
     <MESSAGE value="update version" />
@@ -557,7 +563,8 @@
     <MESSAGE value="fix: file structure" />
     <MESSAGE value="fix imports" />
     <MESSAGE value="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/implement-ai-pipeline' into implement-ai-pipeline&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/core/pipeline/context_builder.py&#10;#&#9;app/core/pipeline/executor.py" />
+    <MESSAGE value="complete ai pipeline feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete ai pipeline feature" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/darkglitch$run.coverage" NAME="run Coverage Results" MODIFIED="1783036421175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/command" />

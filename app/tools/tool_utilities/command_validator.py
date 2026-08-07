@@ -33,19 +33,18 @@ class CommandValidator:
         'file', 'which', 'whereis', 'curl', 'wget', 'ping', 'netstat', 'ss',
         'ifconfig', 'ip', 'arp', 'nslookup', 'dig', 'traceroute', 'mtr',
         'tar', 'zip', 'unzip', 'gzip', 'gunzip', 'git', 'docker', 'python',
-        'node', 'npm', 'pip', 'make', 'gcc', 'java', 'java', 'mvn', r'>\s*/etc/',
-        r'>\s*/sys/', r'>\s*/dev/sd', r'^rm\s+-rf\s+/', r'^dd\s+if=', r'^mkfs', r'^shred',
-        r'^shutdown\s*-h', r'^reboot', r'^halt', r':\(\)\s*{\s*:\|\s*:', r'>\s*/dev/sda',            # write to disk
-        r'>\s*/dev/null\s+2>&1\s+&',
+        'node', 'npm', 'pip', 'make', 'gcc', 'java', 'mvn', 'rm', 'rmdir',
+        'chmod', 'chown', 'sudo', 'apt', 'yum', 'brew',
     }
     
     @staticmethod
-    def validate(command: str) -> Tuple[bool, str]:
+    def validate(command: str, unsafe: bool = False) -> Tuple[bool, str]:
         """
         Validates a command for safety and syntax.
         
         Args:
             command: The command string to validate
+            unsafe: If True, skip safety checks (allow all commands)
             
         Returns:
             Tuple of (is_safe: bool, reason: str)
@@ -57,6 +56,16 @@ class CommandValidator:
         
         if not command:
             return False, "Command is empty after stripping"
+        
+        # If unsafe mode, skip all checks except syntax
+        if unsafe:
+            try:
+                parts = shlex.split(command)
+                if not parts:
+                    return False, "Could not parse command"
+            except ValueError as e:
+                return False, f"Command syntax error: {str(e)}"
+            return True, "Safe to execute (unsafe mode)"
         
         # Check for dangerous patterns
         for pattern in CommandValidator.DANGEROUS_PATTERNS:
