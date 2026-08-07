@@ -39,24 +39,16 @@ Repository = "https://github.com/LaVenganzaDelLadron/darkglitch.git"
 darkglitch = "darkglitch:main"
 
 [tool.setuptools]
-py-modules = ["darkglitch", "helper"]
+py-modules = ["darkglitch"]
 include-package-data = false
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = [
-    "ai*",
-    "command*",
-    "command_injection*",
-    "core*",
-    "injection_utils*",
-    "media*",
-    "signaling*",
-    "transfer_utils*",
-    "utils*",
-    "malware_signal*",
+    "app*",
+    "utilities*",
 ]
 exclude = ["tests*"]
 
 [tool.setuptools.dynamic]
-version = { attr = "utils.version.__version__" }
+version = { attr = "utilities.version.__version__" }
