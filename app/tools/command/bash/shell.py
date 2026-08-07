@@ -1,6 +1,7 @@
 #command/bash/shell.py
 import asyncio
 import cv2
+import os
 from app.tools.tool_utilities.ai_utils import _fallback_command, _extract_command_text
 from app.tools.tool_utilities.command_validator import CommandValidator
 from app.core.ai.groq import GroqProvider
@@ -11,6 +12,18 @@ from app.core.data.config import HOST, ROOM
 from app.core.data.client import client_id, username
 from app.tools.tool_utilities.remote_command_handler import RemoteCommandHandler as SenderHandler
 from app.tools.tool_utilities.media import show_video
+
+
+def _load_system_prompt() -> str:
+    """Load system prompt from prompt/prompt.md if available."""
+    prompt_path = os.path.join(os.path.dirname(__file__), '../../../prompt/prompt.md')
+    if os.path.exists(prompt_path):
+        try:
+            with open(prompt_path, 'r') as f:
+                return f.read()
+        except Exception as e:
+            print(f"[!] Could not load custom prompt: {e}")
+    return None
 
 
 async def single_bash_mode(target, command):
@@ -39,8 +52,10 @@ async def single_bash_mode(target, command):
         await signal.close()
 
 
-async def ai_bash_mode(target, prompt, provider=None):
+async def ai_bash_mode(target, prompt, provider=None, unsafe: bool = False):
     print("[+] AI BASH MODE (Enhanced Pipeline)")
+    if unsafe:
+        print("[⚠️] UNSAFE MODE ENABLED - All command restrictions disabled")
     
     # Initialize provider and pipeline
     if provider is None:
@@ -53,7 +68,10 @@ async def ai_bash_mode(target, prompt, provider=None):
             await _execute_command(target, fallback_cmd)
             return
     
-    pipeline = AICommandPipeline(provider=provider, max_retries=3)
+    # Load custom system prompt if available
+    custom_prompt = _load_system_prompt()
+    
+    pipeline = AICommandPipeline(provider=provider, max_retries=3, system_prompt=custom_prompt)
     
     # Prepare target information for better context
     target_info = {"target_host": target}
@@ -71,6 +89,7 @@ async def ai_bash_mode(target, prompt, provider=None):
                     target_info, 
                     include_history=(attempt > 0)
                 )
+                print(f"[DEBUG] Raw LLM response: {repr(response)[:200]}")  # Show first 200 chars
                 generated_command = _extract_command_text(response)
             except Exception as exc:
                 print(f"[-] AI GENERATION FAILED: {exc}")
@@ -83,7 +102,7 @@ async def ai_bash_mode(target, prompt, provider=None):
             
             # Step 2: Validate command safety
             print(f"[*] Validating command: {generated_command}")
-            is_safe, validation_reason = CommandValidator.validate(generated_command)
+            is_safe, validation_reason = CommandValidator.validate(generated_command, unsafe=unsafe)
             
             if not is_safe:
                 print(f"[!] COMMAND VALIDATION FAILED: {validation_reason}")

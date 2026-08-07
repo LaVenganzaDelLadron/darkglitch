@@ -51,10 +51,11 @@ class CommandHistory:
 class AICommandPipeline:
     """Main AI pipeline for command generation and execution."""
     
-    def __init__(self, provider: Optional[LLMProvider] = None, max_retries: int = 3):
+    def __init__(self, provider: Optional[LLMProvider] = None, max_retries: int = 3, system_prompt: Optional[str] = None):
         self.provider = provider
         self.max_retries = max_retries
         self.history = CommandHistory()
+        self.system_prompt = system_prompt
     
     def generate_command(self, prompt: str, target_info: Optional[Dict[str, str]] = None, 
                          include_history: bool = True) -> str:
@@ -85,22 +86,12 @@ class AICommandPipeline:
                      include_history: bool = True) -> str:
         """Build an enhanced prompt with context and instructions."""
         
-        system_instructions = """You are a command generation AI. Your task is to generate a single, safe shell command.
+        # Use custom system prompt if provided, otherwise use default
+        if self.system_prompt:
+            system_instructions = self.system_prompt
+        else:
+            system_instructions = """"""
 
-RULES:
-1. Return ONLY the command, nothing else
-2. Do NOT include explanations, markdown, or backticks
-3. The command must be valid and executable
-4. Prefer safe, non-destructive operations
-5. Do NOT generate commands that modify system files or delete data
-6. If unsure, use 'ls' or 'pwd' as fallback
-
-Example responses:
-- ls -la /home
-- cat /etc/hostname
-- ps aux | grep python
-"""
-        
         prompt = system_instructions + "\n"
         
         # Add target info if available
@@ -116,7 +107,8 @@ Example responses:
                 prompt += history_context + "\n"
         
         # Add user prompt
-        prompt += f"\nGenerate a command for: {user_prompt}"
+        prompt += f"\nUser Request: {user_prompt}\n"
+        prompt += "Shell Command:"
         
         return prompt
     
