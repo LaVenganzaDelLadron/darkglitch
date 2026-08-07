@@ -2,8 +2,8 @@
 import asyncio
 from app.malware_signal.signal import SignalClient
 from app.malware_signal.handler.online_handler import OnlineHandler
-from app.core.data import HOST, ROOM
-from app.core.data import client_id, username
+from app.core.data.config import HOST, ROOM
+from app.core.data.client import client_id, username
 
 
 async def online_list_mode():

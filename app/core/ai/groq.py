@@ -34,8 +34,11 @@ class GroqProvider(LLMProvider):
         self.default_model = default_model or os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 
     def generate(self, prompt: str, model: str | None = None) -> str:
-        response = self.client.responses.create(
-            input=prompt,
+        response = self.client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant that generates shell commands."},
+                {"role": "user", "content": prompt}
+            ],
             model=model or self.default_model,
         )
-        return response.output_text.strip()
+        return response.choices[0].message.content.strip()
