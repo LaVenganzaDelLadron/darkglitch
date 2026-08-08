@@ -26,8 +26,6 @@ classifiers = [
     "Topic :: System :: Networking",
 ]
 dependencies = [
-    "aiortc>=1.4.0",
-    "opencv-python>=4.13.0",
     "Pillow>=10.0.0",
     "websockets>=12.0.0",
     "openai>=1.0.0",
