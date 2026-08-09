@@ -1,6 +1,6 @@
 #command/bash/shell.py
 import asyncio
-import cv2
+#import cv2
 import os
 from app.tools.tool_utilities.ai_utils import _fallback_command, _extract_command_text
 from app.tools.tool_utilities.command_validator import CommandValidator
@@ -196,7 +196,7 @@ async def _execute_command(target: str, command: str, timeout: int = 300) -> dic
             pass
         await signal.close()
 
-
+"""
 async def stream_mode(target):
     print("[+] CONNECTING TO STREAM")
 
@@ -231,4 +231,4 @@ async def stream_mode(target):
         finally:
             print("CLOSING PEER AND SIGNALING CONNECTION")
             await peer.close()
-            await signal.close()
+            await signal.close()"""
