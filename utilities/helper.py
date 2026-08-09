@@ -9,21 +9,19 @@ Advanced Command & Control Framework for Remote System Management
 
 DESCRIPTION:
   Darkglitch is a powerful post-exploitation framework designed for remote
-  command execution, file transfer, and media streaming capabilities. It
-  operates in a client-server architecture with secure communication.
+  command execution and file transfer. It operates in a client-server
+  architecture with secure communication over WebSocket signaling.
 
 USAGE:
   darkglitch [MODE] [OPTIONS] [ARGUMENTS]
 
 MODES::
     darkglitch -l -b                      Listen for connections (command mode)
-    darkglitch -l -s                      Listen for connections (stream mode)
     darkglitch -ol                        List all online connected clients
     darkglitch -b <client_id> <cmd>       Execute command on target
     darkglitch -u <client_id> <src> [dst] Upload file to target
     darkglitch -d <client_id> <src> [dst] Download file from target
     darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
-    darkglitch -s <client_id>
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message

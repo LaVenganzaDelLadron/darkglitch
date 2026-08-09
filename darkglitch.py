@@ -3,7 +3,7 @@ import asyncio
 import sys
 from app.tools.command.bash.shell import single_bash_mode, ai_bash_mode
 from app.tools.command.list.online_list import online_list_mode
-from app.tools.command.listen.listener import listen_bash_mode, listen_stream_mode
+from app.tools.command.listen.listener import listen_bash_mode
 from app.tools.command.transfer.file import upload_file, download_file
 from utilities.helper import helper
 from utilities.version import version
@@ -96,9 +96,6 @@ def main():
             remote_path = sys.argv[3]
             local_path = sys.argv[4] if len(sys.argv) > 4 else None
             asyncio.run(download_file(target, remote_path, local_path))
-            return
-        if command == "listen_stream":
-            asyncio.run(listen_stream_mode())
             return
         help()
 
