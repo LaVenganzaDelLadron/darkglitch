@@ -1,7 +1,6 @@
 #darkglitch.py
 import asyncio
 import sys
-from app.tools.command.bash.shell import stream_mode
 from app.tools.command.bash.shell import single_bash_mode, ai_bash_mode
 from app.tools.command.list.online_list import online_list_mode
 from app.tools.command.listen.listener import listen_bash_mode, listen_stream_mode
@@ -100,12 +99,6 @@ def main():
             return
         if command == "listen_stream":
             asyncio.run(listen_stream_mode())
-            return
-        if command == "connect_stream":
-            if len(sys.argv) < 3:
-                helper()
-            target = str(sys.argv[2])
-            asyncio.run(stream_mode(target))
             return
         help()
 

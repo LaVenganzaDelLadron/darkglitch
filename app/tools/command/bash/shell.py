@@ -6,7 +6,7 @@ from app.tools.tool_utilities.ai_utils import _fallback_command, _extract_comman
 from app.tools.tool_utilities.command_validator import CommandValidator
 from app.core.ai.groq import GroqProvider
 from app.core.ai.pipeline import AICommandPipeline
-from app.malware_signal.peer import Peer
+#from app.malware_signal.peer import Peer
 from app.malware_signal.signal import SignalClient
 from app.core.data.config import HOST, ROOM
 from app.core.data.client import client_id, username
