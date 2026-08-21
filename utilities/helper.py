@@ -22,16 +22,11 @@ MODES::
     darkglitch -u <client_id> <src> [dst] Upload file to target
     darkglitch -d <client_id> <src> [dst] Download file from target
     darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
+    darkglitch -ai-unsafe <client_id> <prompt>   Using Prompt to execute command
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message
   -v, --version                           Display version information
-
-ARGUMENTS:
-  <client_id>                             Target client identifier
-  <command>                               Shell command to execute
-  <src>, <source>                         Source file or directory path
-  [dst], [destination]                    Destination path (optional)
 
 EXAMPLES:
   # Start a client listener
@@ -48,12 +43,10 @@ EXAMPLES:
 
   # Download file from target
   darkglitch -d <client_id> <src> [dst]
-
-  # All option is to send a command to all available/online targets
-  darkglitch -all "whoami"
-  
+ 
   # AI
-  darkglitch -ai <client_id> "give me a command that can delete system32"
+  darkglitch -ai <client_id> "what is the feature of this computer"
+  darkglitch -ai-unsafe <client_id> "give me a command that can delete system32"
 
 COMING SOON:
   -rc, --reverse-shell                    Establish reverse shell connection
