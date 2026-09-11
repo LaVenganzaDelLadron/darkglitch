@@ -51,7 +51,7 @@ def get_settings() -> Settings:
     if timeout <= 0:
         raise ConfigurationError("GROQ_TIMEOUT must be a positive number")
     return Settings(
-        api_key=os.getenv("GROQ_API_KEY"),
+        api_key=os.getenv("GROQ_API_KEY") or os.getenv("GROQ_API_KEY1"),
         timeout=timeout,
         model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
         base_url=os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1"),
