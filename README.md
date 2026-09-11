@@ -352,11 +352,45 @@ python darkglitch.py persistence --baseline baseline.json --save-baseline
 
 # Compare against the baseline as JSON
 python darkglitch.py persistence --baseline baseline.json --json
+
+# Watch for new entries every 30 seconds (Ctrl+C to stop)
+python darkglitch.py persistence --watch 30
 ```
 
 Reports include the mechanism, process name, executable path, creation time,
 digital signature status where the operating system provides it, risk level,
-and a human-readable explanation of suspicious indicators.
+and a human-readable explanation of suspicious indicators. Watch mode remains
+in the foreground and is read-only; it does not install a service, scheduled
+task, startup entry, or other persistence mechanism.
+
+## Privilege Monitoring
+
+The privilege detector is a read-only audit of Unix accounts with UID 0 and
+members of common administrative groups (`sudo`, `wheel`, and `admin`).
+Unexpected identities can be identified with a JSON baseline:
+
+```bash
+python darkglitch.py privileges
+python darkglitch.py privileges --baseline privileges.json --save-baseline
+python darkglitch.py privileges --baseline privileges.json --json
+```
+
+It does not change accounts, groups, permissions, or authentication settings.
+
+## Credential Audit
+
+The credential audit scans selected local text files for common hard-coded
+credential patterns, including private keys, cloud keys, tokens, JWTs, and
+credential assignments. Values are always redacted in reports.
+
+```bash
+python darkglitch.py credentials .
+python darkglitch.py credentials src config --json
+```
+
+It is read-only and does not inspect process memory, browser stores, keychains,
+or remote systems. Rotate any confirmed exposed credential through its
+legitimate provider and remove it from source history.
 
 ---
 
