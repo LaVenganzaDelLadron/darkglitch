@@ -16,6 +16,10 @@ def dispatch_command(argv=None):
         return "help"
     if args[0] in ("persistence", "--persistence", "--persistence-detection"):
         return "persistence"
+    if args[0] in ("privileges", "--privileges", "--privilege-detection"):
+        return "privileges"
+    if args[0] in ("credentials", "--credentials", "--credential-audit"):
+        return "credentials"
     if args[0] in ("-h", "--help"):
         return "help"
     if args[0] in ("-v", "--version"):
@@ -54,6 +58,14 @@ def main():
         if command == "persistence":
             from app.tools.persistence_detection import main as persistence_main
             persistence_main(sys.argv[2:])
+            return
+        if command == "privileges":
+            from app.tools.privilege_detection import main as privilege_main
+            privilege_main(sys.argv[2:])
+            return
+        if command == "credentials":
+            from app.tools.credential_audit import main as credential_main
+            credential_main(sys.argv[2:])
             return
         if command == "listen":
             from app.tools.command.listen.listener import listen_bash_mode
