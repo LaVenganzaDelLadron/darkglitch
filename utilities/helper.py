@@ -9,15 +9,14 @@ Advanced Command & Control Framework for Remote System Management
 
 DESCRIPTION:
   Darkglitch is a powerful post-exploitation framework designed for remote
-  command execution, file transfer, and media streaming capabilities. It
-  operates in a client-server architecture with secure communication.
+  command execution and file transfer. It operates in a client-server
+  architecture with secure communication over WebSocket signaling.
 
 USAGE:
   darkglitch [MODE] [OPTIONS] [ARGUMENTS]
 
 MODES::
     darkglitch -l -b                      Listen for connections (command mode)
-    darkglitch -l -s                      Listen for connections (stream mode)
     darkglitch -ol                        List all online connected clients
     darkglitch -b <client_id> <cmd>       Execute command on target
     darkglitch -u <client_id> <src> [dst] Upload file to target
@@ -25,6 +24,7 @@ MODES::
     darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
     darkglitch persistence [options]     Detect OS persistence mechanisms
     darkglitch -s <client_id>
+    darkglitch -ai-unsafe <client_id> <prompt>   Using Prompt to execute command
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message
@@ -40,7 +40,6 @@ ARGUMENTS:
   <command>                               Shell command to execute
   <src>, <source>                         Source file or directory path
   [dst], [destination]                    Destination path (optional)
-
 EXAMPLES:
   # Start a client listener
   darkglitch -l -b
@@ -57,11 +56,9 @@ EXAMPLES:
   # Download file from target
   darkglitch -d <client_id> <src> [dst]
 
-  # All option is to send a command to all available/online targets
-  darkglitch -all "whoami"
-  
   # AI
-  darkglitch -ai <client_id> "give me a command that can delete system32"
+  darkglitch -ai <client_id> "what is the feature of this computer"
+  darkglitch -ai-unsafe <client_id> "give me a command that can delete system32"
 
 COMING SOON:
   -rc, --reverse-shell                    Establish reverse shell connection
