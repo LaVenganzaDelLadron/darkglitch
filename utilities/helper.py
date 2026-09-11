@@ -23,11 +23,17 @@ MODES::
     darkglitch -u <client_id> <src> [dst] Upload file to target
     darkglitch -d <client_id> <src> [dst] Download file from target
     darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
+    darkglitch persistence [options]     Detect OS persistence mechanisms
     darkglitch -s <client_id>
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message
   -v, --version                           Display version information
+
+PERSISTENCE OPTIONS:
+  --baseline <path>                       Compare against a JSON baseline
+  --save-baseline                        Save the current entries as baseline
+  --json                                 Emit a machine-readable report
 
 ARGUMENTS:
   <client_id>                             Target client identifier

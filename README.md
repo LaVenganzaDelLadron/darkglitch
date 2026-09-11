@@ -335,6 +335,29 @@ Planned improvements:
 * sandboxed execution environment
 * improved telemetry collection
 
+## Persistence Detection
+
+DarkGlitch includes a read-only persistence detector for analyst review. It
+collects common Linux, Windows, and macOS persistence locations, including
+system services, scheduled tasks, startup applications, login items, and
+autorun entries. A JSON baseline can be used to identify newly observed
+entries; the detector never modifies or removes persistence configuration.
+
+```bash
+# Inspect current persistence entries
+python darkglitch.py persistence
+
+# Save a known-good baseline
+python darkglitch.py persistence --baseline baseline.json --save-baseline
+
+# Compare against the baseline as JSON
+python darkglitch.py persistence --baseline baseline.json --json
+```
+
+Reports include the mechanism, process name, executable path, creation time,
+digital signature status where the operating system provides it, risk level,
+and a human-readable explanation of suspicious indicators.
+
 ---
 
 ## Platform Improvements
