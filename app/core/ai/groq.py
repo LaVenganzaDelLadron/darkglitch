@@ -45,9 +45,7 @@ class GroqKeyManager:
 
     @classmethod
     def from_environment(cls) -> "GroqKeyManager":
-        keys = [os.getenv("GROQ_API_KEY", "")]
-        keys.extend(os.getenv(f"GROQ_API_KEY_{index}", "")
-                    for index in range(2, 6))
+        keys = _environment_keys()
         return cls(keys)
 
     def acquire(self) -> KeyStats:
@@ -90,10 +88,7 @@ class GroqProvider(LLMProvider):
         if key_manager:
             self.key_manager = key_manager
         else:
-            keys = [api_key] if api_key else []
-            if not keys:
-                keys = [os.getenv("GROQ_API_KEY", "")]
-                keys.extend(os.getenv(f"GROQ_API_KEY_{index}", "") for index in range(2, 6))
+            keys = [api_key] if api_key else _environment_keys()
             self.key_manager = GroqKeyManager(keys)
         self.base_url = base_url or os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
         self.default_model = default_model or os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
@@ -130,3 +125,19 @@ class GroqProvider(LLMProvider):
                     raise
                 time.sleep(min(2 ** stats.failure_count, 8))
         raise RuntimeError("Groq request failed after retries") from last_error
+
+
+def _environment_keys() -> list[str]:
+    """Read both canonical and legacy numbered Groq key names.
+
+    Canonical names are GROQ_API_KEY and GROQ_API_KEY_2 through _5.
+    GROQ_API_KEY1 through GROQ_API_KEY5 are accepted for compatibility with
+    existing .env files.
+    """
+    keys = [os.getenv("GROQ_API_KEY", "")]
+    for index in range(2, 6):
+        keys.append(os.getenv(f"GROQ_API_KEY_{index}",
+                              os.getenv(f"GROQ_API_KEY{index}", "")))
+    if not keys[0]:
+        keys[0] = os.getenv("GROQ_API_KEY1", "")
+    return keys

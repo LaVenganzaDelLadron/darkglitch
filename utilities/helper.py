@@ -23,8 +23,6 @@ MODES::
     darkglitch -d <client_id> <src> [dst] Download file from target
     darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
     darkglitch persistence [options]     Detect OS persistence mechanisms
-    darkglitch privileges [options]      Audit privileged accounts and groups
-    darkglitch credentials [paths]       Scan text files for exposed credentials
     darkglitch -s <client_id>
     darkglitch -ai-unsafe <client_id> <prompt>   Using Prompt to execute command
 
@@ -36,16 +34,6 @@ PERSISTENCE OPTIONS:
   --baseline <path>                       Compare against a JSON baseline
   --save-baseline                        Save the current entries as baseline
   --json                                 Emit a machine-readable report
-  --watch [seconds]                      Repeat read-only scans (default: 60)
-
-PRIVILEGE OPTIONS:
-  --baseline <path>                      Compare against a JSON baseline
-  --save-baseline                        Save the current privileged identities
-  --json                                 Emit a machine-readable report
-
-CREDENTIAL OPTIONS:
-  [paths]                                Files or directories (default: current directory)
-  --json                                 Emit a machine-readable report with redacted values
 
 ARGUMENTS:
   <client_id>                             Target client identifier

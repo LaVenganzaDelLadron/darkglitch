@@ -16,7 +16,6 @@ import plistlib
 import shlex
 import shutil
 import subprocess
-import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -324,46 +323,6 @@ def format_report(report: DetectionReport, json_output: bool = False) -> str:
     return "\n".join(lines)
 
 
-def watch(interval: float = 60.0, *, baseline_path: str | os.PathLike[str] | None = None,
-          system: str | None = None, root: str | os.PathLike[str] = "/",
-          json_output: bool = False) -> None:
-    """Continuously report persistence entries added since the previous scan.
-
-    This is intentionally a foreground, read-only monitor.  It does not create
-    a service, task, startup entry, or any other mechanism to keep itself
-    running.
-    """
-    if interval <= 0:
-        raise ValueError("watch interval must be greater than zero")
-
-    entries, unsupported = collect_entries(system, root)
-    previous = load_baseline(baseline_path) if baseline_path else {
-        entry.identity for entry in entries
-    }
-    initial = DetectionReport(
-        system or platform.system(), entries,
-        [entry for entry in entries if entry.identity not in previous],
-        unsupported, str(baseline_path) if baseline_path else None,
-    )
-    print(format_report(initial, json_output), flush=True)
-
-    try:
-        while True:
-            time.sleep(interval)
-            entries, unsupported = collect_entries(system, root)
-            current = {entry.identity for entry in entries}
-            added = [entry for entry in entries if entry.identity not in previous]
-            if added or unsupported:
-                report = DetectionReport(
-                    system or platform.system(), entries, added, unsupported,
-                    str(baseline_path) if baseline_path else None,
-                )
-                print(format_report(report, json_output), flush=True)
-            previous = current
-    except KeyboardInterrupt:
-        return
-
-
 class PersistenceDetector:
     """Small object-oriented facade for callers that prefer a reusable detector."""
 
@@ -386,16 +345,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--baseline", help="JSON baseline file")
     parser.add_argument("--save-baseline", action="store_true")
     parser.add_argument("--json", action="store_true", dest="json_output")
-    parser.add_argument(
-        "--watch", nargs="?", const=60.0, type=float, metavar="SECONDS",
-        help="Keep scanning in the foreground; default interval is 60 seconds",
-    )
     args = parser.parse_args(argv)
-    if args.watch is not None:
-        if args.watch <= 0:
-            parser.error("--watch interval must be greater than zero")
-        watch(args.watch, baseline_path=args.baseline, json_output=args.json_output)
-        return 0
     report = detect(args.baseline, save=args.save_baseline)
     print(format_report(report, args.json_output))
     return 0
