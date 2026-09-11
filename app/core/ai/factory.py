@@ -1,5 +1,5 @@
 #app/core/ai/factory.py
-from app.core.config.settings import Settings, get_settings
+from app.core.config.settings import get_settings
 from app.core.ai.base import LLMProvider
 from app.core.ai.groq import GroqProvider
 
@@ -21,6 +21,6 @@ class LLMFactory:
         return cls._providers[provider](
             api_key=settings.api_key,
             base_url=settings.base_url,
-            model=settings.model,
-            timeout=settings.timeout,
+            default_model=settings.model,
+            timeout_seconds=settings.timeout,
         )
