@@ -74,6 +74,13 @@ async def ai_bash_mode(target, prompt, provider=None, unsafe: bool = False):
     
     # Prepare target information for better context
     target_info = {"target_host": target}
+    # Ground both normal and unsafe modes in the authorized target and request.
+    # Unsafe mode only changes command validation; it does not disable RAG.
+    pipeline.ingest_evidence(
+        {"target_host": target, "request": prompt, "mode": "unsafe" if unsafe else "safe"},
+        source="ai-request",
+        metadata={"target_host": target, "category": "command-request"},
+    )
     
     # Main retry loop
     for attempt in range(pipeline.max_retries):
@@ -121,12 +128,22 @@ async def ai_bash_mode(target, prompt, provider=None, unsafe: bool = False):
             if result and result.get("status") == "success":
                 # Record success
                 pipeline.record_success(prompt, generated_command, result)
+                pipeline.ingest_evidence(
+                    result, source="remote-command-result",
+                    metadata={"target_host": target, "category": "command-result",
+                              "severity": "informational"},
+                )
                 print("[✓] COMMAND EXECUTED SUCCESSFULLY")
                 return
             else:
                 # Record failure and retry with context
                 error_msg = result.get("error", "Unknown error") if result else "No response"
                 pipeline.record_failure(prompt, generated_command, error_msg)
+                pipeline.ingest_evidence(
+                    result or {"error": error_msg}, source="remote-command-result",
+                    metadata={"target_host": target, "category": "command-result",
+                              "severity": "error"},
+                )
                 print(f"[-] COMMAND FAILED: {error_msg}")
                 
                 if attempt < pipeline.max_retries - 1:

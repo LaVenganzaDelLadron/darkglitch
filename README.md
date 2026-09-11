@@ -79,6 +79,24 @@ Responsibilities:
 
 # AI Pipeline
 
+The evidence-grounded RAG implementation is available under `app/core/rag`.
+It normalizes scanner output, extracts security identifiers, chunks and embeds
+evidence, retrieves matching context, and validates generated reports before
+returning them. The local `HashEmbeddingProvider` and `InMemoryVectorStore`
+make the pipeline usable offline; production deployments can select
+`QdrantVectorStore`.
+
+The optional FastAPI application exposes ingestion and retrieval endpoints:
+
+```bash
+uvicorn app.api.main:app --reload
+```
+
+Configure Groq with `GROQ_API_KEY` and optionally `GROQ_API_KEY_2` through
+`GROQ_API_KEY_5`. Keys rotate round-robin and are temporarily cooled down on
+rate limits, server errors, and timeouts. The default model is
+`openai/gpt-oss-120b`; no key is written to logs or source code.
+
 ## 1. Perception Layer
 
 The perception layer collects information from available inputs.
