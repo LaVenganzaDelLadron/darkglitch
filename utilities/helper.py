@@ -22,12 +22,24 @@ MODES::
     darkglitch -u <client_id> <src> [dst] Upload file to target
     darkglitch -d <client_id> <src> [dst] Download file from target
     darkglitch -ai <client_id> <prompt>   Using Prompt to execute command
+    darkglitch persistence [options]     Detect OS persistence mechanisms
+    darkglitch -s <client_id>
     darkglitch -ai-unsafe <client_id> <prompt>   Using Prompt to execute command
 
 GENERAL OPTIONS:
   -h, --help                              Display this help message
   -v, --version                           Display version information
 
+PERSISTENCE OPTIONS:
+  --baseline <path>                       Compare against a JSON baseline
+  --save-baseline                        Save the current entries as baseline
+  --json                                 Emit a machine-readable report
+
+ARGUMENTS:
+  <client_id>                             Target client identifier
+  <command>                               Shell command to execute
+  <src>, <source>                         Source file or directory path
+  [dst], [destination]                    Destination path (optional)
 EXAMPLES:
   # Start a client listener
   darkglitch -l -b
@@ -43,7 +55,7 @@ EXAMPLES:
 
   # Download file from target
   darkglitch -d <client_id> <src> [dst]
- 
+
   # AI
   darkglitch -ai <client_id> "what is the feature of this computer"
   darkglitch -ai-unsafe <client_id> "give me a command that can delete system32"

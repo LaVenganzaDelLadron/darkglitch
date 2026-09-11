@@ -14,6 +14,8 @@ def dispatch_command(argv=None):
 
     if not args:
         return "help"
+    if args[0] in ("persistence", "--persistence", "--persistence-detection"):
+        return "persistence"
     if args[0] in ("-h", "--help"):
         return "help"
     if args[0] in ("-v", "--version"):
@@ -36,7 +38,7 @@ def dispatch_command(argv=None):
         return "listen_stream"
     if args[0] == "-s":
         return "connect_stream"
-    return help
+    return "help"
 
 
 def main():
@@ -49,13 +51,20 @@ def main():
         if command == "version":
             print(version())
             return
+        if command == "persistence":
+            from app.tools.persistence_detection import main as persistence_main
+            persistence_main(sys.argv[2:])
+            return
         if command == "listen":
+            from app.tools.command.listen.listener import listen_bash_mode
             asyncio.run(listen_bash_mode())
             return
         if command == "online_list":
+            from app.tools.command.list.online_list import online_list_mode
             asyncio.run(online_list_mode())
             return
         if command == "single_bash":
+            from app.tools.command.bash.shell import single_bash_mode
             if len(sys.argv) < 4:
                 helper()
                 return
@@ -64,6 +73,7 @@ def main():
             asyncio.run(single_bash_mode(target, command_text))
             return
         if command == "generate_command":
+            from app.tools.command.bash.shell import ai_bash_mode
             if len(sys.argv) < 4:
                 helper()
                 return
@@ -72,6 +82,7 @@ def main():
             asyncio.run(ai_bash_mode(target, command_text, unsafe=False))
             return
         if command == "generate_command_unsafe":
+            from app.tools.command.bash.shell import ai_bash_mode
             if len(sys.argv) < 4:
                 helper()
                 return
@@ -80,6 +91,7 @@ def main():
             asyncio.run(ai_bash_mode(target, command_text, unsafe=True))
             return
         if command == "upload_file":
+            from app.tools.command.transfer.file import upload_file
             if len(sys.argv) < 4:
                 helper()
                 return
@@ -89,6 +101,7 @@ def main():
             asyncio.run(upload_file(target, local_path, remote_path))
             return
         if command == "download_file":
+            from app.tools.command.transfer.file import download_file
             if len(sys.argv) < 4:
                 helper()
                 return
@@ -96,6 +109,17 @@ def main():
             remote_path = sys.argv[3]
             local_path = sys.argv[4] if len(sys.argv) > 4 else None
             asyncio.run(download_file(target, remote_path, local_path))
+            return
+        if command == "listen_stream":
+            from app.tools.command.listen.listener import listen_stream_mode
+            asyncio.run(listen_stream_mode())
+            return
+        if command == "connect_stream":
+            from app.tools.command.bash.shell import stream_mode
+            if len(sys.argv) < 3:
+                helper()
+            target = str(sys.argv[2])
+            asyncio.run(stream_mode(target))
             return
         help()
 
