@@ -7,6 +7,7 @@ from app.tools.persistence_detection import (
     format_report,
     load_baseline,
     save_baseline,
+    watch,
 )
 
 
@@ -51,3 +52,12 @@ def test_save_baseline_is_read_only_for_entries(tmp_path):
     path = tmp_path / "nested" / "baseline.json"
     save_baseline(path, [entry])
     assert json.loads(path.read_text())["entries"][0]["mechanism"] == "startup_application"
+
+
+def test_watch_rejects_non_positive_interval():
+    try:
+        watch(0)
+    except ValueError as error:
+        assert str(error) == "watch interval must be greater than zero"
+    else:
+        raise AssertionError("watch should reject a non-positive interval")
